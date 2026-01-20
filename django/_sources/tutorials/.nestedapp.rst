@@ -1,0 +1,217 @@
+:orphan:
+
+----------------------------------
+What is a Nested App in Django?
+----------------------------------
+
+A nested app is a Django app placed inside another folder for better organization, while still functioning as a normal Django app through proper Python imports and INSTALLED_APPS registration.
+
+
+**Simple definition**
+
+A **nested app** means:
+
+**An app placed inside another folder (not directly at project root)**
+
+but still treated as a normal Django app.
+
+============================================================================================================================================
+
+**📁 Normal (flat) Django apps**
+
+Default structure:
+
+.. code-block:: bash 
+
+    project_root/
+    ├── manage.py
+    ├── mysite/
+    │   ├── settings.py
+    │   └── urls.py
+    ├── blog/
+    ├── accounts/
+
+Here:
+	- blog and accounts are top-level apps
+
+============================================================================================================================================
+
+**📁 Nested apps**
+
+Example:
+
+.. code-block:: bash 
+
+    project_root/
+    ├── manage.py
+    ├── src/
+    │   ├── apps/
+    │   │   ├── blog/
+    │   │   │   ├── models.py
+    │   │   │   └── apps.py
+    │   │   ├── accounts/
+    │   │   └── payments/
+    │   └── config/
+    │       ├── settings.py
+    │       └── urls.py
+
+Here:
+	- blog is nested inside src/apps/
+	- But Django still treats it as a normal app
+
+This is a **nested app structure**
+
+============================================================================================================================================
+
+----------------------------------
+Why do people use nested apps?
+----------------------------------
+
+**1️⃣ Clean architecture (very important)**
+
+.. code-block:: bash 
+
+    apps/        → business logic
+    config/     → settings, URLs, WSGI/ASGI
+
+This separation is **enterprise-grade.**
+
+-------------------------------------------------------------------------------------------------------------------------------------------
+
+**2️⃣ Avoid root clutter**
+
+Instead of:
+
+.. code-block:: bash 
+
+    blog/
+    users/
+    orders/
+    payments/
+
+You get:
+
+.. code-block:: bash 
+
+    apps/
+       blog/
+       users/
+       orders/
+
+Cleaner. Scalable. Professional.
+
+-------------------------------------------------------------------------------------------------------------------------------------------
+
+**3️⃣ Monorepo support**
+
+Nested apps are perfect when:
+	- You have **many domains**
+	- You build **large systems**
+	- You share code between projects
+
+(Exactly like your Kaftarya / enterprise plans)
+
+============================================================================================================================================
+
+-------------------------------
+How Django finds nested apps
+-------------------------------
+
+Django doesn’t care about folders.
+
+It cares about:
+	- Python imports
+	- INSTALLED_APPS
+
+**Example**
+
+Folder:
+
+.. code-block:: bash 
+
+    apps/blog/
+
+apps/blog/apps.py:
+
+.. code-block:: python 
+
+    class BlogConfig(AppConfig):
+        name = 'apps.blog'
+
+settings.py:
+
+.. code-block:: python 
+
+    INSTALLED_APPS = [
+        'apps.blog.apps.BlogConfig',
+    ]
+
+Django works perfectly.
+
+============================================================================================================================================
+
+**❌ Common misconception**
+
+“Nested apps are not supported by Django”
+
+❌ False.
+
+Django fully supports nested apps as long as:
+	- Python can import them
+	- They are in INSTALLED_APPS
+
+============================================================================================================================================
+
+Django command with nested apps
+
+If you want to create one:
+
+.. code-block:: bash 
+
+    mkdir apps
+    python manage.py startapp blog apps/blog
+
+Result:
+
+.. code-block:: bash 
+
+    apps/blog/
+
+============================================================================================================================================
+
+**Mental model**
+
+Think of Django apps as:
+    📦 Python packages, not folders
+
+As long as Python can import:
+
+.. code-block:: python 
+
+    import apps.blog
+
+Django is happy.
+
+============================================================================================================================================
+
+**lat vs Nested**
+
+.. list-table::
+    :header-rows: 1
+
+    * - Feature
+      - Flat apps
+      - Nested apps
+    * - Beginner-friendly
+      - ✅
+      - ❌
+    * - Scales well
+      - ❌
+      - ✅
+    * - Enterprise-ready
+      - ❌
+      - ✅
+    * - Clean separation
+      - ❌
+      - ✅
+

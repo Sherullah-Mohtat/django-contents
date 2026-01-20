@@ -1,4 +1,0 @@
-Design Decisions
-==================
-
-Coming soon.

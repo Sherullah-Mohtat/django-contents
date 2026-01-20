@@ -47,35 +47,26 @@ Who this is for
 
    Google uses links to understand structure.
 
-.. toctree::
-   :maxdepth: 2
-   :caption: Get Started
-
-   tutorials/index
-   guides/index
 
 .. toctree::
+   :hidden:
    :maxdepth: 2
-   :caption: Explanations
+   :caption: Project Explanations
+  
+   django_project/index
 
-   explanation/index
+..
+   .. toctree::
+      :hidden:
+      :maxdepth: 2
+      :caption: Explanations
 
-.. toctree::
-   :maxdepth: 2
-   :caption: How-To Recipes
+      tutorials/index
+      guides/index
 
-   howto/index
 
-.. toctree::
-   :maxdepth: 2
-   :caption: Reference
 
-   reference/index
 
-.. toctree::
-   :maxdepth: 2
-   :caption: Project Info
 
-   pages/index.rst 
   
 

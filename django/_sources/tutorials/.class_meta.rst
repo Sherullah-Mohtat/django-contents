@@ -1,0 +1,361 @@
+:orphan:
+
+--------------------------------
+What is class Meta in Django?
+--------------------------------
+
+The Meta class in Django models controls database behavior, ordering, constraints, permissions, and administrative representation without defining fields.
+
+In a Django model:
+
+.. code-block:: python 
+
+    class Book(models.Model):
+        title = models.CharField(max_length=100)
+
+        class Meta:
+            ...
+
+**Meta** is a configuration class
+
+It does NOT create fields
+
+It controls how the model behaves (DB, admin, ordering, constraints, permissions)
+
+Think of it as:
+    Settings for the model
+
+===============================================================================================================================
+
+--------------------------------
+Core Meta Options (Most Used)
+--------------------------------
+
+1️⃣ db_table
+-------------
+
+**What it does**
+
+Controls the **actual database table name**
+
+**Example**
+
+.. code-block:: python 
+
+    class Book(models.Model):
+        title = models.CharField(max_length=100)
+
+        class Meta:
+            db_table = "library_books"
+
+**PostgreSQL result**
+
+.. code-block:: postgres 
+
+    SELECT * FROM library_books;
+
+Without this, Django uses:
+
+.. code-block:: bash
+
+    appname_book
+
+===============================================================================================================================
+
+2️⃣ ordering
+---------------
+
+Default ordering for queries
+
+.. code-block:: postgres 
+
+    class Book(models.Model):
+        title = models.CharField(max_length=100)
+        published_year = models.IntegerField()
+
+        class Meta:
+            ordering = ["-published_year", "title"]
+
+**Effect**
+
+.. code-block:: python 
+
+    Book.objects.all()
+
+➡️ Automatically sorted
+
+- means descending
+
+===============================================================================================================================
+
+3️⃣ verbose_name
+------------------
+
+Human-readable name (Admin UI)
+
+.. code-block:: postgres 
+
+    class Book(models.Model):
+        title = models.CharField(max_length=100)
+
+        class Meta:
+            verbose_name = "Book Item"
+
+Admin shows **Book Item** instead of Book
+
+===============================================================================================================================
+
+4️⃣ verbose_name_plural
+-------------------------
+
+Plural name in admin
+
+.. code-block:: python 
+
+    class Meta:
+        verbose_name_plural = "Book Items"
+
+Avoids Django’s default weird plurals
+
+===============================================================================================================================
+
+5️⃣ abstract
+-------------
+
+Makes a model non-database
+
+.. code-block:: python 
+
+    class TimeStampedModel(models.Model):
+        created_at = models.DateTimeField(auto_now_add=True)
+
+        class Meta:
+            abstract = True
+
+**Meaning**
+
+✔ No table created
+
+✔ Used only for inheritance
+
+**Very common in enterprise apps**
+
+===============================================================================================================================
+
+6️⃣ managed
+-------------
+
+Does Django manage this table?
+
+.. code-block:: python 
+
+    class LegacyUser(models.Model):
+        name = models.CharField(max_length=100)
+
+        class Meta:
+            managed = False
+            db_table = "legacy_users"
+
+**Use case**
+
+✔ Existing database
+
+✔ Django should not create/migrate it
+
+===============================================================================================================================
+
+7️⃣ unique_together (legacy but still used)
+--------------------------------------------
+
+.. code-block:: python 
+
+    class Enrollment(models.Model):
+        student = models.ForeignKey(Student, on_delete=models.CASCADE)
+        course = models.ForeignKey(Course, on_delete=models.CASCADE)
+
+        class Meta:
+            unique_together = ("student", "course")
+
+PostgreSQL
+
+.. code-block:: postgres 
+
+    UNIQUE (student_id, course_id)
+
+Prefer **UniqueConstraint** (see below)
+
+===============================================================================================================================
+
+8️⃣ indexes
+--------------
+
+Database indexes (performance)
+
+.. code-block:: python 
+
+    class Order(models.Model):
+        order_no = models.CharField(max_length=50)
+
+        class Meta:
+            indexes = [
+                models.Index(fields=["order_no"]),
+            ]
+
+PostgreSQL
+
+.. code-block:: postgres 
+
+    CREATE INDEX ON orders (order_no);
+
+===============================================================================================================================
+
+----------------------------------------
+Modern Constraint-Based Meta Options
+----------------------------------------
+
+9️⃣ constraints
+-----------------
+
+Advanced database rules
+
+Unique constraint
+
+.. code-block:: python 
+
+    class User(models.Model):
+        email = models.EmailField()
+
+        class Meta:
+            constraints = [
+                models.UniqueConstraint(
+                    fields=["email"],
+                    name="unique_user_email"
+                )
+            ]
+
+Check constraint
+
+.. code-block:: python 
+
+    models.CheckConstraint(
+        check=models.Q(age__gte=18),
+        name="age_must_be_18_plus"
+    )
+
+These become **real PostgreSQL constraints**
+
+===============================================================================================================================
+
+🔟 permissions
+----------------
+
+Custom permissions
+
+.. code-block:: python 
+
+    class Report(models.Model):
+        title = models.CharField(max_length=100)
+
+        class Meta:
+            permissions = [
+                ("can_publish", "Can publish report"),
+                ("can_archive", "Can archive report"),
+            ]
+
+Used by:
+	- Django Admin
+	- RBAC systems
+	- Enterprise apps
+
+===============================================================================================================================
+
+1️⃣1️⃣ default_permissions
+--------------------------
+
+Control auto-created permissions
+
+.. code-block:: python 
+
+    class Meta:
+        default_permissions = ()
+
+Prevents Django from creating:
+
+.. code-block:: bash 
+
+    add, change, delete, view
+
+===============================================================================================================================
+
+1️⃣2️⃣ get_latest_by
+--------------------
+
+**Used with .latest()**
+
+.. code-block:: python 
+
+    class Article(models.Model):
+        published_at = models.DateTimeField()
+
+        class Meta:
+            get_latest_by = "published_at"
+
+Usage:
+
+.. code-block:: python 
+
+    Article.objects.latest()
+
+===============================================================================================================================
+
+**Rare but Useful Meta Options**
+
+.. list-table::
+    :header-rows: 1
+
+    * - Option
+      - Purpose
+    * - ordering
+      - Default sorting
+    * - proxy
+      - Proxy models
+    * - select_on_save
+      - Legacy DB behavior
+    * - base_manager_name
+      - Custom manager
+    * - default_manager_name
+      - Advanced ORM control
+
+===============================================================================================================================
+
+Complete Example (Enterprise-style)
+
+.. code-block:: python 
+
+    class Order(models.Model):
+        order_no = models.CharField(max_length=50)
+        total = models.DecimalField(max_digits=10, decimal_places=2)
+
+        class Meta:
+            db_table = "orders"
+            ordering = ["-id"]
+            verbose_name = "Order"
+            verbose_name_plural = "Orders"
+            indexes = [
+                models.Index(fields=["order_no"]),
+            ]
+            constraints = [
+                models.UniqueConstraint(
+                    fields=["order_no"],
+                    name="unique_order_no"
+                )
+            ]
+
+**Mental Model**
+
+Fields define **data**
+
+Meta defines **rules, behavior, and structure**
+
+
+

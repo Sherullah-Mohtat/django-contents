@@ -1,0 +1,248 @@
+.gitignore 
+============
+
+------------------------
+📄 What is .gitignore?
+------------------------
+
+.gitignore tells Git which files and folders should NOT be tracked or uploaded to a repository (GitHub, GitLab, etc.).
+
+.gitignore belongs to the **virtual environment (djenv).**
+
+
+**Why .gitignore exists in djenv**
+
+A virtual environment contains:
+	- OS-specific binaries
+	- Absolute paths
+	- Thousands of files
+	- Machine-dependent data
+
+**These must NEVER be committed to Git.**
+
+So Python automatically creates a .gitignore inside djenv to protect you.
+
+======================================================================================================================================
+
+----------------------------------------
+What happens if you ignore this rule?
+----------------------------------------
+
+If you push djenv to GitHub:
+	- Repository becomes huge
+	- Other machines cannot use it
+	- Paths break
+	- CI/CD fails
+	- Contributors hate it 
+
+That’s why .gitignore exists.
+
+**Typical contents of .gitignore in a venv**
+
+It usually ignores **everything** inside the venv, for example:
+
+.. code-block:: bash 
+
+    *
+
+or conceptually:
+
+.. code-block:: bash 
+
+    bin/
+    lib/
+    include/
+
+Meaning
+
+“Do not track any files inside this environment.”
+
+======================================================================================================================================
+
+**❓ Do you ever edit this .gitignore?**
+
+**No.**
+
+You should never touch .gitignore inside djenv.
+
+If something goes wrong:
+
+.. code-block:: bash 
+
+    rm -rf djenv
+    python -m venv djenv
+    pip install -r requirements.txt
+
+**Important distinction**
+
+There are TWO types of .gitignore:
+
+1️⃣ .gitignore inside djenv
+	- Auto-generated
+	- Protects the venv
+	- Leave it alone
+
+2️⃣ Project-level .gitignore (you create this)
+
+Located at:
+
+.. code-block:: bash
+
+    django_project/.gitignore
+
+This one ignores things like:
+
+.. code-block:: bash 
+
+    djenv/
+    __pycache__/
+    db.sqlite3
+    .env
+    *.pyc
+
+**How professionals handle this**
+
+They commit:
+	- requirements.txt
+	- pyproject.toml
+
+They do NOT commit:
+	- djenv/
+
+======================================================================================================================================
+
+**1️⃣ requirements.txt (MOST COMMON & SIMPLE)**
+
+This file lists exact packages + versions installed in your virtual environment.
+
+**How to create requirements.txt**
+
+**Step 1:** Activate your virtual environment
+
+.. code-block:: bash 
+
+    source djenv/bin/activate
+
+Make sure you see:
+
+.. code-block:: bash 
+
+    (djenv)
+
+**Step 2:** Generate the file
+
+Run this **from the project root (django_project/):**
+
+.. code-block:: bash 
+
+    pip freeze > requirements.txt
+
+**Step 3:** Result
+
+A file is created:
+
+.. code-block:: bash 
+
+    django_project/
+    ├── requirements.txt
+
+
+How others use requirements.txt
+
+On another machine:
+
+.. code-block:: bash 
+
+    python -m venv djenv
+    source djenv/bin/activate
+    pip install -r requirements.txt
+
+Same environment recreated.
+
+**When to update requirements.txt**
+
+Every time you install a new package:
+
+.. code-block:: bash 
+
+    pip install psycopg2
+    pip freeze > requirements.txt
+
+======================================================================================================================================
+
+**2️⃣ pyproject.toml (MODERN & ADVANCED)**
+
+This is the modern Python standard (PEP 518 / PEP 621).
+
+Used by:
+	- Poetry
+	- PDM
+	- Hatch
+	- Modern pip
+
+**Simple pyproject.toml for Django (manual)**
+
+Create a file:
+
+.. code-block:: bash 
+
+    django_project/pyproject.toml
+
+**Minimal example**
+
+.. code-block:: toml 
+
+    [project]
+    name = "django-project"
+    version = "0.1.0"
+    description = "Learning Django project"
+    requires-python = ">=3.14"
+
+    dependencies = [
+        "Django>=6.0",
+    ]
+
+That’s it. Clean and modern.
+
+**Install dependencies from pyproject.toml**
+
+With modern pip:
+
+.. code-block:: bash 
+
+    pip install .
+
+**Difference between the two**
+
+.. list-table::
+    :header-rows: 1
+
+    * - Feature
+      - requirements.txt
+      - pyproject.toml
+    * - Easy
+      - ✅ Very
+      - ⚠️ Moderate
+    * - Beginner friendly
+      - ✅ Yes
+      - ❌ Not ideal
+    * - Django tutorials
+      - ✅ Standard
+      - ⚠️ Optional
+    * - Exact versions
+      - ✅ Yes
+      - ⚠️ Optional
+    * - Packaging support
+      - ❌ No
+      - ✅ Yes
+    * - Modern standard
+      - ❌ Old
+      - ✅ New
+
+**Analogy (easy to remember)**
+	- requirements.txt = grocery list
+	- pyproject.toml = full recipe + dish name + cooking instructions
+
+
+
+
