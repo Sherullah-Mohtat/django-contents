@@ -5,7 +5,7 @@ Django-Project
 1. What is django_project here?
 ---------------------------------
 
-django_project is just a folder you created to organize your work; it is not a Django project. The real Django project is mysite.
+django_project is just a folder I created to organize my work; it is not a Django project. The real Django project is mysite.
 
 **django_project is NOT a Django thing.**
 
@@ -31,7 +31,7 @@ Only **mysite** is a real Django project.
 --------------------------------------
 
 This is:
-	- Your **personal project folder**
+	- My **personal project folder**
 	- Created by **me**, not Django
 	- Holds **everything related** to this work
 
@@ -63,8 +63,6 @@ Why it lives here:
 	- Project isolation
 	- Clean system Python
 	- Easy deletion (rm -rf djenv)
-
-This is why your IDE shows **External Libraries** linked to djenv.
 
 ===========================================================================================================================
 
@@ -119,7 +117,69 @@ Think of it like this:
 	- 🏗 **mysite** → The building you’re constructing
 	- 🧱 **myapp** → Rooms inside the building
 
+===========================================================================================================================
 
+------------------------------------------
+Practical: Creating This Django Project
+------------------------------------------
+
+Now that you understand **what each folder means,**
+
+let’s create the same structure step by step using real commands.
+
+Before creating a Django project, your system must have **Python installed.**
+
+Why Python is required
+	- Django is written in **Python**
+	- Django runs **on top of Python**
+	- All Django commands use Python internally
+
+**No Python = No Django**
+
+**Check if Python is already installed**
+
+**macOS / Linux**
+
+.. code-block:: bash 
+
+  python3 --version
+
+**Windows**
+
+.. code-block:: bash 
+
+  python --version
+
+Expected output:
+
+.. code-block:: bash 
+
+  Python 3.10.x
+
+✅ Django officially supports Python 3.x
+
+❌ Python 2 is not supported
+
+===========================================================================================================================
+
+Then place **all commands here:**
+
+.. code-block:: bash 
+
+  mkdir django_project
+  cd django_project
+
+.. code-block:: bash 
+
+  python3 -m venv djenv
+  source djenv/bin/activate
+
+.. code-block:: bash 
+
+  pip install django
+  django-admin startproject mysite
+  cd mysite
+  python manage.py startapp myapp
 
 
 

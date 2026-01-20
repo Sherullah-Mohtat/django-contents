@@ -461,6 +461,7 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mysite-actual-django-project">3️⃣ mysite/ (actual Django project)</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#practical-creating-this-django-project">Practical: Creating This Django Project</a></li>
 </ul>
             </nav>
         </div>
@@ -476,7 +477,7 @@ document.write(`
 <h1>Django-Project<a class="headerlink" href="#django-project" title="Link to this heading">#</a></h1>
 <section id="what-is-django-project-here">
 <h2>1. What is django_project here?<a class="headerlink" href="#what-is-django-project-here" title="Link to this heading">#</a></h2>
-<p>django_project is just a folder you created to organize your work; it is not a Django project. The real Django project is mysite.</p>
+<p>django_project is just a folder I created to organize my work; it is not a Django project. The real Django project is mysite.</p>
 <p><strong>django_project is NOT a Django thing.</strong></p>
 <p>It is simply a <strong>folder I created.</strong></p>
 <p>Think of it as a <strong>workspace / container / root directory</strong> for everything related to this project.</p>
@@ -493,7 +494,7 @@ document.write(`
 <h3>1️⃣ django_project/ (top-level folder)<a class="headerlink" href="#django-project-top-level-folder" title="Link to this heading">#</a></h3>
 <dl class="simple">
 <dt>This is:</dt><dd><ul class="simple">
-<li><p>Your <strong>personal project folder</strong></p></li>
+<li><p>My <strong>personal project folder</strong></p></li>
 <li><p>Created by <strong>me</strong>, not Django</p></li>
 <li><p>Holds <strong>everything related</strong> to this work</p></li>
 </ul>
@@ -532,7 +533,6 @@ document.write(`
 </ul>
 </dd>
 </dl>
-<p>This is why your IDE shows <strong>External Libraries</strong> linked to djenv.</p>
 </section>
 <hr class="docutils" />
 <section id="mysite-actual-django-project">
@@ -587,9 +587,56 @@ document.write(`
 </ul>
 </dd>
 </dl>
+</section>
+</section>
+<hr class="docutils" />
+<section id="practical-creating-this-django-project">
+<h2>Practical: Creating This Django Project<a class="headerlink" href="#practical-creating-this-django-project" title="Link to this heading">#</a></h2>
+<p>Now that you understand <strong>what each folder means,</strong></p>
+<p>let’s create the same structure step by step using real commands.</p>
+<p>Before creating a Django project, your system must have <strong>Python installed.</strong></p>
+<dl class="simple">
+<dt>Why Python is required</dt><dd><ul class="simple">
+<li><p>Django is written in <strong>Python</strong></p></li>
+<li><p>Django runs <strong>on top of Python</strong></p></li>
+<li><p>All Django commands use Python internally</p></li>
+</ul>
+</dd>
+</dl>
+<p><strong>No Python = No Django</strong></p>
+<p><strong>Check if Python is already installed</strong></p>
+<p><strong>macOS / Linux</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3<span class="w"> </span>--version
+</pre></div>
+</div>
+<p><strong>Windows</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>--version
+</pre></div>
+</div>
+<p>Expected output:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>Python<span class="w"> </span><span class="m">3</span>.10.x
+</pre></div>
+</div>
+<p>✅ Django officially supports Python 3.x</p>
+<p>❌ Python 2 is not supported</p>
+<hr class="docutils" />
+<p>Then place <strong>all commands here:</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mkdir<span class="w"> </span>django_project
+<span class="nb">cd</span><span class="w"> </span>django_project
+</pre></div>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </span>djenv
+<span class="nb">source</span><span class="w"> </span>djenv/bin/activate
+</pre></div>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>django
+django-admin<span class="w"> </span>startproject<span class="w"> </span>mysite
+<span class="nb">cd</span><span class="w"> </span>mysite
+python<span class="w"> </span>manage.py<span class="w"> </span>startapp<span class="w"> </span>myapp
+</pre></div>
+</div>
 <div class="toctree-wrapper compound">
 </div>
-</section>
 </section>
 </section>
 
@@ -644,6 +691,7 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mysite-actual-django-project">3️⃣ mysite/ (actual Django project)</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#practical-creating-this-django-project">Practical: Creating This Django Project</a></li>
 </ul>
   </nav></div>
 
