@@ -1,0 +1,564 @@
+:orphan:
+
+--------------------
+Multiple databases
+--------------------
+
+You can define more than one DB:
+
+.. code-block:: python 
+
+    DATABASES = {
+        "default": {...},
+        "analytics": {...},
+    }
+
+Django will:
+	- Open **separate connections**
+	- Keep them alive independently
+	- Let you **choose** which DB to read/write from
+
+Django does **NOT automatically split data** between them.
+
+You must **tell Django what goes where.**
+
+================================================================================================================================
+
+---------------------------
+Production-grade example
+---------------------------
+
+.. code-block:: python 
+
+    DATABASES = {
+        "default": {
+            "ENGINE": "django.db.backends.postgresql",
+            "NAME": "app_db",
+            ...
+        },
+        "analytics": {
+            "ENGINE": "django.db.backends.postgresql",
+            "NAME": "analytics_db",
+            ...
+        },
+    }
+
+- default → live application
+- analytics → heavy reporting (safe, no locks)
+
+================================================================================================================================
+
+----------------------------------------
+Recommended expanded but clean config
+----------------------------------------
+
+Here’s a **professional-grade setup** you can safely use:
+
+.. code-block:: python 
+
+    DATABASES = {
+        "default": {
+            "ENGINE": "django.db.backends.postgresql",
+            "NAME": "mysite_db",
+            "USER": "mysite_user",
+            "PASSWORD": "your_password",
+            "HOST": "127.0.0.1",
+            "PORT": "5432",
+
+            "CONN_MAX_AGE": 60,
+            "CONN_HEALTH_CHECKS": True,
+
+            "OPTIONS": {
+                "options": (
+                    "-c search_path=apps,account,services,orders,public "
+                    "-c statement_timeout=30000 "
+                    "-c lock_timeout=5000 "
+                    "-c idle_in_transaction_session_timeout=60000"
+                ),
+            },
+        }
+    }
+
+This setup:
+    - ✔ avoids public schema
+    - ✔ protects against bad queries
+    - ✔ avoids deadlocks
+    - ✔ improves performance
+    - ✔ is production-safe
+
+Common mistakes to avoid:
+    - ❌ Putting schema logic in models.py
+    - ❌ Using CONN_MAX_AGE=None blindly
+    - ❌ Using keyword names like "order"
+    - ❌ Forgetting timeouts
+    - ❌ Running migrations before schema exists
+
+================================================================================================================================
+
+**1) "ENGINE" — which database backend Django should use**
+
+What it means: Tells Django which database driver/backend to use.
+
+Common values:
+	- **PostgreSQL:** "django.db.backends.postgresql"
+	- **SQLite:** "django.db.backends.sqlite3"
+	- **MySQL:** "django.db.backends.mysql"
+	- **Oracle:** "django.db.backends.oracle"
+
+**Example (PostgreSQL):**
+
+.. code-block:: python 
+
+    "ENGINE": "django.db.backends.postgresql"
+
+What happens if wrong?
+	- Django can’t connect, raises backend/driver errors.
+
+--------------------------------------------------------------------------------------------------------------------------------
+
+**2) "NAME" — database name**
+
+What it means: The actual database you want to connect to.
+	- PostgreSQL: database name (e.g. mysite_db)
+	- SQLite: file path (e.g. BASE_DIR / "db.sqlite3")
+
+**Example (PostgreSQL):**
+
+.. code-block:: python
+
+    "NAME": "mysite_db"
+
+**Example (SQLite):**
+
+.. code-block:: python 
+
+    "NAME": BASE_DIR / "db.sqlite3"
+
+--------------------------------------------------------------------------------------------------------------------------------
+
+**3) "USER" — database username**
+
+**What it means:** PostgreSQL role/user Django authenticates as.
+
+**Example:**
+
+.. code-block:: python 
+
+    "USER": "mysite_user"
+
+Notes (PostgreSQL):
+	- This user must have privileges on the database.
+	- In production, use a least-privilege role.
+
+--------------------------------------------------------------------------------------------------------------------------------
+
+**4) "PASSWORD" — database user password**
+
+**What it means:** Password for "USER".
+
+**Example:**
+
+.. code-block:: python 
+
+    "PASSWORD": "your_password"
+
+Best practice:
+    Don’t hardcode it. Use environment variables.
+
+.. code-block:: python 
+
+    "PASSWORD": os.environ["DB_PASSWORD"]
+
+--------------------------------------------------------------------------------------------------------------------------------
+
+**5) "HOST" — where the DB server is running**
+
+**What it means:** IP or hostname of the PostgreSQL server.
+
+Common values:
+	- Local machine: "127.0.0.1" or "localhost"
+	- Docker compose service name: "db"
+	- Cloud: "mydb.xxxxxx.us-west-2.rds.amazonaws.com"
+
+Examples:
+
+.. code-block:: python
+
+    "HOST": "127.0.0.1"
+
+Docker:
+
+.. code-block:: python
+
+    "HOST": "db"
+
+Cloud:
+
+.. code-block:: python 
+
+    "HOST": "mydb.abc123.us-west-2.rds.amazonaws.com"
+
+--------------------------------------------------------------------------------------------------------------------------------
+
+**6) "PORT" — TCP port of the DB server**
+
+**What it means:** Port PostgreSQL listens on (default is 5432).
+
+Example:
+
+.. code-block:: python 
+
+    "PORT": "5432"
+
+Docker example (host side):
+	- Your container might expose 5433:5432, so host port is 5433.
+
+--------------------------------------------------------------------------------------------------------------------------------
+
+**7) "CONN_MAX_AGE" — persistent connections lifetime**
+
+What it means: How long Django keeps a DB connection open and reuses it.
+	- 0 → close after each request (no reuse)
+	- 60 → reuse for 60 seconds
+	- None → keep forever (not always safe)
+
+Example:
+
+.. code-block:: python 
+
+    "CONN_MAX_AGE": 60
+
+Why it matters:
+	- Improves performance by avoiding reconnect overhead.
+	- Too high can cause stale connections, especially behind proxies/poolers.
+
+Good defaults:
+	- Local dev: 0 or 60
+	- Production: 60 to 300 (depends on infra)
+
+If using PgBouncer (transaction pooling):
+	- Often keep modest (e.g., 60) and configure carefully.
+
+--------------------------------------------------------------------------------------------------------------------------------
+
+8) **"CONN_HEALTH_CHECKS"** — automatically detect broken connections
+
+**What it means:** If True, Django checks a connection before using it and reconnects if needed.
+
+Example:
+
+.. code-block:: python
+
+    "CONN_HEALTH_CHECKS": True
+
+When useful:
+	- DB failovers (cloud)
+	- Connections dropped by network/load balancer
+	- Idle timeouts
+
+--------------------------------------------------------------------------------------------------------------------------------
+
+**9) "OPTIONS" — extra driver / PostgreSQL session settings**
+
+**What it means:** Pass extra config to the PostgreSQL driver/server at connect time.
+
+**A) Set search_path (schemas)**
+
+.. code-block:: python 
+
+    "OPTIONS": {
+        "options": "-c search_path=apps,account,services,orders,public"
+    }
+
+This is equivalent to running:
+
+.. code-block:: sql 
+
+    SET search_path TO appa,account,services,orders,public;
+
+**B) Add timeouts (recommended)**
+
+.. code-block:: python 
+
+    "OPTIONS": {
+        "options": (
+            "-c search_path=apps,public "
+            "-c statement_timeout=30000 "
+            "-c lock_timeout=5000 "
+            "-c idle_in_transaction_session_timeout=60000"
+        )
+    }
+
+What each timeout does:
+	- statement_timeout → kills slow queries after X ms
+	- lock_timeout → stops waiting too long for locks
+	- idle_in_transaction_session_timeout → kills “forgotten open transactions”
+
+**C) SSL options (common in production/cloud)**
+
+.. code-block:: python 
+
+    "OPTIONS": {
+        "sslmode": "require",
+    }
+
+**Plain English**
+
+“Django must connect to PostgreSQL **only over an encrypted SSL/TLS connection.”**
+
+If PostgreSQL **cannot** use SSL → **connection fails.**
+
+**Why SSL exists for databases**
+
+Without SSL:
+	- Username/password travel in plain text
+	- Query results can be sniffed
+	- Man-in-the-middle attacks are possible
+
+With SSL:
+	- Connection is encrypted
+	- Credentials and data are protected
+	- Required by most cloud providers
+
+**Where does sslmode come from?**
+
+sslmode is a **PostgreSQL client option** (psql, psycopg, libpq).
+
+Django just passes it to the PostgreSQL driver.
+
+Equivalent psql command:
+
+.. code-block:: bash 
+
+    psql "sslmode=require dbname=mysite_db user=mysite_user"
+
+What exactly does "require" enforce?
+
+✅ What it DOES
+	- Forces SSL encryption
+	- Rejects non-SSL connections
+	- Works even without certificates
+
+❌ What it does NOT do
+	- Does NOT verify server identity
+	- Does NOT verify certificates
+	- Does NOT prevent fake servers
+
+So "require" = encryption only, no identity verification.
+
+What happens if DB doesn’t support SSL?
+	- Connection attempt fails
+	- Django raises:
+
+.. code-block:: bash 
+
+    sslmode value "require" invalid or server does not support SSL
+
+**All PostgreSQL sslmode values**
+
+.. list-table::
+    :header-rows: 1
+        
+    * - sslmode
+      - Encrypts?
+      - Verifies server?
+      - Use case
+    * - disable
+      - ❌
+      - ❌
+      - Local dev only
+    * - allow
+      - ⚠️
+      - ❌
+      - Try SSL, fallback
+    * - prefer
+      - ⚠️
+      - ❌
+      - Default behavior
+    * - require
+      - ✅
+      - ❌
+      - Cloud DB minimum
+    * - verify-ca
+      - ✅
+      - ✅ CA
+      - High security
+    * - verify-full
+      - ✅
+      - ✅ CA + hostname
+      - Maximum security
+
+**Recommended choices**
+
+**Local development**
+
+.. code-block:: python
+
+    "OPTIONS": {
+        "sslmode": "disable"
+    }
+
+(or omit it completely)
+
+**Cloud DB (AWS RDS, Supabase, Neon, Railway)**
+
+.. code-block:: python
+
+    "OPTIONS": {
+        "sslmode": "require"
+    }
+
+✔ Industry minimum
+
+✔ Works without managing cert files
+
+**High-security / regulated environments**
+
+.. code-block:: python
+
+    "OPTIONS": {
+        "sslmode": "verify-full",
+        "sslrootcert": "/path/to/ca.pem",
+    }
+
+This:
+	- Encrypts
+	- Verifies CA
+	- Verifies hostname (prevents MITM)
+
+
+**Why many tutorials use "require"**
+
+Because:
+	- Cloud DBs already use trusted certs
+	- Managing cert files is extra work
+	- Encryption alone is a big win
+
+So "require" is a safe default.
+
+**How to verify SSL is actually used**
+
+In PostgreSQL:
+
+.. code-block:: sql
+
+    SELECT ssl, client_addr
+    FROM pg_stat_ssl
+    JOIN pg_stat_activity USING (pid);
+
+If ssl = true, encryption is active.
+
+Common mistakes:
+    - ❌ Using "sslmode": "require" with local Postgres that doesn’t support SSL
+    - ❌ Thinking "require" verifies identity (it doesn’t)
+    - ❌ Forgetting to remove "sslmode": "disable" in production
+
+--------------------------------------------------------------------------------------------------------------------------------
+
+**Full example (PostgreSQL, multi-schema, safe defaults)**
+
+.. code-block:: python 
+
+    DATABASES = {
+        "default": {
+            "ENGINE": "django.db.backends.postgresql",
+            "NAME": "mysite_db",
+            "USER": "mysite_user",
+            "PASSWORD": os.environ.get("DB_PASSWORD", ""),
+            "HOST": "127.0.0.1",
+            "PORT": "5432",
+
+            "CONN_MAX_AGE": 60,
+            "CONN_HEALTH_CHECKS": True,
+
+            "OPTIONS": {
+                "options": (
+                    "-c search_path=apps,account,services,orders,public "
+                    "-c statement_timeout=30000 "
+                    "-c lock_timeout=5000 "
+                    "-c idle_in_transaction_session_timeout=60000"
+                ),
+                # "sslmode": "require",  # enable for cloud
+            },
+        }
+    }
+
+================================================================================================================================
+
+**Other important settings you can use**
+
+10) **"ATOMIC_REQUESTS"** — wrap every request in a transaction
+
+**What it means:** Django runs each HTTP request inside transaction.atomic().
+
+.. code-block:: python
+
+    "ATOMIC_REQUESTS": True
+
+Pros:
+	- Safer consistency
+
+Cons:
+	- Can create long transactions
+	- Can increase lock contention
+	- Not always recommended for APIs with long requests
+
+--------------------------------------------------------------------------------------------------------------------------------
+
+11) **"TIME_ZONE"** and **"USE_TZ"** (not inside DATABASES, but critical)
+
+Controls how Django stores and returns datetimes.
+
+Recommended:
+
+.. code-block:: python 
+
+    USE_TZ = True
+    TIME_ZONE = "UTC"
+
+--------------------------------------------------------------------------------------------------------------------------------
+
+12) **"TEST"** — special settings for test database
+
+.. code-block:: python
+
+    "TEST": {
+        "NAME": "test_mysite_db"
+    }
+
+--------------------------------------------------------------------------------------------------------------------------------
+
+13) **"DISABLE_SERVER_SIDE_CURSORS"**
+
+Useful with some poolers/streaming use-cases.
+
+.. code-block:: python
+
+    "DISABLE_SERVER_SIDE_CURSORS": True
+
+--------------------------------------------------------------------------------------------------------------------------------
+
+14) "OPTIONS" extras you might see
+	•	application_name (identify your app in pg_stat_activity)
+	•	connect_timeout
+	•	keepalives settings (network stability)
+
+Example:
+
+.. code-block:: python
+
+    "OPTIONS": {
+        "connect_timeout": 5,
+        "options": "-c application_name=mysite_api -c search_path=apps,public",
+    }
+
+================================================================================================================================
+
+Quick cheat-sheet
+	- ENGINE/NAME/USER/PASSWORD/HOST/PORT → connect
+	- CONN_MAX_AGE → reuse connections (performance)
+	- CONN_HEALTH_CHECKS → recover broken connections
+	- OPTIONS → schema + timeouts + ssl + server parameters
+	- ATOMIC_REQUESTS → auto transactions per request (optional)
+
+

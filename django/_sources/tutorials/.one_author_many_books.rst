@@ -1,0 +1,300 @@
+:orphan:
+
+**Table 1: authors**
+
+**Structure (columns)**
+
+.. list-table:: 
+    :header-rows: 1
+
+    * - Column name
+      - Type
+      - Constraints
+    * - id
+      - BIGSERIAL
+      - Primary Key
+    * - name
+      - VARCHAR(200)
+      - NOT NULL
+    * - email
+      - VARCHAR(254)
+      - UNIQUE, NOT NULL
+    * - is_active
+      - BOOLEAN
+      - DEFAULT TRUE
+    * - created_at
+      - TIMESTAMPTZ
+      - DEFAULT NOW()
+
+**Sample data in authors**
+
+.. list-table:: 
+    :header-rows: 1
+
+    * - id
+      - name
+      - email
+      - is_active
+      - created_at
+    * - 1
+      - George Orwell
+      - orwell@example.com
+      - true
+      - 2026-01-21 10:15:00
+    * - 2
+      - J. K. Rowling
+      - rowling@example.com
+      - true
+      - 2026-01-21 10:20:00
+    * - 3
+      - Inactive Author
+      - inactive@example.com
+      - false
+      - 2026-01-21 10:30:00
+
+===============================================================================================================================================
+
+**Table 2: books**
+
+**Structure (columns)**
+
+.. list-table:: 
+    :header-rows: 1
+
+    * - Column name
+      - Type
+      - Constraints
+    * - id
+      - BIGSERIAL
+      - Primary Key
+    * - author_id
+      - BIGINT
+      - FK → authors(id), NOT NULL
+    * - title
+      - VARCHAR(200)
+      - NOT NULL
+    * - published_year
+      - SMALLINT
+      - NOT NULL
+    * - price
+      - NUMERIC(8,2)
+      - NOT NULL
+    * - is_published
+      - BOOLEAN
+      - DEFAULT TRUE
+    * - **UNIQUE**
+      - (author_id, title)
+      - One title per author
+
+**Sample data in books**
+
+.. list-table:: 
+    :header-rows: 1
+
+    * - id
+      - author_id
+      - title
+      - published_year
+      - price
+      - is_published
+    * - 1
+      - 1
+      - 1984
+      - 1949
+      - 9.99
+      - true
+    * - 2
+      - 1
+      - Animal Farm
+      - 1945
+      - 7.99
+      - true
+    * - 3
+      - 2
+      - Harry Potter
+      - 1997
+      - 19.99
+      - true
+    * - 4
+      - 2
+      - The Casual Vacancy
+      - 2012
+      - 14.50
+      - true
+
+===============================================================================================================================================
+
+**Relationship explained visually**
+
+.. code-block:: bash 
+
+    authors
+    +----+-----------------+
+    | id | name            |
+    +----+-----------------+
+    | 1  | George Orwell   |
+    | 2  | J. K. Rowling   |
+    +----+-----------------+
+            ↑
+            │ author_id
+            │
+    books
+    +----+-----------+--------------------+
+    | id | author_id | title              |
+    +----+-----------+--------------------+
+    | 1  | 1         | 1984               |
+    | 2  | 1         | Animal Farm        |
+    | 3  | 2         | Harry Potter       |
+    | 4  | 2         | The Casual Vacancy |
+    +----+-----------+--------------------+
+
+===============================================================================================================================================
+
+-----------------------
+Relationship summary
+-----------------------
+
+.. code-block:: bash 
+
+    authors
+    -------
+    id (PK)
+    name
+    email (UNIQUE)
+    is_active
+    created_at
+
+            1
+            |
+            |
+            |
+            *
+    books
+    -----
+    id (PK)
+    author_id (FK → authors.id)
+    title
+    published_year
+    price
+    is_published
+
+
+- One Author → Many Books
+- Foreign key lives in books
+- Reverse access via:
+
+.. code-block:: python 
+
+    author.books.all()
+
+===============================================================================================================================================
+
+**How Django ORM sees this**
+
+Forward (Book → Author)
+
+.. code-block:: bash 
+
+    book.author
+
+Reverse (Author → Book)
+
+.. code-block:: bash 
+
+    author.books.all()
+
+===============================================================================================================================================
+
+**How to see this yourself**
+
+Run:
+
+.. code-block:: bash 
+
+    python manage.py sqlmigrate myapp 0001
+
+
+You’ll see SQL very close to what I showed.
+
+Or in PostgreSQL:
+    - \d authors
+    - \d books
+
+**Key takeaways**
+
+.. code-block:: bash 
+
+    models.py → defines tables
+    ForeignKey → creates *_id column
+    unique=True → UNIQUE constraint
+    Index → CREATE INDEX
+    validators → Python-level (not DB-level)
+
+===============================================================================================================================================
+
+**Open:**
+
+.. code-block:: bash 
+
+    myapp/models.py
+
+Put **exactly this:**
+
+.. code-block:: python 
+
+    from django.db import models
+    from django.core.validators import MinValueValidator
+
+    class Author(models.Model):
+        name = models.CharField(max_length=200)
+        email = models.EmailField(unique=True)
+        is_active = models.BooleanField(default=True)
+        created_at = models.DateTimeField(auto_now_add=True)
+
+        class Meta:
+            db_table = "authors"
+            indexes = [
+                models.Index(fields=["email"]),
+            ]
+
+        def __str__(self):
+            return self.name
+
+
+    class Book(models.Model):
+        author = models.ForeignKey(
+            Author,
+            on_delete=models.CASCADE,
+            related_name="books",
+        )
+        title = models.CharField(max_length=200)
+        published_year = models.PositiveSmallIntegerField(
+            validators=[MinValueValidator(1)]
+        )
+        price = models.DecimalField(
+            max_digits=8,
+            decimal_places=2
+        )
+        is_published = models.BooleanField(default=True)
+
+        class Meta:
+            db_table = "books"
+            constraints = [
+                models.UniqueConstraint(
+                    fields=["author", "title"],
+                    name="uniq_book_per_author",
+                )
+            ]
+            indexes = [
+                models.Index(fields=["author"]),
+                models.Index(fields=["published_year"]),
+            ]
+
+        def __str__(self):
+            return self.title
+
+
+
+
+
+

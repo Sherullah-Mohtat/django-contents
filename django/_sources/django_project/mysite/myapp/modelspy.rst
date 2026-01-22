@@ -240,8 +240,12 @@ Think of models.py as:
     If you change the blueprint → rebuild (migrate)
 
 
+======================================================================================================================================
 
-
+Practice on Models:
+  - `OneToOneField(One-to-One) One Author → One Profile <../../../tutorials/.one_author_one_profile.html>`_
+  - `ForeignKey(One-to-Many) One Author → Many Books <../../../tutorials/.one_author_many_books.html>`_
+  - `ManyToManyField(Many-to-Many) One book can have many categories → One category can contain many books <../../../tutorials/.many_books_many_categories.html>`_
 
 
 

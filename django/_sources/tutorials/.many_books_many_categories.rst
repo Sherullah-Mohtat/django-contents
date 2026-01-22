@@ -1,0 +1,237 @@
+:orphan:
+
+We’ll do: Book ↔ Category
+	- One book can have many categories
+	- One category can contain many books
+
+**Tables in TABULAR form with sample records**
+
+**books**
+
+.. list-table::
+    :header-rows: 1
+
+    * - id
+      - author_id
+      - title
+      - published_year
+      - price
+      - is_published
+    * - 1
+      - 1
+      - 1984
+      - 1949
+      - 9.99
+      - true
+    * - 2
+      - 1
+      - Animal Farm
+      - 1945
+      - 7.99
+      - true
+    * - 3
+      - 2
+      - Harry Potter
+      - 1997
+      - 19.99
+      - true
+
+==================================================================================================================================
+
+**categories**
+
+.. list-table::
+    :header-rows: 1
+
+    * - id
+      - name
+    * - 1
+      - Fiction
+    * - 2
+      - Politics
+    * - 3
+      - Fantasy
+    * - 4
+      - Classics
+
+==================================================================================================================================
+
+Join table (auto): **myapp_book_categories**
+
+(links books ↔ categories)
+
+.. list-table::
+    :header-rows: 1
+
+    * - id
+      - book_id
+      - category_id
+    * - 1
+      - 1
+      - 1
+    * - 2
+      - 1
+      - 2
+    * - 3
+      - 1
+      - 4
+    * - 4
+      - 2
+      - 1
+    * - 5
+      - 2
+      - 2
+    * - 6
+      - 3
+      - 1
+    * - 7
+      - 3
+      - 3
+
+This join table is the real many-to-many data.
+
+==================================================================================================================================
+
+**models.py (Many-to-Many)**
+
+.. code-block:: python 
+
+    from django.db import models
+    from django.core.validators import MinValueValidator
+
+    class Author(models.Model):
+        name = models.CharField(max_length=200)
+        email = models.EmailField(unique=True)
+        is_active = models.BooleanField(default=True)
+        created_at = models.DateTimeField(auto_now_add=True)
+
+        class Meta:
+            db_table = "authors"
+
+        def __str__(self):
+            return self.name
+
+
+    class AuthorProfile(models.Model):
+        author = models.OneToOneField(
+            Author,
+            on_delete=models.CASCADE,
+            related_name="profile",
+        )
+        bio = models.TextField(blank=True)
+        website = models.URLField(blank=True)
+        birth_year = models.PositiveSmallIntegerField(null=True, blank=True)
+
+        class Meta:
+            db_table = "author_profiles"
+
+        def __str__(self):
+            return f"Profile of {self.author.name}"
+
+
+    # NEW TABLE
+    class Category(models.Model):
+        name = models.CharField(max_length=100, unique=True)
+
+        class Meta:
+            db_table = "categories"
+
+        def __str__(self):
+            return self.name
+
+
+    class Book(models.Model):
+        author = models.ForeignKey(
+            Author,
+            on_delete=models.CASCADE,
+            related_name="books",
+        )
+        title = models.CharField(max_length=200)
+        published_year = models.PositiveSmallIntegerField(validators=[MinValueValidator(1)])
+        price = models.DecimalField(max_digits=8, decimal_places=2)
+        is_published = models.BooleanField(default=True)
+
+        # MANY-TO-MANY
+        categories = models.ManyToManyField(
+            Category,
+            related_name="books",
+            blank=True,
+        )
+
+        class Meta:
+            db_table = "books"
+            constraints = [
+                models.UniqueConstraint(
+                    fields=["author", "title"],
+                    name="uniq_book_per_author",
+                )
+            ]
+
+        def __str__(self):
+            return self.title
+
+==================================================================================================================================
+
+**Run migrations**
+
+.. code-block:: bash 
+
+    python manage.py makemigrations myapp
+    python manage.py migrate
+
+
+**Practice ORM in Django shell (mini program)**
+
+Open shell:
+
+.. code-block:: bash 
+
+    python manage.py shell
+
+.. code-block:: python 
+
+    from myapp.models import Author, Book, Category
+
+    # create author + books
+    a = Author.objects.create(name="George Orwell", email="orwell@example.com")
+    b1 = Book.objects.create(author=a, title="1984", published_year=1949, price=9.99)
+    b2 = Book.objects.create(author=a, title="Animal Farm", published_year=1945, price=7.99)
+
+    # create categories
+    fiction = Category.objects.create(name="Fiction")
+    politics = Category.objects.create(name="Politics")
+    classics = Category.objects.create(name="Classics")
+
+    # add categories to book (this writes into the join table)
+    b1.categories.add(fiction, politics, classics)
+    b2.categories.add(fiction, politics)
+
+    # check results
+    b1.categories.all()
+    fiction.books.all()
+
+==================================================================================================================================
+
+**Reverse Many-to-Many queries**
+
+**Book → Categories**
+
+.. code-block:: bash 
+
+    b1.categories.all()
+
+**Category → Books (reverse)**
+
+.. code-block:: bash 
+
+    politics.books.all()
+
+**Key takeaways**
+
+.. code-block:: bash 
+
+    ManyToManyField = a third table (join table)
+    Forward: book.categories.all()
+    Reverse: category.books.all()
+
+

@@ -1,0 +1,256 @@
+:orphan:
+
+We have **three tables** now:
+
+#. authors
+#. author_profiles (ONE-TO-ONE with authors)
+#. books (ONE-TO-MANY with authors)
+
+**Table: authors**
+
+.. list-table::
+    :header-rows: 1
+
+    * - id
+      - name
+      - email
+      - is_active
+      - created_at
+    * - 1
+      - George Orwell
+      - orwell@example.com
+      - true
+      - 2026-01-21 10:15:00
+    * - 2
+      - J. K. Rowling
+      - rowling@example.com
+      - true
+      - 2026-01-21 10:20:00
+    * - 3
+      - Leo Tolstoy
+      - tolstoy@example.com
+      - false
+      - 2026-01-21 10:25:00
+
+.. note::
+
+	- id is auto-generated
+	- email is UNIQUE
+	- is_active = false means inactive author
+
+====================================================================================================================================
+
+**Table: author_profiles (ONE-TO-ONE)**
+
+.. list-table::
+    :header-rows: 1
+
+    * - id
+      - author_id
+      - bio
+      - website
+      - birth_year
+    * - 1
+      - 1
+      - English novelist and journalist
+      - https://example.com/orwell
+      - 1903
+    * - 2
+      - 2
+      - British author, philanthropist
+      - https://example.com/rowling
+      - 1965
+
+.. note::
+
+     Important:
+        - author_id is **UNIQUE**
+        - Author id = 3 has **NO profile** (this is allowed)
+        - But **no author can have more than one profile**
+
+====================================================================================================================================
+
+**Table: books**
+
+.. list-table::
+    :header-rows: 1
+
+    * - id
+      - author_id
+      - title
+      - published_year
+      - price
+      - is_published
+    * - 1
+      - 1
+      - 1984
+      - 1949
+      - 9.99
+      - true
+    * - 2
+      - 1
+      - Animal Farm
+      - 1945
+      - 7.99
+      - true
+    * - 3
+      - 2
+      - Harry Potter
+      - 1997
+      - 19.99
+      - true
+    * - 4
+      - 2
+      - The Casual Vacancy
+      - 2012
+      - 14.50
+      - true
+    * - 5
+      - 3
+      - War and Peace
+      - 1869
+      - 12.00
+      - false
+
+.. note::
+
+        - author_id links to authors.id
+        - (author_id, title) must be UNIQUE
+        - is_published = false means draft/unpublished
+
+====================================================================================================================================
+
+**How Django ORM sees these rows**
+
+**One-to-One access**
+
+.. code-block:: bash 
+
+    author = Author.objects.get(id=1)
+    author.profile.bio
+
+➡️ "English novelist and journalist"
+
+**Reverse One-to-One**
+
+.. code-block::
+
+    profile = AuthorProfile.objects.get(author_id=1)
+    profile.author.name
+
+➡️ "George Orwell"
+
+One-to-Many access
+
+.. code-block::
+     
+    author.books.all()
+
+Returns multiple rows from books.
+
+====================================================================================================================================
+
+**Relationship diagram**
+
+.. code-block:: bash 
+
+    authors
+    +----+----------------+
+    | id | name           |
+    +----+----------------+
+    | 1  | George Orwell  |
+    +----+----------------+
+            │
+            │  (one-to-one)
+            ▼
+    author_profiles
+    +----+-----------+--------------------+
+    | id | author_id | bio                |
+    +----+-----------+--------------------+
+    | 1  | 1         | English novelist   |
+    +----+-----------+--------------------+
+
+            │
+            │  (one-to-many)
+            ▼
+    books
+    +----+-----------+-------------+
+    | id | author_id | title       |
+    +----+-----------+-------------+
+    | 1  | 1         | 1984        |
+    | 2  | 1         | Animal Farm |
+    +----+-----------+-------------+
+
+====================================================================================================================================
+
+**models.py**
+
+Add a new model without changing existing ones.
+
+.. code-block:: python 
+
+    from django.db import models
+    from django.core.validators import MinValueValidator
+
+    class Author(models.Model):
+        name = models.CharField(max_length=200)
+        email = models.EmailField(unique=True)
+        is_active = models.BooleanField(default=True)
+        created_at = models.DateTimeField(auto_now_add=True)
+
+        class Meta:
+            db_table = "authors"
+
+        def __str__(self):
+            return self.name
+
+    class AuthorProfile(models.Model):
+        author = models.OneToOneField(
+            Author,
+            on_delete=models.CASCADE,
+            related_name="profile",
+        )
+        bio = models.TextField(blank=True)
+        website = models.URLField(blank=True)
+        birth_year = models.PositiveSmallIntegerField(null=True, blank=True)
+
+        class Meta:
+            db_table = "author_profiles"
+
+        def __str__(self):
+            return f"Profile of {self.author.name}"
+
+    class Book(models.Model):
+        author = models.ForeignKey(
+            Author,
+            on_delete=models.CASCADE,
+            related_name="books",
+        )
+        title = models.CharField(max_length=200)
+        published_year = models.PositiveSmallIntegerField(
+            validators=[MinValueValidator(1)]
+        )
+        price = models.DecimalField(max_digits=8, decimal_places=2)
+        is_published = models.BooleanField(default=True)
+
+        class Meta:
+            db_table = "books"
+            constraints = [
+                models.UniqueConstraint(
+                    fields=["author", "title"],
+                    name="uniq_book_per_author",
+                )
+            ]
+
+        def __str__(self):
+            return self.title
+
+**Run migrations**
+
+.. code-block:: bash 
+
+    python manage.py makemigrations myapp
+    python manage.py migrate
+
+
+
