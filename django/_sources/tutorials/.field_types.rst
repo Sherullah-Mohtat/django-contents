@@ -1,0 +1,332 @@
+:orphan: 
+
+--------------------------------
+**Django Model Field Types**
+--------------------------------
+
+Practical list of Django model **field types**, written exactly in the **“Field → Examples → Use → Meaning”**
+
+=================================================================================================================================================
+
+**📝 Text & String Fields**
+------------------------------
+
+.. list-table:: 
+    :header-rows: 1
+
+    * - Field 
+      - Examples 
+      - Use
+      - Meaning 
+    * - CharField
+      - ``name = models.CharField(max_length=100)``
+      - Short text
+      - Stores small strings (requires max_length)
+    * - TextField
+      - ``description = models.TextField()``
+      - Long text
+      - Stores large text (no length limit)
+    * - SlugField
+      - ``slug = models.SlugField(unique=True)``
+      - URL-friendly text
+      - Lowercase, hyphenated strings (e.g. my-post-title)
+    * - EmailField
+      - ``email = models.EmailField(unique=True)``
+      - Email address
+      - CharField with email validation
+    * - URLField
+      - ``website = models.URLField()``
+      - Website links
+      - CharField with URL validation
+
+=================================================================================================================================================
+
+**🔢 Numeric Fields**
+------------------------
+
+.. list-table:: 
+    :header-rows: 1
+
+    * - Field 
+      - Examples
+      - Use
+      - Meaning 
+    * - IntegerField
+      - ``age = models.IntegerField()``
+      - Whole numbers
+      - Standard integer values
+    * - BigIntegerField
+      - ``views = models.BigIntegerField()``
+      - Large integers
+      - Very large numbers (64-bit)
+    * - SmallIntegerField
+      - ``rating = models.SmallIntegerField()``
+      - Small numbers
+      - Limited-range integers
+    * - PositiveIntegerField
+      - ``quantity = models.PositiveIntegerField()``
+      - Non-negative numbers
+      - Only zero or positive integers
+    * - PositiveSmallIntegerField
+      - ``stock = models.PositiveSmallIntegerField()``
+      - Small positive numbers
+      - Small range, non-negative
+    * - FloatField
+      - ``score = models.FloatField()``
+      - Decimal numbers (approximate)
+      - Floating-point values
+    * - DecimalField
+      - ``price = models.DecimalField(max_digits=8, decimal_places=2)``
+      - Exact decimal numbers
+      - Precise values (money, currency)
+
+=================================================================================================================================================
+
+**Boolean & Logical**
+-------------------------
+
+.. list-table:: 
+    :header-rows: 1
+
+    * - Field 
+      - Examples
+      - Use
+      - Meaning
+    * - BooleanField
+      - .. code-block:: python 
+        
+            is_active = models.BooleanField(default=True)
+      - True / False
+      - Stores boolean values
+
+=================================================================================================================================================
+
+**📅 Date & Time Fields**
+---------------------------
+
+.. list-table:: 
+    :header-rows: 1
+
+    * - Field 
+      - Examples
+      - Use
+      - Meaning
+    * - DateField
+      - ``birth_date = models.DateField()``
+      - Date only
+      - Stores YYYY-MM-DD
+    * - TimeField
+      - ``opening_time = models.TimeField()``
+      - Time only
+      - Stores HH:MM:SS
+    * - DateTimeField
+      - ``created_at = models.DateTimeField(auto_now_add=True)``
+      - Date and time
+      - Timestamp with date + time
+    * - DurationField
+      - ``session_length = models.DurationField()``
+      - Time duration
+      - Stores timedelta values
+
+=================================================================================================================================================
+
+**📂 File & Media Fields**
+-----------------------------
+
+.. list-table:: 
+    :header-rows: 1
+
+    * - Field 
+      - Examples
+      - Use
+      - Meaning
+    * - FileField
+      - ``document = models.FileField(upload_to="docs/")``
+      - File upload
+      - Stores file path
+    * - ImageField
+      - ``photo = models.ImageField(upload_to="images/")``
+      - Image upload
+      - FileField with image validation
+
+=================================================================================================================================================
+
+**🔗 Relationship Fields**
+----------------------------
+
+.. list-table:: 
+    :header-rows: 1
+
+    * - Field 
+      - Examples
+      - Use
+      - Meaning
+    * - ForeignKey
+      - ``author = models.ForeignKey(Author, on_delete=models.CASCADE)``
+      - One-to-Many relationship
+      - Links one object to another
+    * - OneToOneField
+      - ``profile = models.OneToOneField(User, on_delete=models.CASCADE)``
+      - One-to-One relationship
+      - Exactly one related object
+    * - ManyToManyField
+      - ``tags = models.ManyToManyField(Tag)``
+      - Many-to-Many relationship
+      - Uses an intermediate join table
+
+=================================================================================================================================================
+
+**🆔 ID & Auto Fields**
+---------------------------
+
+.. list-table:: 
+    :header-rows: 1
+
+    * - Field 
+      - Examples
+      - Use
+      - Meaning
+    * - AutoField
+      - ``id = models.AutoField(primary_key=True)``
+      - Auto-increment ID
+      - Default primary key
+    * - BigAutoField
+      - ``id = models.BigAutoField(primary_key=True)``
+      - Large auto ID
+      - 64-bit auto-increment ID
+    * - UUIDField
+      - ``uuid = models.UUIDField(default=uuid.uuid4, editable=False)``
+      - Unique identifiers
+      - Stores UUID values
+
+=================================================================================================================================================
+
+**Special & Advanced Fields**
+-------------------------------
+
+.. list-table:: 
+    :header-rows: 1
+
+    * - Field 
+      - Examples
+      - Use
+      - Meaning
+    * - BinaryField
+      - ``raw_data = models.BinaryField()``
+      - Binary data
+      - Stores raw binary bytes
+    * - JSONField
+      - ``metadata = models.JSONField()``
+      - JSON data
+      - Stores structured JSON (PostgreSQL best)
+
+=================================================================================================================================================
+
+**🌍 Location & Network**
+----------------------------
+
+.. list-table:: 
+    :header-rows: 1
+
+    * - Field 
+      - Examples
+      - Use
+      - Meaning
+    * - IPAddressField
+      - ``ip_address = models.IPAddressField()``
+      - IP addresses
+      - Stores IPv4/IPv6
+    * - GenericIPAddressField
+      - ``ip = models.GenericIPAddressField()``
+      - Network addresses
+      - Flexible IP storage
+
+=================================================================================================================================================
+
+**Field Options (Used With Fields)**
+--------------------------------------
+
+.. list-table:: 
+    :header-rows: 1
+
+    * - Field Options
+      - Use
+      - Meaning
+    * - ``null=True``
+      - Database null
+      - Allows NULL in DB
+    * - ``blank=True``
+      - Form validation
+      - Field can be empty in forms
+    * - ``default=value``
+      - Default value
+      - Used if no value provided
+    * - ``unique=True``
+      - Uniqueness
+      - No duplicate values allowed
+    * - ``choices=CHOICES``
+      - Fixed options
+      - Restricts values to choices
+    * - ``primary_key=True``
+      - Primary key
+      - Uniquely identifies row
+    * - ``db_index=True``
+      - Indexing
+      - Faster lookups
+
+=================================================================================================================================================
+
+**Most-Used Field Options (One-Line Examples)**
+
+.. code-block:: python 
+
+    username = models.CharField(max_length=50, unique=True)
+
+.. code-block:: python 
+
+    bio = models.TextField(blank=True, null=True)
+
+.. code-block:: python 
+
+    status = models.CharField(max_length=10, choices=STATUS_CHOICES)
+
+.. code-block:: python 
+
+    email = models.EmailField(db_index=True)
+
+=================================================================================================================================================
+
+**Common Real-World Examples**
+
+.. code-block:: python 
+
+    class Product(models.Model):
+        name = models.CharField(max_length=200)
+        description = models.TextField()
+        price = models.DecimalField(max_digits=8, decimal_places=2)
+        in_stock = models.BooleanField(default=True)
+        created_at = models.DateTimeField(auto_now_add=True)
+
+=================================================================================================================================================
+
+**Memory Trick (Interview Gold)**
+------------------------------------
+
+.. list-table:: 
+    :header-rows: 1
+
+    * - Category
+      - Examples
+    * - Text
+      - CharField, TextField
+    * - Numbers
+      - IntegerField, DecimalField
+    * - Dates
+      - DateField, DateTimeField
+    * - Relations
+      - ForeignKey, ManyToMany
+    * - Files
+      - FileField, ImageField
+    * - Advanced
+      - JSONField, UUIDField
+

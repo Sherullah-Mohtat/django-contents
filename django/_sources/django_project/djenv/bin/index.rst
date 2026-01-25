@@ -1,9 +1,9 @@
 bin 
 ====
 
----------------------------------
-📂 djenv/bin — what it really is
----------------------------------
+--------------------------------------
+**📂 djenv/bin — what it really is**
+--------------------------------------
 
 djenv/bin contains the Python interpreter, pip, Django commands, and activation scripts that make the virtual environment work.
 
@@ -19,9 +19,9 @@ When you activate the venv, your system starts using **these files instead of gl
 
 ===========================================================================================================================================
 
--------------------------
-The most important idea
--------------------------
+------------------------------
+**The most important idea**
+------------------------------
 
 When you run:
 

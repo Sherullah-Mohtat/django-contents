@@ -455,8 +455,18 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#djenv-lib-what-is-it">📂 djenv/lib — what is it?</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-structure-may-contains">The structure may contains</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#djenv-lib-what-is-it"><strong>📂 djenv/lib — what is it?</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-structure-may-contains"><strong>The structure may contains</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#python3-14"><strong>1️⃣ python3.14/</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#site-packages-most-important"><strong>2️⃣ site-packages/ (MOST IMPORTANT)</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#django"><strong>3️⃣ django/</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#django-6-0-dist-info"><strong>4️⃣ django-6.0.dist-info/</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#asgiref"><strong>5️⃣ asgiref/</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sqlparse"><strong>6️⃣ sqlparse/</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pip-and-pip-dist-info"><strong>7️⃣ pip/ and pip-*.dist-info/</strong></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-python-actually-uses-lib"><strong>How Python actually uses lib/</strong></a></li>
 </ul>
             </nav>
         </div>
@@ -472,13 +482,13 @@ document.write(`
 <h1>lib<a class="headerlink" href="#lib" title="Link to this heading">#</a></h1>
 <p>Contains all Python packages installed in the virtual environment. Django and its dependencies are located in site-packages. This directory is automatically managed by pip.</p>
 <section id="djenv-lib-what-is-it">
-<h2>📂 djenv/lib — what is it?<a class="headerlink" href="#djenv-lib-what-is-it" title="Link to this heading">#</a></h2>
+<h2><strong>📂 djenv/lib — what is it?</strong><a class="headerlink" href="#djenv-lib-what-is-it" title="Link to this heading">#</a></h2>
 <p>lib/ is where all installed Python packages are stored for this virtual environment.</p>
 <p>When you install Django, pip puts it <strong>here.</strong></p>
 <p>If bin/ is the engine, lib/ is the fuel + parts.</p>
 </section>
 <section id="the-structure-may-contains">
-<h2>The structure may contains<a class="headerlink" href="#the-structure-may-contains" title="Link to this heading">#</a></h2>
+<h2><strong>The structure may contains</strong><a class="headerlink" href="#the-structure-may-contains" title="Link to this heading">#</a></h2>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>djenv/lib/
 └──<span class="w"> </span>python3.14/
 <span class="w">    </span>└──<span class="w"> </span>site-packages/
@@ -494,7 +504,8 @@ document.write(`
 </div>
 <p>Let’s break this down piece by piece</p>
 <hr class="docutils" />
-<p>1️⃣ python3.14/</p>
+<section id="python3-14">
+<h3><strong>1️⃣ python3.14/</strong><a class="headerlink" href="#python3-14" title="Link to this heading">#</a></h3>
 <dl class="simple">
 <dt>This folder corresponds to the Python version used by the venv.</dt><dd><ul class="simple">
 <li><p>Your venv was created with Python 3.14</p></li>
@@ -504,8 +515,10 @@ document.write(`
 </dd>
 </dl>
 <p>On another machine it might be python3.12 or python3.11.</p>
+</section>
 <hr class="docutils" />
-<p>2️⃣ site-packages/ (MOST IMPORTANT)</p>
+<section id="site-packages-most-important">
+<h3><strong>2️⃣ site-packages/ (MOST IMPORTANT)</strong><a class="headerlink" href="#site-packages-most-important" title="Link to this heading">#</a></h3>
 <dl class="simple">
 <dt>This is where:</dt><dd><ul class="simple">
 <li><p>Django lives</p></li>
@@ -519,8 +532,10 @@ document.write(`
 </pre></div>
 </div>
 <p>Python looks <strong>here.</strong></p>
+</section>
 <hr class="docutils" />
-<p>3️⃣ django/</p>
+<section id="django">
+<h3><strong>3️⃣ django/</strong><a class="headerlink" href="#django" title="Link to this heading">#</a></h3>
 <p>This is the Django framework source code.</p>
 <p>Inside you’ll find:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>django/
@@ -538,8 +553,10 @@ document.write(`
 </pre></div>
 </div>
 <p>You normally <strong>do not edit this code.</strong></p>
+</section>
 <hr class="docutils" />
-<p><strong>4️⃣ django-6.0.dist-info/</strong></p>
+<section id="django-6-0-dist-info">
+<h3><strong>4️⃣ django-6.0.dist-info/</strong><a class="headerlink" href="#django-6-0-dist-info" title="Link to this heading">#</a></h3>
 <dl class="simple">
 <dt>Metadata about Django:</dt><dd><ul class="simple">
 <li><p>Version number</p></li>
@@ -555,9 +572,11 @@ document.write(`
 </ul>
 </dd>
 </dl>
-<p>❌ Not imported by Python directly.</p>
+<p>Not imported by Python directly.</p>
+</section>
 <hr class="docutils" />
-<p><strong>5️⃣ asgiref/</strong></p>
+<section id="asgiref">
+<h3><strong>5️⃣ asgiref/</strong><a class="headerlink" href="#asgiref" title="Link to this heading">#</a></h3>
 <dl class="simple">
 <dt>ASGI utilities used by Django for:</dt><dd><ul class="simple">
 <li><p>Async views</p></li>
@@ -567,7 +586,9 @@ document.write(`
 </dd>
 </dl>
 <p>Django depends on this.</p>
-<p><strong>6️⃣ sqlparse/</strong></p>
+</section>
+<section id="sqlparse">
+<h3><strong>6️⃣ sqlparse/</strong><a class="headerlink" href="#sqlparse" title="Link to this heading">#</a></h3>
 <dl class="simple">
 <dt>Used by Django to:</dt><dd><ul class="simple">
 <li><p>Format SQL queries</p></li>
@@ -576,8 +597,10 @@ document.write(`
 </dd>
 </dl>
 <p>Not written by Django, but required by it.</p>
+</section>
 <hr class="docutils" />
-<p><strong>7️⃣ pip/ and pip-*.dist-info/</strong></p>
+<section id="pip-and-pip-dist-info">
+<h3><strong>7️⃣ pip/ and pip-*.dist-info/</strong><a class="headerlink" href="#pip-and-pip-dist-info" title="Link to this heading">#</a></h3>
 <p>pip itself lives inside the venv.</p>
 <dl class="simple">
 <dt>This ensures:</dt><dd><ul class="simple">
@@ -585,17 +608,20 @@ document.write(`
 <li><p>Not into global Python</p></li>
 </ul>
 </dd>
-<dt>❌ What NOT to do inside lib/</dt><dd><ul class="simple">
-<li><p>❌ Don’t edit Django source</p></li>
-<li><p>❌ Don’t delete random folders</p></li>
-<li><p>❌ Don’t commit to Git</p></li>
-<li><p>❌ Don’t import .dist-info</p></li>
+<dt>What NOT to do inside lib/</dt><dd><ul class="simple">
+<li><p>Don’t edit Django source</p></li>
+<li><p>Don’t delete random folders</p></li>
+<li><p>Don’t commit to Git</p></li>
+<li><p>Don’t import .dist-info</p></li>
 </ul>
 </dd>
 </dl>
 <p>If something breaks → recreate venv.</p>
+</section>
+</section>
 <hr class="docutils" />
-<p><strong>How Python actually uses lib/</strong></p>
+<section id="how-python-actually-uses-lib">
+<h2><strong>How Python actually uses lib/</strong><a class="headerlink" href="#how-python-actually-uses-lib" title="Link to this heading">#</a></h2>
 <p>When venv is active:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python
 </pre></div>
@@ -668,8 +694,18 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#djenv-lib-what-is-it">📂 djenv/lib — what is it?</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-structure-may-contains">The structure may contains</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#djenv-lib-what-is-it"><strong>📂 djenv/lib — what is it?</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-structure-may-contains"><strong>The structure may contains</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#python3-14"><strong>1️⃣ python3.14/</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#site-packages-most-important"><strong>2️⃣ site-packages/ (MOST IMPORTANT)</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#django"><strong>3️⃣ django/</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#django-6-0-dist-info"><strong>4️⃣ django-6.0.dist-info/</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#asgiref"><strong>5️⃣ asgiref/</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sqlparse"><strong>6️⃣ sqlparse/</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pip-and-pip-dist-info"><strong>7️⃣ pip/ and pip-*.dist-info/</strong></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-python-actually-uses-lib"><strong>How Python actually uses lib/</strong></a></li>
 </ul>
   </nav></div>
 

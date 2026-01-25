@@ -1,9 +1,9 @@
 .gitignore 
 ============
 
-------------------------
-📄 What is .gitignore?
-------------------------
+-----------------------------
+**📄 What is .gitignore?**
+-----------------------------
 
 .gitignore tells Git which files and folders should NOT be tracked or uploaded to a repository (GitHub, GitLab, etc.).
 
@@ -24,9 +24,9 @@ So Python automatically creates a .gitignore inside djenv to protect you.
 
 ======================================================================================================================================
 
-----------------------------------------
-What happens if you ignore this rule?
-----------------------------------------
+--------------------------------------------
+**What happens if you ignore this rule?**
+--------------------------------------------
 
 If you push djenv to GitHub:
 	- Repository becomes huge
@@ -59,7 +59,9 @@ Meaning
 
 ======================================================================================================================================
 
-**❓ Do you ever edit this .gitignore?**
+-----------------------------------------
+**Do you ever edit this .gitignore?**
+-----------------------------------------
 
 **No.**
 
@@ -73,7 +75,9 @@ If something goes wrong:
     python -m venv djenv
     pip install -r requirements.txt
 
+-----------------------------
 **Important distinction**
+-----------------------------
 
 There are TWO types of .gitignore:
 
@@ -212,7 +216,9 @@ With modern pip:
 
     pip install .
 
+----------------------------------
 **Difference between the two**
+----------------------------------
 
 .. list-table::
     :header-rows: 1

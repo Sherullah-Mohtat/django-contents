@@ -455,13 +455,13 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-views-py">What is views.py?</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#types-of-views-in-django">Types of Views in Django</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#function-based-views-fbv">1) Function-Based Views (FBV)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-views-py"><strong>What is views.py?</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#types-of-views-in-django"><strong>Types of Views in Django</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#function-based-views-fbv"><strong>1) Function-Based Views (FBV)</strong></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#class-based-views-cbv-scalable-reusable">2) Class-Based Views (CBV) — scalable &amp; reusable</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#when-to-choose-what">When to choose what?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#when-to-choose-what"><strong>When to choose what?</strong></a></li>
 </ul>
             </nav>
         </div>
@@ -476,7 +476,7 @@ document.write(`
   <section id="views-py">
 <h1>views.py<a class="headerlink" href="#views-py" title="Link to this heading">#</a></h1>
 <section id="what-is-views-py">
-<h2>What is views.py?<a class="headerlink" href="#what-is-views-py" title="Link to this heading">#</a></h2>
+<h2><strong>What is views.py?</strong><a class="headerlink" href="#what-is-views-py" title="Link to this heading">#</a></h2>
 <dl class="simple">
 <dt>views.py answers this question:</dt><dd><p>“When a URL is requested, what should Django do and what should it return?”</p>
 </dd>
@@ -501,7 +501,7 @@ Response<span class="w"> </span><span class="o">(</span>HTML<span class="w"> </s
 </section>
 <hr class="docutils" />
 <section id="types-of-views-in-django">
-<h2>Types of Views in Django<a class="headerlink" href="#types-of-views-in-django" title="Link to this heading">#</a></h2>
+<h2><strong>Types of Views in Django</strong><a class="headerlink" href="#types-of-views-in-django" title="Link to this heading">#</a></h2>
 <dl class="simple">
 <dt>There are two main types:</dt><dd><ol class="arabic simple">
 <li><p><strong>Function-Based Views (FBV)</strong>  beginner-friendly</p></li>
@@ -512,7 +512,7 @@ Response<span class="w"> </span><span class="o">(</span>HTML<span class="w"> </s
 <p>We’ll start with <strong>Function-Based Views.</strong></p>
 <hr class="docutils" />
 <section id="function-based-views-fbv">
-<h3>1) Function-Based Views (FBV)<a class="headerlink" href="#function-based-views-fbv" title="Link to this heading">#</a></h3>
+<h3><strong>1) Function-Based Views (FBV)</strong><a class="headerlink" href="#function-based-views-fbv" title="Link to this heading">#</a></h3>
 <p><strong>What an FBV is</strong></p>
 <dl class="simple">
 <dt>An FBV is simply a Python function that:</dt><dd><ol class="arabic simple">
@@ -590,18 +590,18 @@ Response<span class="w"> </span><span class="o">(</span>HTML<span class="w"> </s
     <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s2">&quot;myapp/post_form.html&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>✅ Easy to read.</p>
-<p>❌ Repetition grows when you build many CRUD pages.</p>
+<p>Easy to read.</p>
+<p>Repetition grows when you build many CRUD pages.</p>
 <hr class="docutils" />
 <p><strong>D) Pros / Cons of FBV</strong></p>
 <dl class="simple">
-<dt>✅ Pros</dt><dd><ul class="simple">
+<dt>Pros</dt><dd><ul class="simple">
 <li><p>Very easy to learn and debug</p></li>
 <li><p>Straight-line logic, clear flow</p></li>
 <li><p>Great for small pages and custom logic</p></li>
 </ul>
 </dd>
-<dt>❌ Cons</dt><dd><ul class="simple">
+<dt>Cons</dt><dd><ul class="simple">
 <li><p>Repetition for common CRUD patterns</p></li>
 <li><p>Harder to reuse behavior across many views</p></li>
 <li><p>You manually handle GET/POST patterns again and again</p></li>
@@ -721,14 +721,14 @@ Response<span class="w"> </span><span class="o">(</span>HTML<span class="w"> </s
 <hr class="docutils" />
 <p><strong>E) Pros / Cons of CBV</strong></p>
 <dl class="simple">
-<dt>✅ Pros</dt><dd><ul class="simple">
+<dt>Pros</dt><dd><ul class="simple">
 <li><p>Less repetition, especially for CRUD</p></li>
 <li><p>Clean, scalable for big apps</p></li>
 <li><p>Mixins allow reusable features (auth, permissions, etc.)</p></li>
 <li><p>Generic views save lots of code</p></li>
 </ul>
 </dd>
-<dt>❌ Cons</dt><dd><ul class="simple">
+<dt>Cons</dt><dd><ul class="simple">
 <li><p>Harder at the beginning</p></li>
 <li><p>Inheritance chain can confuse (where did this behavior come from?)</p></li>
 <li><p>Debugging sometimes needs deeper understanding</p></li>
@@ -775,7 +775,7 @@ Response<span class="w"> </span><span class="o">(</span>HTML<span class="w"> </s
 </section>
 <hr class="docutils" />
 <section id="when-to-choose-what">
-<h2>When to choose what?<a class="headerlink" href="#when-to-choose-what" title="Link to this heading">#</a></h2>
+<h2><strong>When to choose what?</strong><a class="headerlink" href="#when-to-choose-what" title="Link to this heading">#</a></h2>
 <dl class="simple">
 <dt>Choose FBV when:</dt><dd><ul class="simple">
 <li><p>You’re learning</p></li>
@@ -838,13 +838,13 @@ Response<span class="w"> </span><span class="o">(</span>HTML<span class="w"> </s
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-views-py">What is views.py?</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#types-of-views-in-django">Types of Views in Django</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#function-based-views-fbv">1) Function-Based Views (FBV)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-views-py"><strong>What is views.py?</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#types-of-views-in-django"><strong>Types of Views in Django</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#function-based-views-fbv"><strong>1) Function-Based Views (FBV)</strong></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#class-based-views-cbv-scalable-reusable">2) Class-Based Views (CBV) — scalable &amp; reusable</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#when-to-choose-what">When to choose what?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#when-to-choose-what"><strong>When to choose what?</strong></a></li>
 </ul>
   </nav></div>
 

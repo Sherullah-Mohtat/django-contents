@@ -1,17 +1,17 @@
 djenv 
 =======
 
--------------------
-1. What is djenv?
--------------------
+-----------------------
+**1. What is djenv?**
+-----------------------
 
 **djenv is a Python virtual environment (venv).**
 
 It is:
-	•	✅ Created by **me**
-	•	❌ Not created by Django
-	•	❌ Not part of Django code
-	•	✅ Used to isolate Python + Django + packages
+	- Created by **me**
+	- Not created by Django
+	- Not part of Django code
+	- Used to isolate Python + Django + packages
 
 Command you used:
 
@@ -21,9 +21,9 @@ Command you used:
 
 =======================================================================================================
 
----------------------
-2. Why djenv exists
----------------------
+---------------------------
+**2. Why djenv exists**
+---------------------------
 
 Without a virtual environment:
 	- Django installs globally
@@ -118,7 +118,7 @@ You usually **never touch this.**
 
 =======================================================================================================
 
-4️⃣ pyvenv.cfg
+**4️⃣ pyvenv.cfg**
 
 This file describes the virtual environment.
 
@@ -198,11 +198,11 @@ Django **runs using Python from djenv.**
 
 =======================================================================================================
 
-**🚫 What djenv is NOT**
-   - ❌ Not Django project
-   - ❌ Not Django app
-   - ❌ Not settings
-   - ❌ Not production code
+**What djenv is NOT**
+   - Not Django project
+   - Not Django app
+   - Not settings
+   - Not production code
 
 It is just an **isolated runtime environment.**
 

@@ -432,7 +432,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
 </div></div>
       
     </div>
@@ -448,6 +450,18 @@ document.write(`
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-pyvenv-cfg"><strong>What is pyvenv.cfg?</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#where-it-lives"><strong>Where it lives</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#typical-contents-of-pyvenv-cfg"><strong>Typical contents of pyvenv.cfg</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-python-uses-pyvenv-cfg"><strong>How Python uses pyvenv.cfg</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#when-does-this-file-change"><strong>When does this file change?</strong></a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -459,7 +473,8 @@ document.write(`
                   
   <section id="pyvenv-cfg">
 <h1>pyvenv.cfg<a class="headerlink" href="#pyvenv-cfg" title="Link to this heading">#</a></h1>
-<p>What is pyvenv.cfg?</p>
+<section id="what-is-pyvenv-cfg">
+<h2><strong>What is pyvenv.cfg?</strong><a class="headerlink" href="#what-is-pyvenv-cfg" title="Link to this heading">#</a></h2>
 <p>pyvenv.cfg is a configuration file that describes how the virtual environment was created.</p>
 <dl class="simple">
 <dt>It tells Python:</dt><dd><ul class="simple">
@@ -470,8 +485,10 @@ document.write(`
 </dd>
 </dl>
 <p>Python reads this file <strong>automatically</strong> when the venv’s python starts.</p>
+</section>
 <hr class="docutils" />
-<p><strong>Where it lives</strong></p>
+<section id="where-it-lives">
+<h2><strong>Where it lives</strong><a class="headerlink" href="#where-it-lives" title="Link to this heading">#</a></h2>
 <p>In your project:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>django_project/
 └──<span class="w"> </span>djenv/
@@ -479,8 +496,10 @@ document.write(`
 </pre></div>
 </div>
 <p>It belongs <strong>only</strong> to the virtual environment.</p>
+</section>
 <hr class="docutils" />
-<p><strong>Typical contents of pyvenv.cfg</strong></p>
+<section id="typical-contents-of-pyvenv-cfg">
+<h2><strong>Typical contents of pyvenv.cfg</strong><a class="headerlink" href="#typical-contents-of-pyvenv-cfg" title="Link to this heading">#</a></h2>
 <p>Open it and you’ll see something like:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nv">home</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>/usr/bin/python3.14
 include-system-site-packages<span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">false</span>
@@ -533,8 +552,10 @@ include-system-site-packages<span class="w"> </span><span class="o">=</span><spa
 </ul>
 </dd>
 </dl>
+</section>
 <hr class="docutils" />
-<p><strong>How Python uses pyvenv.cfg</strong></p>
+<section id="how-python-uses-pyvenv-cfg">
+<h2><strong>How Python uses pyvenv.cfg</strong><a class="headerlink" href="#how-python-uses-pyvenv-cfg" title="Link to this heading">#</a></h2>
 <p>When you run:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>djenv/bin/python
 </pre></div>
@@ -550,16 +571,18 @@ include-system-site-packages<span class="w"> </span><span class="o">=</span><spa
 </dl>
 <p>You never have to do this manually.</p>
 <dl class="simple">
-<dt>❌ What NOT to do with pyvenv.cfg</dt><dd><ul class="simple">
-<li><p>❌ Don’t edit it manually</p></li>
-<li><p>❌ Don’t commit it to Git</p></li>
-<li><p>❌ Don’t copy it between projects</p></li>
+<dt>What NOT to do with pyvenv.cfg</dt><dd><ul class="simple">
+<li><p>Don’t edit it manually</p></li>
+<li><p>Don’t commit it to Git</p></li>
+<li><p>Don’t copy it between projects</p></li>
 </ul>
 </dd>
 </dl>
 <p>If something is wrong → recreate the venv.</p>
+</section>
 <hr class="docutils" />
-<p><strong>When does this file change?</strong></p>
+<section id="when-does-this-file-change">
+<h2><strong>When does this file change?</strong><a class="headerlink" href="#when-does-this-file-change" title="Link to this heading">#</a></h2>
 <dl class="simple">
 <dt>Only when:</dt><dd><ul class="simple">
 <li><p>You recreate the venv</p></li>
@@ -577,6 +600,7 @@ include-system-site-packages<span class="w"> </span><span class="o">=</span><spa
 </ul>
 </dd>
 </dl>
+</section>
 </section>
 
 
@@ -614,6 +638,25 @@ include-system-site-packages<span class="w"> </span><span class="o">=</span><spa
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-pyvenv-cfg"><strong>What is pyvenv.cfg?</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#where-it-lives"><strong>Where it lives</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#typical-contents-of-pyvenv-cfg"><strong>Typical contents of pyvenv.cfg</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-python-uses-pyvenv-cfg"><strong>How Python uses pyvenv.cfg</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#when-does-this-file-change"><strong>When does this file change?</strong></a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>

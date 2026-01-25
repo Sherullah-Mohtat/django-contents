@@ -3,9 +3,9 @@ lib
 
 Contains all Python packages installed in the virtual environment. Django and its dependencies are located in site-packages. This directory is automatically managed by pip.
 
-----------------------------
-📂 djenv/lib — what is it?
-----------------------------
+----------------------------------
+**📂 djenv/lib — what is it?**
+----------------------------------
 
 lib/ is where all installed Python packages are stored for this virtual environment.
 
@@ -13,9 +13,9 @@ When you install Django, pip puts it **here.**
 
 If bin/ is the engine, lib/ is the fuel + parts.
 
-----------------------------
-The structure may contains 
-----------------------------
+----------------------------------
+**The structure may contains** 
+----------------------------------
 
 .. code-block:: bash 
 
@@ -35,23 +35,25 @@ Let’s break this down piece by piece
 
 =========================================================================================================
 
-1️⃣ python3.14/
+**1️⃣ python3.14/**
+----------------------
 
 This folder corresponds to the Python version used by the venv.
-	•	Your venv was created with Python 3.14
-	•	All packages are version-scoped
-	•	Prevents conflicts between Python versions
+	- Your venv was created with Python 3.14
+	- All packages are version-scoped
+	- Prevents conflicts between Python versions
 
 On another machine it might be python3.12 or python3.11.
 
 ========================================================================================================
 
-2️⃣ site-packages/ (MOST IMPORTANT)
+**2️⃣ site-packages/ (MOST IMPORTANT)**
+----------------------------------------
 
 This is where:
-	•	Django lives
-	•	All third-party libraries live
-	•	Python imports from
+	- Django lives
+	- All third-party libraries live
+	- Python imports from
 
 When you write:
 
@@ -63,7 +65,8 @@ Python looks **here.**
 
 ==========================================================================================================
 
-3️⃣ django/
+**3️⃣ django/**
+-----------------
 
 This is the Django framework source code.
 
@@ -91,6 +94,7 @@ You normally **do not edit this code.**
 ========================================================================================================
 
 **4️⃣ django-6.0.dist-info/**
+--------------------------------
 
 Metadata about Django:
 	- Version number
@@ -103,11 +107,12 @@ Used by:
 	- package managers
 	- dependency resolution
 
-❌ Not imported by Python directly.
+Not imported by Python directly.
 
 ========================================================================================================
 
 **5️⃣ asgiref/**
+-------------------
 
 ASGI utilities used by Django for:
 	- Async views
@@ -119,6 +124,7 @@ Django depends on this.
 
 
 **6️⃣ sqlparse/**
+-------------------
 
 Used by Django to:
 	- Format SQL queries
@@ -129,6 +135,7 @@ Not written by Django, but required by it.
 ========================================================================================================
 
 **7️⃣ pip/ and pip-*.dist-info/**
+-----------------------------------
 
 pip itself lives inside the venv.
 
@@ -136,17 +143,19 @@ This ensures:
 	- pip installs packages into this venv
 	- Not into global Python
 
-❌ What NOT to do inside lib/
-	- ❌ Don’t edit Django source
-	- ❌ Don’t delete random folders
-	- ❌ Don’t commit to Git
-	- ❌ Don’t import .dist-info
+What NOT to do inside lib/
+	- Don’t edit Django source
+	- Don’t delete random folders
+	- Don’t commit to Git
+	- Don’t import .dist-info
 
 If something breaks → recreate venv.
 
 =======================================================================================================
 
+-------------------------------------
 **How Python actually uses lib/**
+-------------------------------------
 
 When venv is active:
 

@@ -1,9 +1,9 @@
 urls.py
 ========
 
----------------------
-1. What is urls.py?
----------------------
+--------------------------
+**1. What is urls.py?**
+--------------------------
 
 urls.py defines how URLs are mapped to views in a Django project.
 
@@ -17,9 +17,9 @@ It acts as the **traffic controller** of your web application.
 
 ============================================================================================
 
--------------------------------------
-2. What problem does urls.py solve?
--------------------------------------
+------------------------------------------
+**2. What problem does urls.py solve?**
+------------------------------------------
 
 When a user visits a URL like:
 
@@ -48,8 +48,8 @@ Typical contents of urls.py
 
 ============================================================================================
 
-1️⃣ Import admin site
-----------------------
+**1️⃣ Import admin site**
+--------------------------
 
 .. code-block:: python 
 
@@ -57,8 +57,8 @@ Typical contents of urls.py
 
 Enables Django’s built-in admin interface.
 
-2️⃣ Import path
-----------------
+**2️⃣ Import path**
+---------------------
 
 .. code-block:: python 
 
@@ -66,8 +66,8 @@ Enables Django’s built-in admin interface.
 
 Used to define URL patterns.
 
-3️⃣ URL patterns list
-----------------------
+**3️⃣ URL patterns list**
+---------------------------
 
 .. code-block:: python 
 
@@ -175,10 +175,10 @@ Always put **specific paths before general ones.**
 
 **What urls.py is NOT**
 
-- ❌ Not a view
-- ❌ Not HTML
-- ❌ Not database logic
-- ❌ Not middleware
+- Not a view
+- Not HTML
+- Not database logic
+- Not middleware
 
 It only handles URL → view mapping.
 

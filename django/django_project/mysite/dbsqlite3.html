@@ -455,16 +455,16 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-db-sqlite3">1. What is db.sqlite3?</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-does-django-create-db-sqlite3">2. Why does Django create db.sqlite3?</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#when-is-db-sqlite3-created">3. When is db.sqlite3 created?</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-does-db-sqlite3-contain">4. What does db.sqlite3 contain?</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-django-uses-db-sqlite3">5. How Django uses db.sqlite3</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-view-db-sqlite3">6. How to view db.sqlite3</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-db-sqlite3-is-good-for">7. What db.sqlite3 is GOOD for</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-db-sqlite3-is-not-good-for">8. What db.sqlite3 is NOT good for</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#should-db-sqlite3-be-committed-to-git">9. Should db.sqlite3 be committed to Git?</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-happens-if-you-delete-db-sqlite3">10. What happens if you delete db.sqlite3?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-db-sqlite3"><strong>1. What is db.sqlite3?</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-does-django-create-db-sqlite3"><strong>2. Why does Django create db.sqlite3?</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#when-is-db-sqlite3-created"><strong>3. When is db.sqlite3 created?</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-does-db-sqlite3-contain"><strong>4. What does db.sqlite3 contain?</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-django-uses-db-sqlite3"><strong>5. How Django uses db.sqlite3</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-view-db-sqlite3"><strong>6. How to view db.sqlite3</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-db-sqlite3-is-good-for"><strong>7. What db.sqlite3 is GOOD for</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-db-sqlite3-is-not-good-for"><strong>8. What db.sqlite3 is NOT good for</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#should-db-sqlite3-be-committed-to-git"><strong>9. Should db.sqlite3 be committed to Git?</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-happens-if-you-delete-db-sqlite3"><strong>10. What happens if you delete db.sqlite3?</strong></a></li>
 </ul>
             </nav>
         </div>
@@ -479,7 +479,7 @@ document.write(`
   <section id="db-sqlite3">
 <h1>db.sqlite3<a class="headerlink" href="#db-sqlite3" title="Link to this heading">#</a></h1>
 <section id="what-is-db-sqlite3">
-<h2>1. What is db.sqlite3?<a class="headerlink" href="#what-is-db-sqlite3" title="Link to this heading">#</a></h2>
+<h2><strong>1. What is db.sqlite3?</strong><a class="headerlink" href="#what-is-db-sqlite3" title="Link to this heading">#</a></h2>
 <p>db.sqlite3 is the default SQLite database used by Django during development. It stores all application data in a single file and is suitable for learning and local testing.</p>
 <p>It is a <strong>SQLite database</strong>, stored as a <strong>single file</strong> on disk.</p>
 <p>Location:</p>
@@ -489,7 +489,7 @@ document.write(`
 </section>
 <hr class="docutils" />
 <section id="why-does-django-create-db-sqlite3">
-<h2>2. Why does Django create db.sqlite3?<a class="headerlink" href="#why-does-django-create-db-sqlite3" title="Link to this heading">#</a></h2>
+<h2><strong>2. Why does Django create db.sqlite3?</strong><a class="headerlink" href="#why-does-django-create-db-sqlite3" title="Link to this heading">#</a></h2>
 <dl class="simple">
 <dt>When you create a new Django project, Django configures SQLite as the default database because:</dt><dd><ul class="simple">
 <li><p>No installation required</p></li>
@@ -503,7 +503,7 @@ document.write(`
 </section>
 <hr class="docutils" />
 <section id="when-is-db-sqlite3-created">
-<h2>3. When is db.sqlite3 created?<a class="headerlink" href="#when-is-db-sqlite3-created" title="Link to this heading">#</a></h2>
+<h2><strong>3. When is db.sqlite3 created?</strong><a class="headerlink" href="#when-is-db-sqlite3-created" title="Link to this heading">#</a></h2>
 <p>The file appears when you run:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>manage.py<span class="w"> </span>migrate
 </pre></div>
@@ -518,7 +518,7 @@ document.write(`
 </section>
 <hr class="docutils" />
 <section id="what-does-db-sqlite3-contain">
-<h2>4. What does db.sqlite3 contain?<a class="headerlink" href="#what-does-db-sqlite3-contain" title="Link to this heading">#</a></h2>
+<h2><strong>4. What does db.sqlite3 contain?</strong><a class="headerlink" href="#what-does-db-sqlite3-contain" title="Link to this heading">#</a></h2>
 <dl class="simple">
 <dt>It stores all <strong>project data</strong>, including:</dt><dd><ul class="simple">
 <li><p>Django system tables</p></li>
@@ -539,7 +539,7 @@ document.write(`
 </section>
 <hr class="docutils" />
 <section id="how-django-uses-db-sqlite3">
-<h2>5. How Django uses db.sqlite3<a class="headerlink" href="#how-django-uses-db-sqlite3" title="Link to this heading">#</a></h2>
+<h2><strong>5. How Django uses db.sqlite3</strong><a class="headerlink" href="#how-django-uses-db-sqlite3" title="Link to this heading">#</a></h2>
 <p>In settings.py, you’ll see:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">DATABASES</span> <span class="o">=</span> <span class="p">{</span>
     <span class="s1">&#39;default&#39;</span><span class="p">:</span> <span class="p">{</span>
@@ -556,7 +556,7 @@ document.write(`
 </section>
 <hr class="docutils" />
 <section id="how-to-view-db-sqlite3">
-<h2>6. How to view db.sqlite3<a class="headerlink" href="#how-to-view-db-sqlite3" title="Link to this heading">#</a></h2>
+<h2><strong>6. How to view db.sqlite3</strong><a class="headerlink" href="#how-to-view-db-sqlite3" title="Link to this heading">#</a></h2>
 <p><strong>Option 1:</strong> Django shell</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>manage.py<span class="w"> </span>dbshell
 </pre></div>
@@ -578,25 +578,25 @@ document.write(`
 </section>
 <hr class="docutils" />
 <section id="what-db-sqlite3-is-good-for">
-<h2>7. What db.sqlite3 is GOOD for<a class="headerlink" href="#what-db-sqlite3-is-good-for" title="Link to this heading">#</a></h2>
+<h2><strong>7. What db.sqlite3 is GOOD for</strong><a class="headerlink" href="#what-db-sqlite3-is-good-for" title="Link to this heading">#</a></h2>
 <blockquote>
 <div><ul class="simple">
-<li><p>✅ Learning Django</p></li>
-<li><p>✅ Tutorials</p></li>
-<li><p>✅ Small projects</p></li>
-<li><p>✅ Local development</p></li>
+<li><p>Learning Django</p></li>
+<li><p>Tutorials</p></li>
+<li><p>Small projects</p></li>
+<li><p>Local development</p></li>
 </ul>
 </div></blockquote>
 </section>
 <hr class="docutils" />
 <section id="what-db-sqlite3-is-not-good-for">
-<h2>8. What db.sqlite3 is NOT good for<a class="headerlink" href="#what-db-sqlite3-is-not-good-for" title="Link to this heading">#</a></h2>
+<h2><strong>8. What db.sqlite3 is NOT good for</strong><a class="headerlink" href="#what-db-sqlite3-is-not-good-for" title="Link to this heading">#</a></h2>
 <blockquote>
 <div><ul class="simple">
-<li><p>❌ Production websites</p></li>
-<li><p>❌ Multiple concurrent users</p></li>
-<li><p>❌ High traffic</p></li>
-<li><p>❌ Large datasets</p></li>
+<li><p>Production websites</p></li>
+<li><p>Multiple concurrent users</p></li>
+<li><p>High traffic</p></li>
+<li><p>Large datasets</p></li>
 </ul>
 </div></blockquote>
 <dl class="simple">
@@ -609,7 +609,7 @@ document.write(`
 </section>
 <hr class="docutils" />
 <section id="should-db-sqlite3-be-committed-to-git">
-<h2>9. Should db.sqlite3 be committed to Git?<a class="headerlink" href="#should-db-sqlite3-be-committed-to-git" title="Link to this heading">#</a></h2>
+<h2><strong>9. Should db.sqlite3 be committed to Git?</strong><a class="headerlink" href="#should-db-sqlite3-be-committed-to-git" title="Link to this heading">#</a></h2>
 <p><strong>Usually: NO</strong></p>
 <p>Add this to your project-level .gitignore:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>db.sqlite3
@@ -626,7 +626,7 @@ document.write(`
 </section>
 <hr class="docutils" />
 <section id="what-happens-if-you-delete-db-sqlite3">
-<h2>10. What happens if you delete db.sqlite3?<a class="headerlink" href="#what-happens-if-you-delete-db-sqlite3" title="Link to this heading">#</a></h2>
+<h2><strong>10. What happens if you delete db.sqlite3?</strong><a class="headerlink" href="#what-happens-if-you-delete-db-sqlite3" title="Link to this heading">#</a></h2>
 <dl class="simple">
 <dt>If you delete it:</dt><dd><ul class="simple">
 <li><p>All data is lost</p></li>
@@ -700,16 +700,16 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-db-sqlite3">1. What is db.sqlite3?</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-does-django-create-db-sqlite3">2. Why does Django create db.sqlite3?</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#when-is-db-sqlite3-created">3. When is db.sqlite3 created?</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-does-db-sqlite3-contain">4. What does db.sqlite3 contain?</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-django-uses-db-sqlite3">5. How Django uses db.sqlite3</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-view-db-sqlite3">6. How to view db.sqlite3</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-db-sqlite3-is-good-for">7. What db.sqlite3 is GOOD for</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-db-sqlite3-is-not-good-for">8. What db.sqlite3 is NOT good for</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#should-db-sqlite3-be-committed-to-git">9. Should db.sqlite3 be committed to Git?</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-happens-if-you-delete-db-sqlite3">10. What happens if you delete db.sqlite3?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-db-sqlite3"><strong>1. What is db.sqlite3?</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-does-django-create-db-sqlite3"><strong>2. Why does Django create db.sqlite3?</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#when-is-db-sqlite3-created"><strong>3. When is db.sqlite3 created?</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-does-db-sqlite3-contain"><strong>4. What does db.sqlite3 contain?</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-django-uses-db-sqlite3"><strong>5. How Django uses db.sqlite3</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-view-db-sqlite3"><strong>6. How to view db.sqlite3</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-db-sqlite3-is-good-for"><strong>7. What db.sqlite3 is GOOD for</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-db-sqlite3-is-not-good-for"><strong>8. What db.sqlite3 is NOT good for</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#should-db-sqlite3-be-committed-to-git"><strong>9. Should db.sqlite3 be committed to Git?</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-happens-if-you-delete-db-sqlite3"><strong>10. What happens if you delete db.sqlite3?</strong></a></li>
 </ul>
   </nav></div>
 

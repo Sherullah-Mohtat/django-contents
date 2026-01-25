@@ -455,8 +455,9 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#djenv-include-what-is-it">📂 djenv/include — what is it?</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-you-typically-find-inside-include">What you typically find inside include/</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#djenv-include-what-is-it"><strong>📂 djenv/include — what is it?</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-you-typically-find-inside-include"><strong>What you typically find inside include/</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#when-is-include-actually-used"><strong>When is include/ actually used?</strong></a></li>
 </ul>
             </nav>
         </div>
@@ -471,7 +472,7 @@ document.write(`
   <section id="include">
 <h1>include<a class="headerlink" href="#include" title="Link to this heading">#</a></h1>
 <section id="djenv-include-what-is-it">
-<h2>📂 djenv/include — what is it?<a class="headerlink" href="#djenv-include-what-is-it" title="Link to this heading">#</a></h2>
+<h2><strong>📂 djenv/include — what is it?</strong><a class="headerlink" href="#djenv-include-what-is-it" title="Link to this heading">#</a></h2>
 <p>include/ contains C header files for Python and native extensions.</p>
 <p>It exists so that <strong>Python packages written in C/C++</strong> can be compiled and linked correctly.</p>
 <hr class="docutils" />
@@ -488,7 +489,7 @@ document.write(`
 </section>
 <hr class="docutils" />
 <section id="what-you-typically-find-inside-include">
-<h2>What you typically find inside include/<a class="headerlink" href="#what-you-typically-find-inside-include" title="Link to this heading">#</a></h2>
+<h2><strong>What you typically find inside include/</strong><a class="headerlink" href="#what-you-typically-find-inside-include" title="Link to this heading">#</a></h2>
 <p>Structure looks like:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>djenv/include/
 └──<span class="w"> </span>python3.x/
@@ -506,10 +507,10 @@ document.write(`
 </ul>
 </dd>
 </dl>
+</section>
 <hr class="docutils" />
-<blockquote>
-<div><p>When is include/ actually used?</p>
-</div></blockquote>
+<section id="when-is-include-actually-used">
+<h2><strong>When is include/ actually used?</strong><a class="headerlink" href="#when-is-include-actually-used" title="Link to this heading">#</a></h2>
 <dl class="simple">
 <dt>You will only “use” include/ indirectly when:</dt><dd><ul class="simple">
 <li><p>Installing packages like:</p></li>
@@ -529,7 +530,7 @@ document.write(`
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>djenv/include/
 </pre></div>
 </div>
-<p><strong>❓ Do Django projects use include/ directly?</strong></p>
+<p><strong>Do Django projects use include/ directly?</strong></p>
 <dl class="simple">
 <dt>No.</dt><dd><ul class="simple">
 <li><p>Django itself is pure Python</p></li>
@@ -540,11 +541,11 @@ document.write(`
 </dl>
 <p>Django just benefits indirectly if a dependency uses C.</p>
 <dl class="simple">
-<dt>❌ What NOT to do</dt><dd><ul class="simple">
-<li><p>❌ Don’t open or edit files here</p></li>
-<li><p>❌ Don’t import anything from include</p></li>
-<li><p>❌ Don’t delete individual files</p></li>
-<li><p>❌ Don’t commit this folder to Git</p></li>
+<dt>What NOT to do</dt><dd><ul class="simple">
+<li><p>Don’t open or edit files here</p></li>
+<li><p>Don’t import anything from include</p></li>
+<li><p>Don’t delete individual files</p></li>
+<li><p>Don’t commit this folder to Git</p></li>
 </ul>
 </dd>
 </dl>
@@ -596,8 +597,9 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#djenv-include-what-is-it">📂 djenv/include — what is it?</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-you-typically-find-inside-include">What you typically find inside include/</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#djenv-include-what-is-it"><strong>📂 djenv/include — what is it?</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-you-typically-find-inside-include"><strong>What you typically find inside include/</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#when-is-include-actually-used"><strong>When is include/ actually used?</strong></a></li>
 </ul>
   </nav></div>
 

@@ -455,15 +455,15 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-migrations-in-django">What is migrations/ in Django?</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#where-migrations-fits-in-django">Where migrations/ fits in Django</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#structure-of-migrations-folder">Structure of migrations/ folder</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-this-is-a-folder">Why this is a folder?</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#init-py-inside-migrations">__init__.py inside migrations</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#when-are-migration-files-created">When are migration files created?</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-inside-a-migration-file">What is inside a migration file?</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#two-step-migration-process">Two-step migration process</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#migration-commands-you-must-know">Migration commands you must know</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-migrations-in-django"><strong>What is migrations/ in Django?</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#where-migrations-fits-in-django"><strong>Where migrations/ fits in Django</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#structure-of-migrations-folder"><strong>Structure of migrations/ folder</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-this-is-a-folder"><strong>Why this is a folder?</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#init-py-inside-migrations"><strong>__init__.py inside migrations</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#when-are-migration-files-created"><strong>When are migration files created?</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-inside-a-migration-file"><strong>What is inside a migration file?</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#two-step-migration-process"><strong>Two-step migration process</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#migration-commands-you-must-know"><strong>Migration commands you must know</strong></a></li>
 </ul>
             </nav>
         </div>
@@ -478,7 +478,7 @@ document.write(`
   <section id="migrations">
 <h1>migrations<a class="headerlink" href="#migrations" title="Link to this heading">#</a></h1>
 <section id="what-is-migrations-in-django">
-<h2>What is migrations/ in Django?<a class="headerlink" href="#what-is-migrations-in-django" title="Link to this heading">#</a></h2>
+<h2><strong>What is migrations/ in Django?</strong><a class="headerlink" href="#what-is-migrations-in-django" title="Link to this heading">#</a></h2>
 <dl class="simple">
 <dt>Short definition:</dt><dd><p>Migrations are Django’s way of tracking and applying database schema changes.</p>
 </dd>
@@ -490,7 +490,7 @@ document.write(`
 </section>
 <hr class="docutils" />
 <section id="where-migrations-fits-in-django">
-<h2>Where migrations/ fits in Django<a class="headerlink" href="#where-migrations-fits-in-django" title="Link to this heading">#</a></h2>
+<h2><strong>Where migrations/ fits in Django</strong><a class="headerlink" href="#where-migrations-fits-in-django" title="Link to this heading">#</a></h2>
 <p>Flow:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>models.py<span class="w">  </span>➜<span class="w">  </span>migrations<span class="w">  </span>➜<span class="w">  </span>database<span class="w"> </span><span class="o">(</span>db.sqlite3<span class="w"> </span>/<span class="w"> </span>PostgreSQL<span class="o">)</span>
 </pre></div>
@@ -500,7 +500,7 @@ document.write(`
 </section>
 <hr class="docutils" />
 <section id="structure-of-migrations-folder">
-<h2>Structure of migrations/ folder<a class="headerlink" href="#structure-of-migrations-folder" title="Link to this heading">#</a></h2>
+<h2><strong>Structure of migrations/ folder</strong><a class="headerlink" href="#structure-of-migrations-folder" title="Link to this heading">#</a></h2>
 <p>Inside your app:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>myapp/
 ├──<span class="w"> </span>migrations/
@@ -510,12 +510,12 @@ document.write(`
 </div>
 </section>
 <section id="why-this-is-a-folder">
-<h2>Why this is a folder?<a class="headerlink" href="#why-this-is-a-folder" title="Link to this heading">#</a></h2>
+<h2><strong>Why this is a folder?</strong><a class="headerlink" href="#why-this-is-a-folder" title="Link to this heading">#</a></h2>
 <p>Because Django stores <strong>multiple migration files</strong> over time.</p>
 </section>
 <hr class="docutils" />
 <section id="init-py-inside-migrations">
-<h2>__init__.py inside migrations<a class="headerlink" href="#init-py-inside-migrations" title="Link to this heading">#</a></h2>
+<h2><strong>__init__.py inside migrations</strong><a class="headerlink" href="#init-py-inside-migrations" title="Link to this heading">#</a></h2>
 <p>This file:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># empty</span>
 </pre></div>
@@ -531,7 +531,7 @@ document.write(`
 </section>
 <hr class="docutils" />
 <section id="when-are-migration-files-created">
-<h2>When are migration files created?<a class="headerlink" href="#when-are-migration-files-created" title="Link to this heading">#</a></h2>
+<h2><strong>When are migration files created?</strong><a class="headerlink" href="#when-are-migration-files-created" title="Link to this heading">#</a></h2>
 <dl class="simple">
 <dt>Migration files are created when:</dt><dd><ol class="arabic simple">
 <li><p>You write or change models</p></li>
@@ -563,7 +563,7 @@ document.write(`
 </section>
 <hr class="docutils" />
 <section id="what-is-inside-a-migration-file">
-<h2>What is inside a migration file?<a class="headerlink" href="#what-is-inside-a-migration-file" title="Link to this heading">#</a></h2>
+<h2><strong>What is inside a migration file?</strong><a class="headerlink" href="#what-is-inside-a-migration-file" title="Link to this heading">#</a></h2>
 <p>Example 0001_initial.py:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">django.db</span><span class="w"> </span><span class="kn">import</span> <span class="n">migrations</span><span class="p">,</span> <span class="n">models</span>
 
@@ -596,7 +596,7 @@ document.write(`
 </section>
 <hr class="docutils" />
 <section id="two-step-migration-process">
-<h2>Two-step migration process<a class="headerlink" href="#two-step-migration-process" title="Link to this heading">#</a></h2>
+<h2><strong>Two-step migration process</strong><a class="headerlink" href="#two-step-migration-process" title="Link to this heading">#</a></h2>
 <p><strong>Step1:</strong> Create migration files</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>manage.py<span class="w"> </span>makemigrations
 </pre></div>
@@ -610,7 +610,7 @@ document.write(`
 </section>
 <hr class="docutils" />
 <section id="migration-commands-you-must-know">
-<h2>Migration commands you must know<a class="headerlink" href="#migration-commands-you-must-know" title="Link to this heading">#</a></h2>
+<h2><strong>Migration commands you must know</strong><a class="headerlink" href="#migration-commands-you-must-know" title="Link to this heading">#</a></h2>
 <div class="pst-scrollable-table-container"><table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Command</p></th>
@@ -647,11 +647,11 @@ python<span class="w"> </span>manage.py<span class="w"> </span>migrate
 <hr class="docutils" />
 <dl class="simple">
 <dt>Common beginner mistakes:</dt><dd><ul class="simple">
-<li><p>❌ Editing database manually</p></li>
-<li><p>❌ Forgetting to run migrate</p></li>
-<li><p>❌ Deleting migration files randomly</p></li>
-<li><p>❌ Running migrate without makemigrations</p></li>
-<li><p>❌ Using migrations as version control</p></li>
+<li><p>Editing database manually</p></li>
+<li><p>Forgetting to run migrate</p></li>
+<li><p>Deleting migration files randomly</p></li>
+<li><p>Running migrate without makemigrations</p></li>
+<li><p>Using migrations as version control</p></li>
 </ul>
 </dd>
 </dl>
@@ -681,11 +681,11 @@ python<span class="w"> </span>manage.py<span class="w"> </span>migrate
 <hr class="docutils" />
 <dl class="simple">
 <dt>Why migrations are powerful:</dt><dd><ul class="simple">
-<li><p>✅ Database versioning</p></li>
-<li><p>✅ Rollbacks</p></li>
-<li><p>✅ Team synchronization</p></li>
-<li><p>✅ Database-agnostic (SQLite → PostgreSQL → MySQL)</p></li>
-<li><p>✅ Production safe</p></li>
+<li><p>Database versioning</p></li>
+<li><p>Rollbacks</p></li>
+<li><p>Team synchronization</p></li>
+<li><p>Database-agnostic (SQLite → PostgreSQL → MySQL)</p></li>
+<li><p>Production safe</p></li>
 </ul>
 </dd>
 </dl>
@@ -737,15 +737,15 @@ python<span class="w"> </span>manage.py<span class="w"> </span>migrate
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-migrations-in-django">What is migrations/ in Django?</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#where-migrations-fits-in-django">Where migrations/ fits in Django</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#structure-of-migrations-folder">Structure of migrations/ folder</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-this-is-a-folder">Why this is a folder?</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#init-py-inside-migrations">__init__.py inside migrations</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#when-are-migration-files-created">When are migration files created?</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-inside-a-migration-file">What is inside a migration file?</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#two-step-migration-process">Two-step migration process</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#migration-commands-you-must-know">Migration commands you must know</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-migrations-in-django"><strong>What is migrations/ in Django?</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#where-migrations-fits-in-django"><strong>Where migrations/ fits in Django</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#structure-of-migrations-folder"><strong>Structure of migrations/ folder</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-this-is-a-folder"><strong>Why this is a folder?</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#init-py-inside-migrations"><strong>__init__.py inside migrations</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#when-are-migration-files-created"><strong>When are migration files created?</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-inside-a-migration-file"><strong>What is inside a migration file?</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#two-step-migration-process"><strong>Two-step migration process</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#migration-commands-you-must-know"><strong>Migration commands you must know</strong></a></li>
 </ul>
   </nav></div>
 

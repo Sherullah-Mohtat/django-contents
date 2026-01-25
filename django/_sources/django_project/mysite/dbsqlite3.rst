@@ -1,9 +1,9 @@
 db.sqlite3
 ============
 
-------------------------
-1. What is db.sqlite3?
-------------------------
+------------------------------
+**1. What is db.sqlite3?**
+------------------------------
 
 db.sqlite3 is the default SQLite database used by Django during development. It stores all application data in a single file and is suitable for learning and local testing.
 
@@ -17,9 +17,9 @@ Location:
 
 =======================================================================================================
 
----------------------------------------
-2. Why does Django create db.sqlite3?
----------------------------------------
+--------------------------------------------
+**2. Why does Django create db.sqlite3?**
+--------------------------------------------
 
 When you create a new Django project, Django configures SQLite as the default database because:
 	-  No installation required
@@ -31,9 +31,9 @@ Django automatically creates this file **after you run migrations.**
 
 =======================================================================================================
 
---------------------------------
-3. When is db.sqlite3 created?
---------------------------------
+--------------------------------------
+**3. When is db.sqlite3 created?**
+--------------------------------------
 
 The file appears when you run:
 
@@ -47,9 +47,9 @@ Django then:
 
 =======================================================================================================
 
-----------------------------------
-4. What does db.sqlite3 contain?
-----------------------------------
+---------------------------------------
+**4. What does db.sqlite3 contain?**
+---------------------------------------
 
 It stores all **project data**, including:
 	- Django system tables
@@ -66,9 +66,9 @@ Examples of tables inside:
 
 =======================================================================================================
 
--------------------------------
-5. How Django uses db.sqlite3
--------------------------------
+------------------------------------
+**5. How Django uses db.sqlite3**
+------------------------------------
 
 In settings.py, you’ll see:
 
@@ -86,9 +86,9 @@ This tells Django:
 	
 =======================================================================================================
 
-----------------------------
-6. How to view db.sqlite3
-----------------------------
+---------------------------------
+**6. How to view db.sqlite3**
+---------------------------------
 
 **Option 1:** Django shell
 
@@ -108,25 +108,25 @@ These tools let you:
 
 =======================================================================================================
 
---------------------------------
-7. What db.sqlite3 is GOOD for
---------------------------------
+-------------------------------------
+**7. What db.sqlite3 is GOOD for**
+-------------------------------------
 
-    - ✅ Learning Django
-    - ✅ Tutorials
-    - ✅ Small projects
-    - ✅ Local development
+    - Learning Django
+    - Tutorials
+    - Small projects
+    - Local development
 
 =======================================================================================================
 
--------------------------------------
-8. What db.sqlite3 is NOT good for
--------------------------------------
+------------------------------------------
+**8. What db.sqlite3 is NOT good for**
+------------------------------------------
 
-    - ❌ Production websites
-    - ❌ Multiple concurrent users
-    - ❌ High traffic
-    - ❌ Large datasets
+    - Production websites
+    - Multiple concurrent users
+    - High traffic
+    - Large datasets
 
 In production, Django commonly uses:
 	- PostgreSQL
@@ -134,9 +134,9 @@ In production, Django commonly uses:
 
 =======================================================================================================
 
--------------------------------------------
-9. Should db.sqlite3 be committed to Git?
--------------------------------------------
+--------------------------------------------------
+**9. Should db.sqlite3 be committed to Git?**
+--------------------------------------------------
 
 **Usually: NO**
 
@@ -153,9 +153,9 @@ Why?
 
 =======================================================================================================
 
---------------------------------------------
-10. What happens if you delete db.sqlite3?
---------------------------------------------
+--------------------------------------------------
+**10. What happens if you delete db.sqlite3?**
+--------------------------------------------------
 
 If you delete it:
 	- All data is lost

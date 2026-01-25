@@ -1,9 +1,9 @@
 views.py 
 ==========
 
--------------------
-What is views.py?
--------------------
+------------------------
+**What is views.py?**
+------------------------
 
 views.py answers this question:
     “When a URL is requested, what should Django do and what should it return?”
@@ -29,9 +29,9 @@ A view:
 
 ======================================================================================================================================
 
---------------------------
-Types of Views in Django
---------------------------
+--------------------------------
+**Types of Views in Django**
+--------------------------------
 
 There are two main types:
 	1.	**Function-Based Views (FBV)**  beginner-friendly
@@ -41,8 +41,8 @@ We’ll start with **Function-Based Views.**
 
 ======================================================================================================================================
 
-1) Function-Based Views (FBV)
--------------------------------
+**1) Function-Based Views (FBV)**
+-------------------------------------
 
 **What an FBV is**
 
@@ -139,20 +139,20 @@ Suppose you have a model Post.
             return redirect("post_list")
         return render(request, "myapp/post_form.html")
 
-✅ Easy to read.
+Easy to read.
 
-❌ Repetition grows when you build many CRUD pages.
+Repetition grows when you build many CRUD pages.
 
 ======================================================================================================================================
 
 **D) Pros / Cons of FBV**
 
-✅ Pros
+Pros
 	- Very easy to learn and debug
 	- Straight-line logic, clear flow
 	- Great for small pages and custom logic
 
-❌ Cons
+Cons
 	- Repetition for common CRUD patterns
 	- Harder to reuse behavior across many views
 	- You manually handle GET/POST patterns again and again
@@ -299,13 +299,13 @@ Now only logged-in users can access.
 
 **E) Pros / Cons of CBV**
 
-✅ Pros
+Pros
 	- Less repetition, especially for CRUD
 	- Clean, scalable for big apps
 	- Mixins allow reusable features (auth, permissions, etc.)
 	- Generic views save lots of code
 
-❌ Cons
+Cons
 	- Harder at the beginning
 	- Inheritance chain can confuse (where did this behavior come from?)
 	- Debugging sometimes needs deeper understanding
@@ -338,9 +338,9 @@ Now only logged-in users can access.
 
 ======================================================================================================================================
 
------------------------
-When to choose what?
------------------------
+---------------------------
+**When to choose what?**
+---------------------------
 
 Choose FBV when:
 	- You’re learning

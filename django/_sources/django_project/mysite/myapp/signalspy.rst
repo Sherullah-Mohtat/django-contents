@@ -1,14 +1,14 @@
 signals.py 
 ==============
 
------------------------------------------------
-What does “Register signals” mean in Django?
------------------------------------------------
+---------------------------------------------------
+**What does “Register signals” mean in Django?**
+---------------------------------------------------
 
 Registering signals means connecting Django events (like save or delete) to custom functions that run automatically when those events occur.
 
-First: What is a signal?
---------------------------
+**First: What is a signal?**
+-------------------------------
 
 A signal is Django’s way of saying:
     “Something happened — do you want to react to it?”
@@ -59,15 +59,15 @@ Some very common ones:
 
 =========================================================================================================================================
 
-What is registering a signal
----------------------------------
+**What is registering a signal**
+-------------------------------------
 
 Registering a signal = telling Django:
     “When THIS signal happens, run THIS function.”
 
 Without registration:
-    - ❌ Django doesn’t know your function exists
-    - ❌ Your signal code never runs
+    - Django doesn’t know your function exists
+    - Your signal code never runs
 
 =========================================================================================================================================
 
@@ -127,9 +127,9 @@ This line **registers the signals:**
 
 =========================================================================================================================================
 
-----------------------------------------
-Why register signals inside ready()?
-----------------------------------------
+--------------------------------------------
+**Why register signals inside ready()?**
+--------------------------------------------
 
 Because:
 	- Django loads apps lazily
@@ -140,15 +140,15 @@ Because:
 
 =========================================================================================================================================
 
-----------------------------------------------
-What happens if you don’t register signals?
-----------------------------------------------
+--------------------------------------------------
+**What happens if you don’t register signals?**
+--------------------------------------------------
 
-❌ Signal file exists
+Signal file exists
 
-❌ Code is correct
+Code is correct
 
-❌ Django never imports it
+Django never imports it
 
 ➡️ **Signal never fires**
 
@@ -165,11 +165,11 @@ Think like this:
 
 =========================================================================================================================================
 
-----------------------------------------
-Why not import signals in models.py?
-----------------------------------------
+--------------------------------------------
+**Why not import signals in models.py?**
+--------------------------------------------
 
-Bad idea ❌
+Bad idea 
 
 It can cause:
 	- Circular imports
@@ -177,30 +177,30 @@ It can cause:
 	- Hard-to-debug bugs
 
 Best practice:
-    ✅ Always register signals in apps.py → ready()
+    Always register signals in apps.py → ready()
 
 =========================================================================================================================================
 
--------------------------------
-When should you use signals?
--------------------------------
+----------------------------------
+**When should you use signals?**
+----------------------------------
 
-Good use cases ✅:
+Good use cases:
 	- Auto-create related objects (profile for user)
 	- Logging activity
 	- Sending notifications
 	- Keeping models in sync
 
-Bad use cases ❌:
+Bad use cases:
 	- Core business logic
 	- Complex workflows
 	- Things that must be explicit
 
 =========================================================================================================================================
 
----------------------------------
-Where to put signals in Django
----------------------------------
+-------------------------------------
+**Where to put signals in Django**
+-------------------------------------
 
 **Short answer (best practice)**
 
@@ -236,13 +236,13 @@ This is the **official, clean, production-safe Django pattern.**
 
 =========================================================================================================================================
 
--------------------------------------
-Why NOT put signals in other files?
--------------------------------------
+------------------------------------------
+**Why NOT put signals in other files?**
+------------------------------------------
 
 Let’s go through common mistakes 
 
-**❌ models.py (DON’T)**
+**models.py (DON’T)**
 
 .. code-block:: python 
 
@@ -256,7 +256,7 @@ Why bad?
 
 ----------------------------------------------------------------------------------------------------------------------------------------
 
-**❌ views.py (WRONG)**
+**views.py (WRONG)**
 
 Signals are:
 	- Model-level events
@@ -265,11 +265,11 @@ Signals are:
 Views are:
 	- HTTP request/response logic
 
-🚫 Mixing these breaks separation of concerns.
+Mixing these breaks separation of concerns.
 
 ----------------------------------------------------------------------------------------------------------------------------------------
 
-**❌ __init__.py (NO)**
+**__init__.py (NO)**
 
 This file should stay **minimal.**
 
@@ -279,7 +279,7 @@ Signals here can cause:
 
 =========================================================================================================================================
 
-**✅ Correct implementation (step by step)**
+**Correct implementation (step by step)**
 
 **1️⃣ Create signals.py**
 
@@ -331,9 +331,9 @@ In settings.py:
         'myapp.apps.MyappConfig',
     ]
 
-✅ This ensures ready() runs
+This ensures ready() runs
 
-❌ 'myapp' alone may skip signal registration in some setups
+'myapp' alone may skip signal registration in some setups
 
 ----------------------------------------------------------------------------------------------------------------------------------------
 

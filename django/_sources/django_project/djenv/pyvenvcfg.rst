@@ -1,7 +1,9 @@
 pyvenv.cfg 
 ============
 
-What is pyvenv.cfg?
+---------------------------
+**What is pyvenv.cfg?**
+---------------------------
 
 pyvenv.cfg is a configuration file that describes how the virtual environment was created.
 
@@ -14,7 +16,9 @@ Python reads this file **automatically** when the venv’s python starts.
 
 ==============================================================================================
 
+---------------------
 **Where it lives**
+---------------------
 
 In your project:
 
@@ -28,7 +32,9 @@ It belongs **only** to the virtual environment.
 
 ==============================================================================================
 
+-------------------------------------
 **Typical contents of pyvenv.cfg**
+-------------------------------------
 
 Open it and you’ll see something like:
 
@@ -87,7 +93,9 @@ It is informational:
 
 ==============================================================================================
 
+----------------------------------
 **How Python uses pyvenv.cfg**
+----------------------------------
 
 When you run:
 
@@ -106,16 +114,18 @@ Python:
 
 You never have to do this manually.
 
-❌ What NOT to do with pyvenv.cfg
-	- ❌ Don’t edit it manually
-	- ❌ Don’t commit it to Git
-	- ❌ Don’t copy it between projects
+What NOT to do with pyvenv.cfg
+	- Don’t edit it manually
+	- Don’t commit it to Git
+	- Don’t copy it between projects
 
 If something is wrong → recreate the venv.
 
 ==============================================================================================
 
+-----------------------------------
 **When does this file change?**
+-----------------------------------
 
 Only when:
 	- You recreate the venv

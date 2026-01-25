@@ -1,9 +1,9 @@
 include
 ==========
 
---------------------------------
-📂 djenv/include — what is it?
---------------------------------
+--------------------------------------
+**📂 djenv/include — what is it?**
+--------------------------------------
 
 include/ contains C header files for Python and native extensions.
 
@@ -23,9 +23,9 @@ Those headers live in djenv/include.
 
 ========================================================================================================
 
-----------------------------------------
-What you typically find inside include/
-----------------------------------------
+-----------------------------------------------
+**What you typically find inside include/**
+-----------------------------------------------
 
 Structure looks like:
 
@@ -45,7 +45,9 @@ These files define:
 
 ========================================================================================================
 
- When is include/ actually used?
+-----------------------------------------
+**When is include/ actually used?**
+-----------------------------------------
 
 You will only “use” include/ indirectly when:
 	- Installing packages like:
@@ -67,7 +69,7 @@ pip may compile C code and link against headers from:
 
     djenv/include/
 
-**❓ Do Django projects use include/ directly?**
+**Do Django projects use include/ directly?**
 
 No.
 	- Django itself is pure Python
@@ -76,9 +78,9 @@ No.
 
 Django just benefits indirectly if a dependency uses C.
 
-❌ What NOT to do
-	- ❌ Don’t open or edit files here
-	- ❌ Don’t import anything from include
-	- ❌ Don’t delete individual files
-	- ❌ Don’t commit this folder to Git
+What NOT to do
+	- Don’t open or edit files here
+	- Don’t import anything from include
+	- Don’t delete individual files
+	- Don’t commit this folder to Git
 

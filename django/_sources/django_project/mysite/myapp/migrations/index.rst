@@ -1,9 +1,9 @@
 migrations
 ============
 
----------------------------------
-What is migrations/ in Django?
----------------------------------
+--------------------------------------
+**What is migrations/ in Django?**
+--------------------------------------
 
 Short definition:
     Migrations are Django’s way of tracking and applying database schema changes.
@@ -16,9 +16,9 @@ Summary:
 
 =================================================================================================================================================
 
------------------------------------
-Where migrations/ fits in Django
------------------------------------
+----------------------------------------
+**Where migrations/ fits in Django**
+----------------------------------------
 
 Flow:
 
@@ -32,9 +32,9 @@ It **always** uses migrations.
 
 =================================================================================================================================================
 
-----------------------------------
-Structure of migrations/ folder
-----------------------------------
+---------------------------------------
+**Structure of migrations/ folder**
+---------------------------------------
 
 Inside your app:
 
@@ -45,17 +45,17 @@ Inside your app:
     │   ├── __init__.py
     │   └── 0001_initial.py   ← appears later
 
-------------------------
-Why this is a folder?
-------------------------
+----------------------------
+**Why this is a folder?**
+----------------------------
 
 Because Django stores **multiple migration files** over time.
 
 =================================================================================================================================================
 
--------------------------------
-__init__.py inside migrations
--------------------------------
+------------------------------------
+**__init__.py inside migrations**
+------------------------------------
 
 This file:
 
@@ -71,9 +71,9 @@ You **never touch this file**
 
 =================================================================================================================================================
 
------------------------------------
-When are migration files created?
------------------------------------
+-----------------------------------------
+**When are migration files created?**
+-----------------------------------------
 
 Migration files are created when:
 	#.	You write or change models
@@ -109,9 +109,9 @@ Django creates:
 
 =================================================================================================================================================
 
-------------------------------------
-What is inside a migration file?
-------------------------------------
+-----------------------------------------
+**What is inside a migration file?**
+-----------------------------------------
 
 Example 0001_initial.py:
 
@@ -143,9 +143,9 @@ This means:
 
 =================================================================================================================================================
 
-----------------------------
-Two-step migration process
-----------------------------
+---------------------------------
+**Two-step migration process**
+---------------------------------
 
 **Step1:** Create migration files
 
@@ -165,9 +165,10 @@ Creates files in migrations/
 
 =================================================================================================================================================
 
------------------------------------
-Migration commands you must know
------------------------------------
+----------------------------------------
+**Migration commands you must know**
+----------------------------------------
+
 .. list-table:: 
     :header-rows: 1
 
@@ -199,11 +200,11 @@ Repeat this **every time you change models.**
 =================================================================================================================================================
 
 Common beginner mistakes: 
-    - ❌ Editing database manually
-    - ❌ Forgetting to run migrate
-    - ❌ Deleting migration files randomly
-    - ❌ Running migrate without makemigrations
-    - ❌ Using migrations as version control
+    - Editing database manually
+    - Forgetting to run migrate
+    - Deleting migration files randomly
+    - Running migrate without makemigrations
+    - Using migrations as version control
 
 **Is it safe to delete migrations?**
 
@@ -224,11 +225,11 @@ Common beginner mistakes:
 =================================================================================================================================================
 
 Why migrations are powerful:
-    - ✅ Database versioning
-    - ✅ Rollbacks
-    - ✅ Team synchronization
-    - ✅ Database-agnostic (SQLite → PostgreSQL → MySQL)
-    - ✅ Production safe
+    - Database versioning
+    - Rollbacks
+    - Team synchronization
+    - Database-agnostic (SQLite → PostgreSQL → MySQL)
+    - Production safe
 
 
 

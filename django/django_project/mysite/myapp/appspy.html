@@ -455,14 +455,14 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-apps-py">What is apps.py?</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#default-apps-py-auto-generated">Default apps.py (auto-generated)</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-does-django-need-apps-py">Why does Django need apps.py?</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#connecting-apps-py-to-settings-py">Connecting apps.py to settings.py</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#where-to-put-startup-code">Where to put startup code?</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-should-not-go-in-apps-py">What should NOT go in apps.py?</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#real-world-mental-model">Real-world mental model</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#common-beginner-mistakes">Common beginner mistakes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-apps-py"><strong>What is apps.py?</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#default-apps-py-auto-generated"><strong>Default apps.py (auto-generated)</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-does-django-need-apps-py"><strong>Why does Django need apps.py?</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#connecting-apps-py-to-settings-py"><strong>Connecting apps.py to settings.py</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#where-to-put-startup-code"><strong>Where to put startup code?</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-should-not-go-in-apps-py"><strong>What should NOT go in apps.py?</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#real-world-mental-model"><strong>Real-world mental model</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#common-beginner-mistakes"><strong>Common beginner mistakes</strong></a></li>
 </ul>
             </nav>
         </div>
@@ -477,7 +477,7 @@ document.write(`
   <section id="apps-py">
 <h1>apps.py<a class="headerlink" href="#apps-py" title="Link to this heading">#</a></h1>
 <section id="what-is-apps-py">
-<h2>What is apps.py?<a class="headerlink" href="#what-is-apps-py" title="Link to this heading">#</a></h2>
+<h2><strong>What is apps.py?</strong><a class="headerlink" href="#what-is-apps-py" title="Link to this heading">#</a></h2>
 <p>apps.py defines configuration, startup behavior and metadata for a Django app.</p>
 <dl class="simple">
 <dt>It tells Django:</dt><dd><ul class="simple">
@@ -494,7 +494,7 @@ document.write(`
 </section>
 <hr class="docutils" />
 <section id="default-apps-py-auto-generated">
-<h2>Default apps.py (auto-generated)<a class="headerlink" href="#default-apps-py-auto-generated" title="Link to this heading">#</a></h2>
+<h2><strong>Default apps.py (auto-generated)</strong><a class="headerlink" href="#default-apps-py-auto-generated" title="Link to this heading">#</a></h2>
 <p>When you run:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>manage.py<span class="w"> </span>startapp<span class="w"> </span>myapp
 </pre></div>
@@ -550,7 +550,7 @@ document.write(`
 </section>
 <hr class="docutils" />
 <section id="why-does-django-need-apps-py">
-<h2>Why does Django need apps.py?<a class="headerlink" href="#why-does-django-need-apps-py" title="Link to this heading">#</a></h2>
+<h2><strong>Why does Django need apps.py?</strong><a class="headerlink" href="#why-does-django-need-apps-py" title="Link to this heading">#</a></h2>
 <dl class="simple">
 <dt>Django loads apps in this order:</dt><dd><ol class="arabic simple">
 <li><p>Reads INSTALLED_APPS</p></li>
@@ -563,15 +563,15 @@ document.write(`
 </section>
 <hr class="docutils" />
 <section id="connecting-apps-py-to-settings-py">
-<h2>Connecting apps.py to settings.py<a class="headerlink" href="#connecting-apps-py-to-settings-py" title="Link to this heading">#</a></h2>
+<h2><strong>Connecting apps.py to settings.py</strong><a class="headerlink" href="#connecting-apps-py-to-settings-py" title="Link to this heading">#</a></h2>
 <p>In settings.py:</p>
-<p>❌ Old style:</p>
+<p>Old style:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">INSTALLED_APPS</span> <span class="o">=</span> <span class="p">[</span>
     <span class="s1">&#39;myapp&#39;</span><span class="p">,</span>
 <span class="p">]</span>
 </pre></div>
 </div>
-<p>✅ Recommended:</p>
+<p>Recommended:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">INSTALLED_APPS</span> <span class="o">=</span> <span class="p">[</span>
     <span class="s1">&#39;myapp.apps.MyappConfig&#39;</span><span class="p">,</span>
 <span class="p">]</span>
@@ -588,9 +588,11 @@ document.write(`
 </section>
 <hr class="docutils" />
 <section id="where-to-put-startup-code">
-<h2>Where to put startup code?<a class="headerlink" href="#where-to-put-startup-code" title="Link to this heading">#</a></h2>
+<h2><strong>Where to put startup code?</strong><a class="headerlink" href="#where-to-put-startup-code" title="Link to this heading">#</a></h2>
 <p>If you need code to run <strong>when Django starts</strong>, use ready().</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">MyappConfig</span><span class="p">(</span><span class="n">AppConfig</span><span class="p">):</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># myapp/apps.py</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">django.apps</span><span class="w"> </span><span class="kn">import</span> <span class="n">AppConfig</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">MyappConfig</span><span class="p">(</span><span class="n">AppConfig</span><span class="p">):</span>
     <span class="n">default_auto_field</span> <span class="o">=</span> <span class="s1">&#39;django.db.models.BigAutoField&#39;</span>
     <span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;myapp&#39;</span>
 
@@ -609,16 +611,16 @@ document.write(`
 </section>
 <hr class="docutils" />
 <section id="what-should-not-go-in-apps-py">
-<h2>What should NOT go in apps.py?<a class="headerlink" href="#what-should-not-go-in-apps-py" title="Link to this heading">#</a></h2>
-<p>❌ Views</p>
-<p>❌ Models</p>
-<p>❌ Business logic</p>
-<p>❌ Database queries</p>
+<h2><strong>What should NOT go in apps.py?</strong><a class="headerlink" href="#what-should-not-go-in-apps-py" title="Link to this heading">#</a></h2>
+<p>Views</p>
+<p>Models</p>
+<p>Business logic</p>
+<p>Database queries</p>
 <p>apps.py is for <strong>configuration only.</strong></p>
 </section>
 <hr class="docutils" />
 <section id="real-world-mental-model">
-<h2>Real-world mental model<a class="headerlink" href="#real-world-mental-model" title="Link to this heading">#</a></h2>
+<h2><strong>Real-world mental model</strong><a class="headerlink" href="#real-world-mental-model" title="Link to this heading">#</a></h2>
 <dl class="simple">
 <dt>Think of apps.py as:</dt><dd><p>“App bootloader”</p>
 </dd>
@@ -632,7 +634,7 @@ document.write(`
 </section>
 <hr class="docutils" />
 <section id="common-beginner-mistakes">
-<h2>Common beginner mistakes<a class="headerlink" href="#common-beginner-mistakes" title="Link to this heading">#</a></h2>
+<h2><strong>Common beginner mistakes</strong><a class="headerlink" href="#common-beginner-mistakes" title="Link to this heading">#</a></h2>
 <div class="pst-scrollable-table-container"><table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Mistake</p></th>
@@ -700,14 +702,14 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-apps-py">What is apps.py?</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#default-apps-py-auto-generated">Default apps.py (auto-generated)</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-does-django-need-apps-py">Why does Django need apps.py?</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#connecting-apps-py-to-settings-py">Connecting apps.py to settings.py</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#where-to-put-startup-code">Where to put startup code?</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-should-not-go-in-apps-py">What should NOT go in apps.py?</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#real-world-mental-model">Real-world mental model</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#common-beginner-mistakes">Common beginner mistakes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-apps-py"><strong>What is apps.py?</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#default-apps-py-auto-generated"><strong>Default apps.py (auto-generated)</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-does-django-need-apps-py"><strong>Why does Django need apps.py?</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#connecting-apps-py-to-settings-py"><strong>Connecting apps.py to settings.py</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#where-to-put-startup-code"><strong>Where to put startup code?</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-should-not-go-in-apps-py"><strong>What should NOT go in apps.py?</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#real-world-mental-model"><strong>Real-world mental model</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#common-beginner-mistakes"><strong>Common beginner mistakes</strong></a></li>
 </ul>
   </nav></div>
 

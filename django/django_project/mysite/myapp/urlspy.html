@@ -455,11 +455,11 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-urls-py-in-an-app">What is urls.py (in an app)?</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#where-myapp-urls-py-fits-in-django">Where myapp/urls.py fits in Django</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#basic-structure-of-myapp-urls-py">Basic structure of myapp/urls.py</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#connect-app-urls-to-project-urls">Connect app URLs to project URLs</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#multiple-urls-in-myapp-urls-py">Multiple URLs in myapp/urls.py</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-urls-py-in-an-app"><strong>What is urls.py (in an app)?</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#where-myapp-urls-py-fits-in-django"><strong>Where myapp/urls.py fits in Django</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#basic-structure-of-myapp-urls-py"><strong>Basic structure of myapp/urls.py</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#connect-app-urls-to-project-urls"><strong>Connect app URLs to project URLs</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#multiple-urls-in-myapp-urls-py"><strong>Multiple URLs in myapp/urls.py</strong></a></li>
 </ul>
             </nav>
         </div>
@@ -474,7 +474,7 @@ document.write(`
   <section id="urls-py">
 <h1>urls.py<a class="headerlink" href="#urls-py" title="Link to this heading">#</a></h1>
 <section id="what-is-urls-py-in-an-app">
-<h2>What is urls.py (in an app)?<a class="headerlink" href="#what-is-urls-py-in-an-app" title="Link to this heading">#</a></h2>
+<h2><strong>What is urls.py (in an app)?</strong><a class="headerlink" href="#what-is-urls-py-in-an-app" title="Link to this heading">#</a></h2>
 <dl class="simple">
 <dt>urls.py answers this question:</dt><dd><p>When a user opens a URL, which view should run?</p>
 </dd>
@@ -487,7 +487,7 @@ document.write(`
 </section>
 <hr class="docutils" />
 <section id="where-myapp-urls-py-fits-in-django">
-<h2>Where myapp/urls.py fits in Django<a class="headerlink" href="#where-myapp-urls-py-fits-in-django" title="Link to this heading">#</a></h2>
+<h2><strong>Where myapp/urls.py fits in Django</strong><a class="headerlink" href="#where-myapp-urls-py-fits-in-django" title="Link to this heading">#</a></h2>
 <p>There are <strong>two levels of URLs:</strong></p>
 <dl class="simple">
 <dt>1️⃣ Project-level (mysite/urls.py)</dt><dd><ul class="simple">
@@ -504,7 +504,7 @@ document.write(`
 </section>
 <hr class="docutils" />
 <section id="basic-structure-of-myapp-urls-py">
-<h2>Basic structure of myapp/urls.py<a class="headerlink" href="#basic-structure-of-myapp-urls-py" title="Link to this heading">#</a></h2>
+<h2><strong>Basic structure of myapp/urls.py</strong><a class="headerlink" href="#basic-structure-of-myapp-urls-py" title="Link to this heading">#</a></h2>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">django.urls</span><span class="w"> </span><span class="kn">import</span> <span class="n">path</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">.</span><span class="w"> </span><span class="kn">import</span> <span class="n">views</span>
 
@@ -548,7 +548,7 @@ document.write(`
 </section>
 <hr class="docutils" />
 <section id="connect-app-urls-to-project-urls">
-<h2>Connect app URLs to project URLs<a class="headerlink" href="#connect-app-urls-to-project-urls" title="Link to this heading">#</a></h2>
+<h2><strong>Connect app URLs to project URLs</strong><a class="headerlink" href="#connect-app-urls-to-project-urls" title="Link to this heading">#</a></h2>
 <p>mysite/urls.py</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">django.contrib</span><span class="w"> </span><span class="kn">import</span> <span class="n">admin</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">django.urls</span><span class="w"> </span><span class="kn">import</span> <span class="n">path</span><span class="p">,</span> <span class="n">include</span>
@@ -588,7 +588,7 @@ document.write(`
 </section>
 <hr class="docutils" />
 <section id="multiple-urls-in-myapp-urls-py">
-<h2>Multiple URLs in myapp/urls.py<a class="headerlink" href="#multiple-urls-in-myapp-urls-py" title="Link to this heading">#</a></h2>
+<h2><strong>Multiple URLs in myapp/urls.py</strong><a class="headerlink" href="#multiple-urls-in-myapp-urls-py" title="Link to this heading">#</a></h2>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">urlpatterns</span> <span class="o">=</span> <span class="p">[</span>
     <span class="n">path</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">views</span><span class="o">.</span><span class="n">home</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;home&quot;</span><span class="p">),</span>
     <span class="n">path</span><span class="p">(</span><span class="s2">&quot;about/&quot;</span><span class="p">,</span> <span class="n">views</span><span class="o">.</span><span class="n">about</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;about&quot;</span><span class="p">),</span>
@@ -635,9 +635,9 @@ HTML<span class="w"> </span>/<span class="w"> </span>JSON<span class="w"> </span
 </div>
 <hr class="docutils" />
 <p><strong>Common Mistakes</strong></p>
-<p>❌ Forgetting to include app URLs in project</p>
-<p>❌ Writing logic in urls.py</p>
-<p>❌ Hardcoding URLs instead of using names</p>
+<p>Forgetting to include app URLs in project</p>
+<p>Writing logic in urls.py</p>
+<p>Hardcoding URLs instead of using names</p>
 <p><strong>Best Practice (Production)</strong></p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>myapp/
 <span class="w">    </span>urls.py
@@ -696,11 +696,11 @@ HTML<span class="w"> </span>/<span class="w"> </span>JSON<span class="w"> </span
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-urls-py-in-an-app">What is urls.py (in an app)?</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#where-myapp-urls-py-fits-in-django">Where myapp/urls.py fits in Django</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#basic-structure-of-myapp-urls-py">Basic structure of myapp/urls.py</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#connect-app-urls-to-project-urls">Connect app URLs to project URLs</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#multiple-urls-in-myapp-urls-py">Multiple URLs in myapp/urls.py</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-urls-py-in-an-app"><strong>What is urls.py (in an app)?</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#where-myapp-urls-py-fits-in-django"><strong>Where myapp/urls.py fits in Django</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#basic-structure-of-myapp-urls-py"><strong>Basic structure of myapp/urls.py</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#connect-app-urls-to-project-urls"><strong>Connect app URLs to project URLs</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#multiple-urls-in-myapp-urls-py"><strong>Multiple URLs in myapp/urls.py</strong></a></li>
 </ul>
   </nav></div>
 

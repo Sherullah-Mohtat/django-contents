@@ -1,9 +1,10 @@
 mysite 
 =========
 
---------------------------
-1. What is this mysite/?
---------------------------
+-------------------------------
+**1. What is this mysite/?**
+-------------------------------
+
 The **inner mysite/ directory** is the configuration package for a Django project. It contains global settings, URL routing, and server interface definitions required to run the application.
 
 Location:
@@ -24,9 +25,9 @@ This folder is:
 
 ========================================================================================================
 
----------------------------------------
-2. Why does Django need this folder?
----------------------------------------
+-------------------------------------------
+**2. Why does Django need this folder?**
+-------------------------------------------
 
 Django needs a **central place** to define:
 	- Project settings
@@ -133,9 +134,9 @@ The **inner mysite/** is referenced everywhere.
 
 
 What you should NOT do
-	- ❌ Don’t delete this folder
-	- ❌ Don’t rename it without updating settings
-	- ❌ Don’t move files out of it randomly
+	- Don’t delete this folder
+	- Don’t rename it without updating settings
+	- Don’t move files out of it randomly
 
 
 

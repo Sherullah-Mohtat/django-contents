@@ -455,17 +455,17 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-does-register-signals-mean-in-django">What does “Register signals” mean in Django?</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#first-what-is-a-signal">First: What is a signal?</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-registering-a-signal">What is registering a signal</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-does-register-signals-mean-in-django"><strong>What does “Register signals” mean in Django?</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#first-what-is-a-signal"><strong>First: What is a signal?</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-registering-a-signal"><strong>What is registering a signal</strong></a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-register-signals-inside-ready">Why register signals inside ready()?</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-happens-if-you-dont-register-signals">What happens if you don’t register signals?</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-not-import-signals-in-models-py">Why not import signals in models.py?</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#when-should-you-use-signals">When should you use signals?</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#where-to-put-signals-in-django">Where to put signals in Django</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-not-put-signals-in-other-files">Why NOT put signals in other files?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-register-signals-inside-ready"><strong>Why register signals inside ready()?</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-happens-if-you-dont-register-signals"><strong>What happens if you don’t register signals?</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-not-import-signals-in-models-py"><strong>Why not import signals in models.py?</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#when-should-you-use-signals"><strong>When should you use signals?</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#where-to-put-signals-in-django"><strong>Where to put signals in Django</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-not-put-signals-in-other-files"><strong>Why NOT put signals in other files?</strong></a></li>
 </ul>
             </nav>
         </div>
@@ -480,10 +480,10 @@ document.write(`
   <section id="signals-py">
 <h1>signals.py<a class="headerlink" href="#signals-py" title="Link to this heading">#</a></h1>
 <section id="what-does-register-signals-mean-in-django">
-<h2>What does “Register signals” mean in Django?<a class="headerlink" href="#what-does-register-signals-mean-in-django" title="Link to this heading">#</a></h2>
+<h2><strong>What does “Register signals” mean in Django?</strong><a class="headerlink" href="#what-does-register-signals-mean-in-django" title="Link to this heading">#</a></h2>
 <p>Registering signals means connecting Django events (like save or delete) to custom functions that run automatically when those events occur.</p>
 <section id="first-what-is-a-signal">
-<h3>First: What is a signal?<a class="headerlink" href="#first-what-is-a-signal" title="Link to this heading">#</a></h3>
+<h3><strong>First: What is a signal?</strong><a class="headerlink" href="#first-what-is-a-signal" title="Link to this heading">#</a></h3>
 <dl class="simple">
 <dt>A signal is Django’s way of saying:</dt><dd><p>“Something happened — do you want to react to it?”</p>
 </dd>
@@ -543,13 +543,13 @@ document.write(`
 </section>
 <hr class="docutils" />
 <section id="what-is-registering-a-signal">
-<h3>What is registering a signal<a class="headerlink" href="#what-is-registering-a-signal" title="Link to this heading">#</a></h3>
+<h3><strong>What is registering a signal</strong><a class="headerlink" href="#what-is-registering-a-signal" title="Link to this heading">#</a></h3>
 <dl class="simple">
 <dt>Registering a signal = telling Django:</dt><dd><p>“When THIS signal happens, run THIS function.”</p>
 </dd>
 <dt>Without registration:</dt><dd><ul class="simple">
-<li><p>❌ Django doesn’t know your function exists</p></li>
-<li><p>❌ Your signal code never runs</p></li>
+<li><p>Django doesn’t know your function exists</p></li>
+<li><p>Your signal code never runs</p></li>
 </ul>
 </dd>
 </dl>
@@ -602,7 +602,7 @@ document.write(`
 </section>
 <hr class="docutils" />
 <section id="why-register-signals-inside-ready">
-<h2>Why register signals inside ready()?<a class="headerlink" href="#why-register-signals-inside-ready" title="Link to this heading">#</a></h2>
+<h2><strong>Why register signals inside ready()?</strong><a class="headerlink" href="#why-register-signals-inside-ready" title="Link to this heading">#</a></h2>
 <dl class="simple">
 <dt>Because:</dt><dd><ul class="simple">
 <li><p>Django loads apps lazily</p></li>
@@ -615,10 +615,10 @@ document.write(`
 </section>
 <hr class="docutils" />
 <section id="what-happens-if-you-dont-register-signals">
-<h2>What happens if you don’t register signals?<a class="headerlink" href="#what-happens-if-you-dont-register-signals" title="Link to this heading">#</a></h2>
-<p>❌ Signal file exists</p>
-<p>❌ Code is correct</p>
-<p>❌ Django never imports it</p>
+<h2><strong>What happens if you don’t register signals?</strong><a class="headerlink" href="#what-happens-if-you-dont-register-signals" title="Link to this heading">#</a></h2>
+<p>Signal file exists</p>
+<p>Code is correct</p>
+<p>Django never imports it</p>
 <p>➡️ <strong>Signal never fires</strong></p>
 <p>This is one of the <strong>most common Django mistakes.</strong></p>
 <hr class="docutils" />
@@ -634,8 +634,8 @@ document.write(`
 </section>
 <hr class="docutils" />
 <section id="why-not-import-signals-in-models-py">
-<h2>Why not import signals in models.py?<a class="headerlink" href="#why-not-import-signals-in-models-py" title="Link to this heading">#</a></h2>
-<p>Bad idea ❌</p>
+<h2><strong>Why not import signals in models.py?</strong><a class="headerlink" href="#why-not-import-signals-in-models-py" title="Link to this heading">#</a></h2>
+<p>Bad idea</p>
 <dl class="simple">
 <dt>It can cause:</dt><dd><ul class="simple">
 <li><p>Circular imports</p></li>
@@ -643,22 +643,22 @@ document.write(`
 <li><p>Hard-to-debug bugs</p></li>
 </ul>
 </dd>
-<dt>Best practice:</dt><dd><p>✅ Always register signals in apps.py → ready()</p>
+<dt>Best practice:</dt><dd><p>Always register signals in apps.py → ready()</p>
 </dd>
 </dl>
 </section>
 <hr class="docutils" />
 <section id="when-should-you-use-signals">
-<h2>When should you use signals?<a class="headerlink" href="#when-should-you-use-signals" title="Link to this heading">#</a></h2>
+<h2><strong>When should you use signals?</strong><a class="headerlink" href="#when-should-you-use-signals" title="Link to this heading">#</a></h2>
 <dl class="simple">
-<dt>Good use cases ✅:</dt><dd><ul class="simple">
+<dt>Good use cases:</dt><dd><ul class="simple">
 <li><p>Auto-create related objects (profile for user)</p></li>
 <li><p>Logging activity</p></li>
 <li><p>Sending notifications</p></li>
 <li><p>Keeping models in sync</p></li>
 </ul>
 </dd>
-<dt>Bad use cases ❌:</dt><dd><ul class="simple">
+<dt>Bad use cases:</dt><dd><ul class="simple">
 <li><p>Core business logic</p></li>
 <li><p>Complex workflows</p></li>
 <li><p>Things that must be explicit</p></li>
@@ -668,7 +668,7 @@ document.write(`
 </section>
 <hr class="docutils" />
 <section id="where-to-put-signals-in-django">
-<h2>Where to put signals in Django<a class="headerlink" href="#where-to-put-signals-in-django" title="Link to this heading">#</a></h2>
+<h2><strong>Where to put signals in Django</strong><a class="headerlink" href="#where-to-put-signals-in-django" title="Link to this heading">#</a></h2>
 <p><strong>Short answer (best practice)</strong></p>
 <p><strong>Put signals in:</strong></p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>myapp/signals.py
@@ -695,9 +695,9 @@ document.write(`
 </section>
 <hr class="docutils" />
 <section id="why-not-put-signals-in-other-files">
-<h2>Why NOT put signals in other files?<a class="headerlink" href="#why-not-put-signals-in-other-files" title="Link to this heading">#</a></h2>
+<h2><strong>Why NOT put signals in other files?</strong><a class="headerlink" href="#why-not-put-signals-in-other-files" title="Link to this heading">#</a></h2>
 <p>Let’s go through common mistakes</p>
-<p><strong>❌ models.py (DON’T)</strong></p>
+<p><strong>models.py (DON’T)</strong></p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># BAD PRACTICE</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">django.db.models.signals</span><span class="w"> </span><span class="kn">import</span> <span class="n">post_save</span>
 </pre></div>
@@ -711,7 +711,7 @@ document.write(`
 </dd>
 </dl>
 <hr class="docutils" />
-<p><strong>❌ views.py (WRONG)</strong></p>
+<p><strong>views.py (WRONG)</strong></p>
 <dl class="simple">
 <dt>Signals are:</dt><dd><ul class="simple">
 <li><p>Model-level events</p></li>
@@ -723,9 +723,9 @@ document.write(`
 </ul>
 </dd>
 </dl>
-<p>🚫 Mixing these breaks separation of concerns.</p>
+<p>Mixing these breaks separation of concerns.</p>
 <hr class="docutils" />
-<p><strong>❌ __init__.py (NO)</strong></p>
+<p><strong>__init__.py (NO)</strong></p>
 <p>This file should stay <strong>minimal.</strong></p>
 <dl class="simple">
 <dt>Signals here can cause:</dt><dd><ul class="simple">
@@ -735,7 +735,7 @@ document.write(`
 </dd>
 </dl>
 <hr class="docutils" />
-<p><strong>✅ Correct implementation (step by step)</strong></p>
+<p><strong>Correct implementation (step by step)</strong></p>
 <p><strong>1️⃣ Create signals.py</strong></p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># myapp/signals.py</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">django.db.models.signals</span><span class="w"> </span><span class="kn">import</span> <span class="n">post_save</span>
@@ -775,8 +775,8 @@ document.write(`
 <span class="p">]</span>
 </pre></div>
 </div>
-<p>✅ This ensures ready() runs</p>
-<p>❌ ‘myapp’ alone may skip signal registration in some setups</p>
+<p>This ensures ready() runs</p>
+<p>‘myapp’ alone may skip signal registration in some setups</p>
 <hr class="docutils" />
 <p>Django does <strong>not auto-load</strong> signals.py.</p>
 <dl class="simple">
@@ -858,17 +858,17 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-does-register-signals-mean-in-django">What does “Register signals” mean in Django?</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#first-what-is-a-signal">First: What is a signal?</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-registering-a-signal">What is registering a signal</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-does-register-signals-mean-in-django"><strong>What does “Register signals” mean in Django?</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#first-what-is-a-signal"><strong>First: What is a signal?</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-registering-a-signal"><strong>What is registering a signal</strong></a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-register-signals-inside-ready">Why register signals inside ready()?</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-happens-if-you-dont-register-signals">What happens if you don’t register signals?</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-not-import-signals-in-models-py">Why not import signals in models.py?</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#when-should-you-use-signals">When should you use signals?</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#where-to-put-signals-in-django">Where to put signals in Django</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-not-put-signals-in-other-files">Why NOT put signals in other files?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-register-signals-inside-ready"><strong>Why register signals inside ready()?</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-happens-if-you-dont-register-signals"><strong>What happens if you don’t register signals?</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-not-import-signals-in-models-py"><strong>Why not import signals in models.py?</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#when-should-you-use-signals"><strong>When should you use signals?</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#where-to-put-signals-in-django"><strong>Where to put signals in Django</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-not-put-signals-in-other-files"><strong>Why NOT put signals in other files?</strong></a></li>
 </ul>
   </nav></div>
 

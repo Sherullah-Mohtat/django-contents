@@ -455,15 +455,16 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-mysite">What is mysite?</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#outer-mysite-project-root">1️⃣ Outer mysite/ (Project root)</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#manage-py-command-center">2️⃣ manage.py (command center)</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#db-sqlite3-default-database">3️⃣ db.sqlite3 (default database)</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#myapp-django-app">4️⃣ myapp/ (Django app)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-mysite"><strong>What is mysite?</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#outer-mysite-project-root"><strong>1️⃣ Outer mysite/ (Project root)</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#manage-py-command-center"><strong>2️⃣ manage.py (command center)</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#db-sqlite3-default-database"><strong>3️⃣ db.sqlite3 (default database)</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#myapp-django-app"><strong>4️⃣ myapp/ (Django app)</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#inner-mysite-django-configuration-package"><strong>5️⃣ Inner mysite/ (Django configuration package)</strong></a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-are-there-two-mysite-folders">Why are there TWO mysite folders?</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-django-uses-mysite">How Django uses mysite</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-are-there-two-mysite-folders"><strong>Why are there TWO mysite folders?</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-django-uses-mysite"><strong>How Django uses mysite</strong></a></li>
 </ul>
             </nav>
         </div>
@@ -478,7 +479,7 @@ document.write(`
   <section id="mysite">
 <h1>mysite<a class="headerlink" href="#mysite" title="Link to this heading">#</a></h1>
 <section id="what-is-mysite">
-<h2>What is mysite?<a class="headerlink" href="#what-is-mysite" title="Link to this heading">#</a></h2>
+<h2><strong>What is mysite?</strong><a class="headerlink" href="#what-is-mysite" title="Link to this heading">#</a></h2>
 <p>mysite is the Django project directory that contains apps, the database, and a nested configuration package used by Django to run the project.</p>
 <p>In project, <strong>mysite appears twice</strong>, and this is <strong>intentional.</strong></p>
 <p>Structure:</p>
@@ -494,17 +495,17 @@ document.write(`
 <p>Let’s break this down carefully.</p>
 <hr class="docutils" />
 <section id="outer-mysite-project-root">
-<h3>1️⃣ Outer mysite/ (Project root)<a class="headerlink" href="#outer-mysite-project-root" title="Link to this heading">#</a></h3>
+<h3><strong>1️⃣ Outer mysite/ (Project root)</strong><a class="headerlink" href="#outer-mysite-project-root" title="Link to this heading">#</a></h3>
 <p>This folder is created when you run.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>django-admin<span class="w"> </span>startproject<span class="w"> </span>mysite
 </pre></div>
 </div>
 <dl class="simple">
 <dt>This outer mysite/ is:</dt><dd><ul class="simple">
-<li><p>✅ The Django project root</p></li>
-<li><p>✅ Where you run Django commands</p></li>
-<li><p>❌ NOT a Python package</p></li>
-<li><p>❌ NOT imported in code</p></li>
+<li><p>The Django project root</p></li>
+<li><p>Where you run Django commands</p></li>
+<li><p>NOT a Python package</p></li>
+<li><p>NOT imported in code</p></li>
 </ul>
 </dd>
 <dt>It contains:</dt><dd><ul class="simple">
@@ -518,7 +519,7 @@ document.write(`
 </section>
 <hr class="docutils" />
 <section id="manage-py-command-center">
-<h3>2️⃣ manage.py (command center)<a class="headerlink" href="#manage-py-command-center" title="Link to this heading">#</a></h3>
+<h3><strong>2️⃣ manage.py (command center)</strong><a class="headerlink" href="#manage-py-command-center" title="Link to this heading">#</a></h3>
 <p>Location:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mysite/manage.py
 </pre></div>
@@ -537,7 +538,7 @@ python<span class="w"> </span>manage.py<span class="w"> </span>createsuperuser
 </section>
 <hr class="docutils" />
 <section id="db-sqlite3-default-database">
-<h3>3️⃣ db.sqlite3 (default database)<a class="headerlink" href="#db-sqlite3-default-database" title="Link to this heading">#</a></h3>
+<h3><strong>3️⃣ db.sqlite3 (default database)</strong><a class="headerlink" href="#db-sqlite3-default-database" title="Link to this heading">#</a></h3>
 <p>Location:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mysite/db.sqlite3
 </pre></div>
@@ -557,7 +558,7 @@ python<span class="w"> </span>manage.py<span class="w"> </span>createsuperuser
 </section>
 <hr class="docutils" />
 <section id="myapp-django-app">
-<h3>4️⃣ myapp/ (Django app)<a class="headerlink" href="#myapp-django-app" title="Link to this heading">#</a></h3>
+<h3><strong>4️⃣ myapp/ (Django app)</strong><a class="headerlink" href="#myapp-django-app" title="Link to this heading">#</a></h3>
 <p>Location:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mysite/myapp/
 </pre></div>
@@ -572,8 +573,10 @@ python<span class="w"> </span>manage.py<span class="w"> </span>createsuperuser
 </dd>
 </dl>
 <p>Django projects are <strong>collections of apps</strong>.</p>
+</section>
 <hr class="docutils" />
-<p>5️⃣ Inner mysite/ (Django configuration package)</p>
+<section id="inner-mysite-django-configuration-package">
+<h3><strong>5️⃣ Inner mysite/ (Django configuration package)</strong><a class="headerlink" href="#inner-mysite-django-configuration-package" title="Link to this heading">#</a></h3>
 <p>Location:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mysite/mysite/
 </pre></div>
@@ -600,7 +603,7 @@ python<span class="w"> </span>manage.py<span class="w"> </span>createsuperuser
 </section>
 <hr class="docutils" />
 <section id="why-are-there-two-mysite-folders">
-<h2>Why are there TWO mysite folders?<a class="headerlink" href="#why-are-there-two-mysite-folders" title="Link to this heading">#</a></h2>
+<h2><strong>Why are there TWO mysite folders?</strong><a class="headerlink" href="#why-are-there-two-mysite-folders" title="Link to this heading">#</a></h2>
 <p>This confuses almost everyone at first</p>
 <p>Here’s the reason:</p>
 <div class="pst-scrollable-table-container"><table class="table">
@@ -631,7 +634,7 @@ python<span class="w"> </span>manage.py<span class="w"> </span>createsuperuser
 </section>
 <hr class="docutils" />
 <section id="how-django-uses-mysite">
-<h2>How Django uses mysite<a class="headerlink" href="#how-django-uses-mysite" title="Link to this heading">#</a></h2>
+<h2><strong>How Django uses mysite</strong><a class="headerlink" href="#how-django-uses-mysite" title="Link to this heading">#</a></h2>
 <p>When you run:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>manage.py<span class="w"> </span>runserver
 </pre></div>
@@ -658,7 +661,7 @@ python<span class="w"> </span>manage.py<span class="w"> </span>createsuperuser
 </dl>
 <hr class="docutils" />
 <dl class="simple">
-<dt>❌ Common beginner mistakes</dt><dd><ul class="simple">
+<dt>Common beginner mistakes</dt><dd><ul class="simple">
 <li><p>Editing files in the wrong mysite</p></li>
 <li><p>Thinking outer mysite is imported</p></li>
 <li><p>Deleting manage.py</p></li>
@@ -717,15 +720,16 @@ python<span class="w"> </span>manage.py<span class="w"> </span>createsuperuser
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-mysite">What is mysite?</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#outer-mysite-project-root">1️⃣ Outer mysite/ (Project root)</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#manage-py-command-center">2️⃣ manage.py (command center)</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#db-sqlite3-default-database">3️⃣ db.sqlite3 (default database)</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#myapp-django-app">4️⃣ myapp/ (Django app)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-mysite"><strong>What is mysite?</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#outer-mysite-project-root"><strong>1️⃣ Outer mysite/ (Project root)</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#manage-py-command-center"><strong>2️⃣ manage.py (command center)</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#db-sqlite3-default-database"><strong>3️⃣ db.sqlite3 (default database)</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#myapp-django-app"><strong>4️⃣ myapp/ (Django app)</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#inner-mysite-django-configuration-package"><strong>5️⃣ Inner mysite/ (Django configuration package)</strong></a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-are-there-two-mysite-folders">Why are there TWO mysite folders?</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-django-uses-mysite">How Django uses mysite</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-are-there-two-mysite-folders"><strong>Why are there TWO mysite folders?</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-django-uses-mysite"><strong>How Django uses mysite</strong></a></li>
 </ul>
   </nav></div>
 

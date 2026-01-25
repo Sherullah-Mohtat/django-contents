@@ -1,0 +1,989 @@
+ 
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Django Model Field Types &#8212; Django</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=873836d9" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/style.css?v=d6ed2d86" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=52fd3798" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/ad_style.css?v=34d129f9" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/navbar-scroll.css?v=4d5946c0" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=f9c1cefe"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'tutorials/.field_types';</script>
+    <script src="../_static/js/custom.js?v=6f0278c6"></script>
+    <script src="../_static/js/navbar-scroll.js?v=cb524ae2"></script>
+    <link rel="icon" href="../_static/sherullah.png"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+<!-- Google Tag Manager (noscript) -->
+<noscript
+  ><iframe
+    src="https://www.googletagmanager.com/ns.html?id=GTM-P4GQM59"
+    height="0"
+    width="0"
+    style="display: none; visibility: hidden"
+  ></iframe
+></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<nav class="dask-nav container-fluid">
+  <ul>
+    <li class="logo">
+      <a href="https://docs.dask.org/">
+        <img
+          class="caption"
+          src="../_static/images/dask-horizontal-white.svg"
+        />
+      </a>
+    </li>
+
+    <li>
+      <a href="https://docs.dask.org/">Dask</a>
+    </li>
+
+    <li>
+      <a href="https://distributed.dask.org/">Distributed</a>
+    </li>
+
+    <li>
+      <a href="https://ml.dask.org/">Dask ML</a>
+    </li>
+
+    <li>
+      <a href="https://examples.dask.org/">Examples</a>
+    </li>
+
+    <li>
+      <a href="https://docs.dask.org/en/latest/ecosystem.html">Ecosystem</a>
+    </li>
+
+    <li>
+      <a href="https://docs.dask.org/en/latest/support.html">Community</a>
+    </li>
+  </ul>
+</nav>
+
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+<nav class="dask-nav container-fluid navbar-scroll-wrap">
+
+    <!-- Left arrow -->
+  <button class="scroll-btn scroll-left" id="navLeft" aria-label="Scroll left">
+    &#10094;
+  </button>
+
+  <ul class="nav-scroll" id="nav-scroll">
+
+    <!-- 🔥 Home = external site -->
+    <li>
+      <a href="https://sherullah.com/" target="_blank" rel="noopener" class="nav-icon">
+        <img src="../_static/images/logo/home48.png" alt="Home" />
+      </a>
+    </li>
+
+    <!-- 🔥 FLUTTER = external docs -->
+    <li>
+      <a href="https://sherullah.com/flutter-contents/flutter/"
+        target="_blank"
+        rel="noopener">
+        FLUTTER
+      </a>
+    </li> 
+    
+    <!--
+    <li>
+      <a href="https://sherullah.com/firebase-contents/firebase/"
+        target="_blank"
+        rel="noopener">
+        FIREBASE
+      </a>
+    </li> 
+
+    <li>
+      <a href="https://sherullah.com/dart-contents/dart/"
+        target="_blank"
+        rel="noopener">
+        DART
+      </a>
+    </li> 
+  -->
+
+    <!-- pathto inside repository project-->
+    <li class="">
+      <a href="../index.html">DJANGO</a>
+    </li>
+<!--
+    <li>
+      <a href="https://sherullah.com/python-contents/python/"
+        target="_blank"
+        rel="noopener">
+        PYTHON
+      </a>
+    </li> 
+  -->
+
+    <li>
+      <a href="https://sherullah.com/postgresql-contents/postgresql/"
+        target="_blank"
+        rel="noopener">
+        POSTGRESQL
+      </a>
+    </li> 
+
+ <!--
+     <li>
+      <a href="https://sherullah.com/mongodb-contents/mongodb/"
+        target="_blank"
+        rel="noopener">
+        MONGODB
+      </a>
+    </li> 
+
+    <li>
+      <a href="https://sherullah.com/git-contents/git/"
+        target="_blank"
+        rel="noopener">
+        GIT
+      </a>
+    </li> 
+
+    <li>
+      <a href="https://sherullah.com/github-contents/github/"
+        target="_blank"
+        rel="noopener">
+        GITHUB
+      </a>
+    </li> 
+
+    <li>
+      <a href="https://sherullah.com/docker-contents/docker/"
+        target="_blank"
+        rel="noopener">
+        DOCKER
+      </a>
+    </li> 
+
+    <li>
+      <a href="https://sherullah.com/kubernetes-contents/kubernetes/"
+        target="_blank"
+        rel="noopener">
+        KUBERNETES
+      </a>
+     </li> 
+    -->
+
+  </ul>
+
+
+    <!-- Right arrow -->
+  <button class="scroll-btn scroll-right" id="navRight" aria-label="Scroll right">
+    &#10095;
+  </button>
+</nav>
+
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="_static/images/dask-horizontal-white.svg">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Django</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Project Explanations</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../django_project/index.html">Django-Project</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../django_project/djenv/index.html">djenv</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../django_project/djenv/bin/index.html">bin</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../django_project/djenv/include/index.html">include</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../django_project/djenv/lib/index.html">lib</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../django_project/djenv/.gitignore.html">.gitignore</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../django_project/djenv/pyvenvcfg.html">pyvenv.cfg</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../django_project/mysite/index.html">mysite</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../django_project/mysite/myapp/index.html">myapp</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../django_project/mysite/myapp/migrations/index.html">migrations</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../django_project/mysite/myapp/__init__py.html">__init__.py</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../django_project/mysite/myapp/adminpy.html">admin.py</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../django_project/mysite/myapp/appspy.html">apps.py</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../django_project/mysite/myapp/modelspy.html">models.py</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../django_project/mysite/myapp/signalspy.html">signals.py</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../django_project/mysite/myapp/testspy.html">tests.py</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../django_project/mysite/myapp/urlspy.html">urls.py</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../django_project/mysite/myapp/viewspy.html">views.py</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../django_project/mysite/mysite/index.html">mysite</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../django_project/mysite/mysite/__init__py.html">__init__.py</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../django_project/mysite/mysite/asgipy.html">asgi.py</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../django_project/mysite/mysite/settingspy.html">settings.py</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../django_project/mysite/mysite/urlspy.html">urls.py</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../django_project/mysite/mysite/wsgipy.html">wsgi.py</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3"><a class="reference internal" href="../django_project/mysite/dbsqlite3.html">db.sqlite3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../django_project/mysite/managepy.html">manage.py</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Django Model Field Types</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#text-string-fields"><strong>📝 Text &amp; String Fields</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#numeric-fields"><strong>🔢 Numeric Fields</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#boolean-logical"><strong>Boolean &amp; Logical</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#date-time-fields"><strong>📅 Date &amp; Time Fields</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#file-media-fields"><strong>📂 File &amp; Media Fields</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#relationship-fields"><strong>🔗 Relationship Fields</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id-auto-fields"><strong>🆔 ID &amp; Auto Fields</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#special-advanced-fields"><strong>Special &amp; Advanced Fields</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#location-network"><strong>🌍 Location &amp; Network</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#field-options-used-with-fields"><strong>Field Options (Used With Fields)</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#memory-trick-interview-gold"><strong>Memory Trick (Interview Gold)</strong></a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="django-model-field-types">
+<h1><strong>Django Model Field Types</strong><a class="headerlink" href="#django-model-field-types" title="Link to this heading">#</a></h1>
+<p>Practical list of Django model <strong>field types</strong>, written exactly in the <strong>“Field → Examples → Use → Meaning”</strong></p>
+<hr class="docutils" />
+<section id="text-string-fields">
+<h2><strong>📝 Text &amp; String Fields</strong><a class="headerlink" href="#text-string-fields" title="Link to this heading">#</a></h2>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Field</p></th>
+<th class="head"><p>Examples</p></th>
+<th class="head"><p>Use</p></th>
+<th class="head"><p>Meaning</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>CharField</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">name</span> <span class="pre">=</span> <span class="pre">models.CharField(max_length=100)</span></code></p></td>
+<td><p>Short text</p></td>
+<td><p>Stores small strings (requires max_length)</p></td>
+</tr>
+<tr class="row-odd"><td><p>TextField</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">description</span> <span class="pre">=</span> <span class="pre">models.TextField()</span></code></p></td>
+<td><p>Long text</p></td>
+<td><p>Stores large text (no length limit)</p></td>
+</tr>
+<tr class="row-even"><td><p>SlugField</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">slug</span> <span class="pre">=</span> <span class="pre">models.SlugField(unique=True)</span></code></p></td>
+<td><p>URL-friendly text</p></td>
+<td><p>Lowercase, hyphenated strings (e.g. my-post-title)</p></td>
+</tr>
+<tr class="row-odd"><td><p>EmailField</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">email</span> <span class="pre">=</span> <span class="pre">models.EmailField(unique=True)</span></code></p></td>
+<td><p>Email address</p></td>
+<td><p>CharField with email validation</p></td>
+</tr>
+<tr class="row-even"><td><p>URLField</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">website</span> <span class="pre">=</span> <span class="pre">models.URLField()</span></code></p></td>
+<td><p>Website links</p></td>
+<td><p>CharField with URL validation</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<hr class="docutils" />
+<section id="numeric-fields">
+<h2><strong>🔢 Numeric Fields</strong><a class="headerlink" href="#numeric-fields" title="Link to this heading">#</a></h2>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Field</p></th>
+<th class="head"><p>Examples</p></th>
+<th class="head"><p>Use</p></th>
+<th class="head"><p>Meaning</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>IntegerField</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">age</span> <span class="pre">=</span> <span class="pre">models.IntegerField()</span></code></p></td>
+<td><p>Whole numbers</p></td>
+<td><p>Standard integer values</p></td>
+</tr>
+<tr class="row-odd"><td><p>BigIntegerField</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">views</span> <span class="pre">=</span> <span class="pre">models.BigIntegerField()</span></code></p></td>
+<td><p>Large integers</p></td>
+<td><p>Very large numbers (64-bit)</p></td>
+</tr>
+<tr class="row-even"><td><p>SmallIntegerField</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">rating</span> <span class="pre">=</span> <span class="pre">models.SmallIntegerField()</span></code></p></td>
+<td><p>Small numbers</p></td>
+<td><p>Limited-range integers</p></td>
+</tr>
+<tr class="row-odd"><td><p>PositiveIntegerField</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">quantity</span> <span class="pre">=</span> <span class="pre">models.PositiveIntegerField()</span></code></p></td>
+<td><p>Non-negative numbers</p></td>
+<td><p>Only zero or positive integers</p></td>
+</tr>
+<tr class="row-even"><td><p>PositiveSmallIntegerField</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">stock</span> <span class="pre">=</span> <span class="pre">models.PositiveSmallIntegerField()</span></code></p></td>
+<td><p>Small positive numbers</p></td>
+<td><p>Small range, non-negative</p></td>
+</tr>
+<tr class="row-odd"><td><p>FloatField</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">score</span> <span class="pre">=</span> <span class="pre">models.FloatField()</span></code></p></td>
+<td><p>Decimal numbers (approximate)</p></td>
+<td><p>Floating-point values</p></td>
+</tr>
+<tr class="row-even"><td><p>DecimalField</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">price</span> <span class="pre">=</span> <span class="pre">models.DecimalField(max_digits=8,</span> <span class="pre">decimal_places=2)</span></code></p></td>
+<td><p>Exact decimal numbers</p></td>
+<td><p>Precise values (money, currency)</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<hr class="docutils" />
+<section id="boolean-logical">
+<h2><strong>Boolean &amp; Logical</strong><a class="headerlink" href="#boolean-logical" title="Link to this heading">#</a></h2>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Field</p></th>
+<th class="head"><p>Examples</p></th>
+<th class="head"><p>Use</p></th>
+<th class="head"><p>Meaning</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>BooleanField</p></td>
+<td><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">is_active</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">BooleanField</span><span class="p">(</span><span class="n">default</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><p>True / False</p></td>
+<td><p>Stores boolean values</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<hr class="docutils" />
+<section id="date-time-fields">
+<h2><strong>📅 Date &amp; Time Fields</strong><a class="headerlink" href="#date-time-fields" title="Link to this heading">#</a></h2>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Field</p></th>
+<th class="head"><p>Examples</p></th>
+<th class="head"><p>Use</p></th>
+<th class="head"><p>Meaning</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>DateField</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">birth_date</span> <span class="pre">=</span> <span class="pre">models.DateField()</span></code></p></td>
+<td><p>Date only</p></td>
+<td><p>Stores YYYY-MM-DD</p></td>
+</tr>
+<tr class="row-odd"><td><p>TimeField</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">opening_time</span> <span class="pre">=</span> <span class="pre">models.TimeField()</span></code></p></td>
+<td><p>Time only</p></td>
+<td><p>Stores HH:MM:SS</p></td>
+</tr>
+<tr class="row-even"><td><p>DateTimeField</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">created_at</span> <span class="pre">=</span> <span class="pre">models.DateTimeField(auto_now_add=True)</span></code></p></td>
+<td><p>Date and time</p></td>
+<td><p>Timestamp with date + time</p></td>
+</tr>
+<tr class="row-odd"><td><p>DurationField</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">session_length</span> <span class="pre">=</span> <span class="pre">models.DurationField()</span></code></p></td>
+<td><p>Time duration</p></td>
+<td><p>Stores timedelta values</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<hr class="docutils" />
+<section id="file-media-fields">
+<h2><strong>📂 File &amp; Media Fields</strong><a class="headerlink" href="#file-media-fields" title="Link to this heading">#</a></h2>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Field</p></th>
+<th class="head"><p>Examples</p></th>
+<th class="head"><p>Use</p></th>
+<th class="head"><p>Meaning</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>FileField</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">document</span> <span class="pre">=</span> <span class="pre">models.FileField(upload_to=&quot;docs/&quot;)</span></code></p></td>
+<td><p>File upload</p></td>
+<td><p>Stores file path</p></td>
+</tr>
+<tr class="row-odd"><td><p>ImageField</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">photo</span> <span class="pre">=</span> <span class="pre">models.ImageField(upload_to=&quot;images/&quot;)</span></code></p></td>
+<td><p>Image upload</p></td>
+<td><p>FileField with image validation</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<hr class="docutils" />
+<section id="relationship-fields">
+<h2><strong>🔗 Relationship Fields</strong><a class="headerlink" href="#relationship-fields" title="Link to this heading">#</a></h2>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Field</p></th>
+<th class="head"><p>Examples</p></th>
+<th class="head"><p>Use</p></th>
+<th class="head"><p>Meaning</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>ForeignKey</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">author</span> <span class="pre">=</span> <span class="pre">models.ForeignKey(Author,</span> <span class="pre">on_delete=models.CASCADE)</span></code></p></td>
+<td><p>One-to-Many relationship</p></td>
+<td><p>Links one object to another</p></td>
+</tr>
+<tr class="row-odd"><td><p>OneToOneField</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">profile</span> <span class="pre">=</span> <span class="pre">models.OneToOneField(User,</span> <span class="pre">on_delete=models.CASCADE)</span></code></p></td>
+<td><p>One-to-One relationship</p></td>
+<td><p>Exactly one related object</p></td>
+</tr>
+<tr class="row-even"><td><p>ManyToManyField</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">tags</span> <span class="pre">=</span> <span class="pre">models.ManyToManyField(Tag)</span></code></p></td>
+<td><p>Many-to-Many relationship</p></td>
+<td><p>Uses an intermediate join table</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<hr class="docutils" />
+<section id="id-auto-fields">
+<h2><strong>🆔 ID &amp; Auto Fields</strong><a class="headerlink" href="#id-auto-fields" title="Link to this heading">#</a></h2>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Field</p></th>
+<th class="head"><p>Examples</p></th>
+<th class="head"><p>Use</p></th>
+<th class="head"><p>Meaning</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>AutoField</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">id</span> <span class="pre">=</span> <span class="pre">models.AutoField(primary_key=True)</span></code></p></td>
+<td><p>Auto-increment ID</p></td>
+<td><p>Default primary key</p></td>
+</tr>
+<tr class="row-odd"><td><p>BigAutoField</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">id</span> <span class="pre">=</span> <span class="pre">models.BigAutoField(primary_key=True)</span></code></p></td>
+<td><p>Large auto ID</p></td>
+<td><p>64-bit auto-increment ID</p></td>
+</tr>
+<tr class="row-even"><td><p>UUIDField</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">uuid</span> <span class="pre">=</span> <span class="pre">models.UUIDField(default=uuid.uuid4,</span> <span class="pre">editable=False)</span></code></p></td>
+<td><p>Unique identifiers</p></td>
+<td><p>Stores UUID values</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<hr class="docutils" />
+<section id="special-advanced-fields">
+<h2><strong>Special &amp; Advanced Fields</strong><a class="headerlink" href="#special-advanced-fields" title="Link to this heading">#</a></h2>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Field</p></th>
+<th class="head"><p>Examples</p></th>
+<th class="head"><p>Use</p></th>
+<th class="head"><p>Meaning</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>BinaryField</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">raw_data</span> <span class="pre">=</span> <span class="pre">models.BinaryField()</span></code></p></td>
+<td><p>Binary data</p></td>
+<td><p>Stores raw binary bytes</p></td>
+</tr>
+<tr class="row-odd"><td><p>JSONField</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">metadata</span> <span class="pre">=</span> <span class="pre">models.JSONField()</span></code></p></td>
+<td><p>JSON data</p></td>
+<td><p>Stores structured JSON (PostgreSQL best)</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<hr class="docutils" />
+<section id="location-network">
+<h2><strong>🌍 Location &amp; Network</strong><a class="headerlink" href="#location-network" title="Link to this heading">#</a></h2>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Field</p></th>
+<th class="head"><p>Examples</p></th>
+<th class="head"><p>Use</p></th>
+<th class="head"><p>Meaning</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>IPAddressField</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">ip_address</span> <span class="pre">=</span> <span class="pre">models.IPAddressField()</span></code></p></td>
+<td><p>IP addresses</p></td>
+<td><p>Stores IPv4/IPv6</p></td>
+</tr>
+<tr class="row-odd"><td><p>GenericIPAddressField</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">ip</span> <span class="pre">=</span> <span class="pre">models.GenericIPAddressField()</span></code></p></td>
+<td><p>Network addresses</p></td>
+<td><p>Flexible IP storage</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<hr class="docutils" />
+<section id="field-options-used-with-fields">
+<h2><strong>Field Options (Used With Fields)</strong><a class="headerlink" href="#field-options-used-with-fields" title="Link to this heading">#</a></h2>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Field Options</p></th>
+<th class="head"><p>Use</p></th>
+<th class="head"><p>Meaning</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">null=True</span></code></p></td>
+<td><p>Database null</p></td>
+<td><p>Allows NULL in DB</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">blank=True</span></code></p></td>
+<td><p>Form validation</p></td>
+<td><p>Field can be empty in forms</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">default=value</span></code></p></td>
+<td><p>Default value</p></td>
+<td><p>Used if no value provided</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">unique=True</span></code></p></td>
+<td><p>Uniqueness</p></td>
+<td><p>No duplicate values allowed</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">choices=CHOICES</span></code></p></td>
+<td><p>Fixed options</p></td>
+<td><p>Restricts values to choices</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">primary_key=True</span></code></p></td>
+<td><p>Primary key</p></td>
+<td><p>Uniquely identifies row</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">db_index=True</span></code></p></td>
+<td><p>Indexing</p></td>
+<td><p>Faster lookups</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<hr class="docutils" />
+<p><strong>Most-Used Field Options (One-Line Examples)</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">username</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">unique</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">bio</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">TextField</span><span class="p">(</span><span class="n">blank</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">null</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">status</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">choices</span><span class="o">=</span><span class="n">STATUS_CHOICES</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">email</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">EmailField</span><span class="p">(</span><span class="n">db_index</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+<hr class="docutils" />
+<p><strong>Common Real-World Examples</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">Product</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">200</span><span class="p">)</span>
+    <span class="n">description</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">TextField</span><span class="p">()</span>
+    <span class="n">price</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">DecimalField</span><span class="p">(</span><span class="n">max_digits</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span> <span class="n">decimal_places</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+    <span class="n">in_stock</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">BooleanField</span><span class="p">(</span><span class="n">default</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">created_at</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">DateTimeField</span><span class="p">(</span><span class="n">auto_now_add</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="memory-trick-interview-gold">
+<h2><strong>Memory Trick (Interview Gold)</strong><a class="headerlink" href="#memory-trick-interview-gold" title="Link to this heading">#</a></h2>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Category</p></th>
+<th class="head"><p>Examples</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Text</p></td>
+<td><p>CharField, TextField</p></td>
+</tr>
+<tr class="row-odd"><td><p>Numbers</p></td>
+<td><p>IntegerField, DecimalField</p></td>
+</tr>
+<tr class="row-even"><td><p>Dates</p></td>
+<td><p>DateField, DateTimeField</p></td>
+</tr>
+<tr class="row-odd"><td><p>Relations</p></td>
+<td><p>ForeignKey, ManyToMany</p></td>
+</tr>
+<tr class="row-even"><td><p>Files</p></td>
+<td><p>FileField, ImageField</p></td>
+</tr>
+<tr class="row-odd"><td><p>Advanced</p></td>
+<td><p>JSONField, UUIDField</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#text-string-fields"><strong>📝 Text &amp; String Fields</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#numeric-fields"><strong>🔢 Numeric Fields</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#boolean-logical"><strong>Boolean &amp; Logical</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#date-time-fields"><strong>📅 Date &amp; Time Fields</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#file-media-fields"><strong>📂 File &amp; Media Fields</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#relationship-fields"><strong>🔗 Relationship Fields</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id-auto-fields"><strong>🆔 ID &amp; Auto Fields</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#special-advanced-fields"><strong>Special &amp; Advanced Fields</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#location-network"><strong>🌍 Location &amp; Network</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#field-options-used-with-fields"><strong>Field Options (Used With Fields)</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#memory-trick-interview-gold"><strong>Memory Trick (Interview Gold)</strong></a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024 Sherullah Mohtat. All rights reserved..
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+<!-- Google Tag Manager -->
+<script>
+  (function (w, d, s, l, i) {
+    w[l] = w[l] || [];
+    w[l].push({
+      "gtm.start": new Date().getTime(),
+      event: "gtm.js",
+    });
+    var f = d.getElementsByTagName(s)[0],
+      j = d.createElement(s),
+      dl = l != "dataLayer" ? "&l=" + l : "";
+    j.async = true;
+    j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+    f.parentNode.insertBefore(j, f);
+  })(
+    window,
+    document,
+    "script",
+    "dataLayer",
+    "GTM-P4GQM59"
+  );
+</script>
+<!-- End Google Tag Manager -->
+
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

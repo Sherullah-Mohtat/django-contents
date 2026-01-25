@@ -1,9 +1,9 @@
 wsgi.py
 =========
 
----------------------
-1. What is wsgi.py?
----------------------
+--------------------------
+**1. What is wsgi.py?**
+--------------------------
 
 wsgi.py is the entry point for running a Django project using WSGI servers.
 
@@ -19,9 +19,9 @@ This file allows Django to communicate with **traditional web servers** in produ
 
 =======================================================================================================================
 
--------------------------------
-2. Why does Django use WSGI?
--------------------------------
+-----------------------------------
+**2. Why does Django use WSGI?**
+-----------------------------------
 
 Before ASGI, **WSGI was the standard** for Python web applications.
 
@@ -48,8 +48,8 @@ Most Django apps in production still use WSGI.
 
 =======================================================================================================================
 
-1️⃣ Import OS utilities
------------------------
+**1️⃣ Import OS utilities**
+----------------------------
 
 .. code-block:: python 
 
@@ -57,8 +57,8 @@ Most Django apps in production still use WSGI.
 
 Used to set environment variables.
 
-2️⃣ Import Django’s WSGI handler
----------------------------------
+**2️⃣ Import Django’s WSGI handler**
+-------------------------------------
 
 .. code-block:: python 
 
@@ -66,8 +66,8 @@ Used to set environment variables.
 
 Creates a WSGI-compatible Django application.
 
-3️⃣ Set the settings module
-----------------------------
+**3️⃣ Set the settings module**
+---------------------------------
 
 .. code-block:: python 
 
@@ -78,8 +78,8 @@ Creates a WSGI-compatible Django application.
 
 Tells Django which settings file to load.
 
-4️⃣ Create the WSGI application
---------------------------------
+**4️⃣ Create the WSGI application**
+-------------------------------------
 
 .. code-block:: python 
 
@@ -89,9 +89,9 @@ This application object is what the web server runs.
 
 =======================================================================================================================
 
--------------------------------------
-3. How wsgi.py is used in real life
--------------------------------------
+--------------------------------------------
+**3. How wsgi.py is used in real life**
+--------------------------------------------
 
 Used with servers like:
 	- Gunicorn
@@ -106,9 +106,9 @@ Example:
 
 =======================================================================================================================
 
------------------
-4. WSGI vs ASGI
------------------
+----------------------
+**4. WSGI vs ASGI**
+----------------------
 
 .. list-table::
     :header-rows: 1
@@ -134,9 +134,9 @@ Example:
 
 =======================================================================================================================
 
--------------------------
-4. Do you need wsgi.py?
--------------------------
+------------------------------
+**4. Do you need wsgi.py?**
+------------------------------
 
 For development
 	- Django uses its own dev server
@@ -155,10 +155,10 @@ Never delete it.
 
 **What wsgi.py is NOT**
 
-- ❌ Not URL routing
-- ❌ Not async handling
-- ❌ Not business logic
-- ❌ Not middleware
+- Not URL routing
+- Not async handling
+- Not business logic
+- Not middleware
 
 It is **only a bridge** between Django and a web server.
 

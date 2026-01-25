@@ -1,9 +1,9 @@
 apps.py 
 =========
 
---------------------
-What is apps.py?
---------------------
+-----------------------
+**What is apps.py?**
+-----------------------
 
 apps.py defines configuration, startup behavior and metadata for a Django app.
 
@@ -20,9 +20,9 @@ Location:
 
 ================================================================================================================================
 
-------------------------------------
-Default apps.py (auto-generated)
-------------------------------------
+----------------------------------------
+**Default apps.py (auto-generated)**
+----------------------------------------
 
 When you run:
 
@@ -99,9 +99,9 @@ Django default since 3.2+
 
 ================================================================================================================================
 
--------------------------------
-Why does Django need apps.py?
--------------------------------
+------------------------------------
+**Why does Django need apps.py?**
+------------------------------------
 
 Django loads apps in this order:
 	#.	Reads INSTALLED_APPS
@@ -112,13 +112,13 @@ So apps.py is the **entry point** for an app.
 
 ================================================================================================================================
 
-------------------------------------
-Connecting apps.py to settings.py
-------------------------------------
+----------------------------------------
+**Connecting apps.py to settings.py**
+----------------------------------------
 
 In settings.py:
 
-❌ Old style:
+Old style:
 
 .. code-block:: python 
 
@@ -126,7 +126,7 @@ In settings.py:
         'myapp',
     ]
 
-✅ Recommended:
+Recommended:
 
 .. code-block:: python 
 
@@ -141,14 +141,16 @@ Why?
 
 ================================================================================================================================
 
-------------------------------
-Where to put startup code?
-------------------------------
+----------------------------------
+**Where to put startup code?**
+----------------------------------
 
 If you need code to run **when Django starts**, use ready().
 
 .. code-block:: python 
-
+    
+    # myapp/apps.py
+    from django.apps import AppConfig
     class MyappConfig(AppConfig):
         default_auto_field = 'django.db.models.BigAutoField'
         name = 'myapp'
@@ -163,25 +165,25 @@ Common uses:
 
 ================================================================================================================================
 
----------------------------------
-What should NOT go in apps.py?
----------------------------------
+-------------------------------------
+**What should NOT go in apps.py?**
+-------------------------------------
 
-❌ Views
+Views
 
-❌ Models
+Models
 
-❌ Business logic
+Business logic
 
-❌ Database queries
+Database queries
 
 apps.py is for **configuration only.**
 
 ================================================================================================================================
 
---------------------------
-Real-world mental model
---------------------------
+------------------------------
+**Real-world mental model**
+------------------------------
 
 Think of apps.py as:
     “App bootloader”
@@ -193,9 +195,9 @@ Just like:
 
 ================================================================================================================================
 
---------------------------
-Common beginner mistakes
---------------------------
+-------------------------------
+**Common beginner mistakes**
+-------------------------------
 
 .. list-table:: 
     :header-rows: 1

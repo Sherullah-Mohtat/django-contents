@@ -1,9 +1,9 @@
 __init__.py
-============
+==============
 
--------------------------
-1. What is __init__.py?
--------------------------
+------------------------------
+**1. What is __init__.py?**
+------------------------------
 
 __init__.py tells Python that this directory is a package.
 
@@ -17,9 +17,9 @@ Without this file, Python would treat the folder as a normal directory, **not** 
 
 ================================================================================================================
 
---------------------------------------
-2. Why does Django need __init__.py?
---------------------------------------
+-------------------------------------------
+**2. Why does Django need __init__.py?**
+-------------------------------------------
 
 Django imports your project like this:
 
@@ -36,9 +36,9 @@ So this file enables **imports.**
 
 ================================================================================================================
 
---------------------------------
-3. What is inside __init__.py?
---------------------------------
+--------------------------------------
+**3. What is inside __init__.py?**
+--------------------------------------
 
 By default:
 
@@ -52,13 +52,13 @@ Its presence matters more than its content.
 
 ================================================================================================================
 
---------------------------------------------
-4. What happens if you delete __init__.py?
---------------------------------------------
+--------------------------------------------------
+**4. What happens if you delete __init__.py?**
+--------------------------------------------------
 
-- ❌ Django will fail
-- ❌ Imports will break
-- ❌ Errors like:
+- Django will fail
+- Imports will break
+- Errors like:
 
 .. code-block:: bash 
 
@@ -95,7 +95,7 @@ Or exposing shortcuts:
 
     from .settings import BASE_DIR
 
-⚠️ For beginners and most projects:
+For beginners and most projects:
 
 **Leave it empty**
 

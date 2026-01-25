@@ -1,9 +1,9 @@
 Django-Project
 ================
 
----------------------------------
-1. What is django_project here?
----------------------------------
+-------------------------------------
+**1. What is django_project here?**
+-------------------------------------
 
 django_project is just a folder I created to organize my work; it is not a Django project. The real Django project is mysite.
 
@@ -27,8 +27,8 @@ Only **mysite** is a real Django project.
 
 ===========================================================================================================================
 
-1️⃣ django_project/ (top-level folder)
---------------------------------------
+**1️⃣ django_project/ (top-level folder)**
+-------------------------------------------
 
 This is:
 	- My **personal project folder**
@@ -50,8 +50,8 @@ Django does **not care** about this folder name.
 
 ===========================================================================================================================
 
-2️⃣ djenv/ (virtual environment)
---------------------------------
+**2️⃣ djenv/ (virtual environment)**
+---------------------------------------
 
 This folder contains:
 	- Python executable
@@ -66,8 +66,8 @@ Why it lives here:
 
 ===========================================================================================================================
 
-3️⃣ mysite/ (actual Django project)
------------------------------------
+**3️⃣ mysite/ (actual Django project)**
+------------------------------------------
 
 This is created by:
 
@@ -91,7 +91,7 @@ THIS is the real Django project.
 
 ===========================================================================================================================
 
-**❗ Important clarification**
+**Important clarification**
 
 .. list-table::
    :header-rows: 1
@@ -99,13 +99,13 @@ THIS is the real Django project.
    * - Name
      - What it really is
    * - django_project
-     - ❌ Not Django, just a folder
+     - Not Django, just a folder
    * - djenv
-     - 🐍 Python virtual environment
+     - Python virtual environment
    * - mysite
-     - ✅ Django project
+     - Django project
    * - myapp
-     - ✅ Django app
+     - Django app
 
 ===========================================================================================================================
 
@@ -119,9 +119,9 @@ Think of it like this:
 
 ===========================================================================================================================
 
-------------------------------------------
-Practical: Creating This Django Project
-------------------------------------------
+-----------------------------------------------
+**Practical: Creating This Django Project**
+-----------------------------------------------
 
 Now that you understand **what each folder means,**
 
@@ -156,9 +156,9 @@ Expected output:
 
   Python 3.10.x
 
-✅ Django officially supports Python 3.x
+Django officially supports Python 3.x
 
-❌ Python 2 is not supported
+Python 2 is not supported
 
 ===========================================================================================================================
 
@@ -182,6 +182,11 @@ Then place **all commands here:**
   python manage.py startapp myapp
 
 
+**Install PostgreSQL driver for Django**
+
+.. code-block:: bash 
+
+  pip install "psycopg[binary]"
 
 .. toctree::
    :hidden:

@@ -1,9 +1,9 @@
 __init__.py 
 =============
 
-----------------------
-What is __init__.py?
-----------------------
+---------------------------
+**What is __init__.py?**
+---------------------------
 
 __init__.py marks a directory as a Python package and allows Django to import and manage project components correctly.
 
@@ -14,9 +14,9 @@ Without it, Python would not treat the folder as importable code.
 
 =====================================================================================================================
 
--------------------------------------------
-Where you see __init__.py in your project
--------------------------------------------
+-------------------------------------------------
+**Where you see __init__.py in your project**
+-------------------------------------------------
 
 In your Django project, it appears in many places:
 
@@ -43,9 +43,9 @@ Each one has a **slightly different role**, but the core idea is the same.
 
 =====================================================================================================================
 
--------------------------
-Why __init__.py exists
--------------------------
+------------------------------
+**Why __init__.py exists**
+------------------------------
 
 Python organizes code using **packages.**
 
@@ -61,15 +61,15 @@ Python can only do this if:
 
 =====================================================================================================================
 
---------------------------------------------
-What happens if __init__.py is missing?
---------------------------------------------
+-----------------------------------------------
+**What happens if __init__.py is missing?**
+-----------------------------------------------
 
 **Older Python (≤3.2)**
 
-❌ Folder is NOT a package
+Folder is NOT a package
 
-❌ Imports fail
+Imports fail
 
 **Modern Python (3.3+)**
 
@@ -81,9 +81,9 @@ But Django still **expects** __init__.py
 
 =====================================================================================================================
 
--------------------------------
-What is inside __init__.py?
--------------------------------
+-----------------------------------
+**What is inside __init__.py?**
+-----------------------------------
 
 Most of the time:
 
@@ -97,9 +97,9 @@ Empty does NOT mean useless.
 
 =====================================================================================================================
 
-----------------------------------------
-What does Django use __init__.py for?
-----------------------------------------
+--------------------------------------------
+**What does Django use __init__.py for?**
+--------------------------------------------
 
 **1️⃣ Package recognition**
 
@@ -135,9 +135,9 @@ Without __init__.py, migrations break.
 
 =====================================================================================================================
 
-------------------------------------------
-Advanced usage (OPTIONAL, but powerful)
-------------------------------------------
+----------------------------------------------
+**Advanced usage (OPTIONAL, but powerful)**
+----------------------------------------------
 
 You **can** put code in __init__.py, but you must be careful.
 
@@ -172,13 +172,13 @@ Mostly obsolete in modern Django, but still exists in legacy code.
 
 **What you should NOT do**
 
-❌ Heavy logic
+Heavy logic
 
-❌ Database queries
+Database queries
 
-❌ API calls
+API calls
 
-❌ Side effects
+Side effects
 
 Why?
     Because __init__.py runs **as soon as the package is imported.**
@@ -202,7 +202,7 @@ You **never touch this file.**
 **Simple mental model**
 
 Think of __init__.py as:
-    📦 “Package start file”
+    “Package start file”
 
 Just like:
 	- main() in C

@@ -1,9 +1,9 @@
 mysite 
 ========
 
------------------
-What is mysite?
------------------
+----------------------
+**What is mysite?**
+----------------------
 
 mysite is the Django project directory that contains apps, the database, and a nested configuration package used by Django to run the project.
 
@@ -25,8 +25,8 @@ Let’s break this down carefully.
 
 ===========================================================================================================
 
-1️⃣ Outer mysite/ (Project root)
---------------------------------
+**1️⃣ Outer mysite/ (Project root)**
+--------------------------------------
 
 This folder is created when you run.
 
@@ -35,10 +35,10 @@ This folder is created when you run.
    django-admin startproject mysite
 
 This outer mysite/ is:
-	- ✅ The Django project root
-	- ✅ Where you run Django commands
-	- ❌ NOT a Python package
-	- ❌ NOT imported in code
+	- The Django project root
+	- Where you run Django commands
+	- NOT a Python package
+	- NOT imported in code
 
 It contains:
 	- manage.py
@@ -48,8 +48,8 @@ It contains:
 
 ===========================================================================================================
 
-2️⃣ manage.py (command center)
--------------------------------
+**2️⃣ manage.py (command center)**
+------------------------------------
 
 Location:
 
@@ -75,8 +75,8 @@ Think of it as:
 
 ===========================================================================================================
 
-3️⃣ db.sqlite3 (default database)
-----------------------------------
+**3️⃣ db.sqlite3 (default database)**
+--------------------------------------
 
 Location:
 
@@ -94,8 +94,8 @@ In real projects:
 
 ===========================================================================================================
 
-4️⃣ myapp/ (Django app)
------------------------
+**4️⃣ myapp/ (Django app)**
+----------------------------
 
 Location:
 
@@ -113,7 +113,8 @@ Django projects are **collections of apps**.
 
 ===========================================================================================================
 
-5️⃣ Inner mysite/ (Django configuration package)
+**5️⃣ Inner mysite/ (Django configuration package)**
+--------------------------------------------------------
 
 Location:
 
@@ -141,9 +142,9 @@ This is where Django looks for:
 
 ===========================================================================================================
 
-------------------------------------
-Why are there TWO mysite folders?
-------------------------------------
+-----------------------------------------
+**Why are there TWO mysite folders?**
+-----------------------------------------
 
 This confuses almost everyone at first 
 
@@ -169,9 +170,9 @@ You can rename the outer one if you want — Django doesn’t care.
 
 ===========================================================================================================
 
--------------------------
-How Django uses mysite
--------------------------
+-------------------------------
+**How Django uses mysite**
+-------------------------------
 
 When you run:
 
@@ -200,7 +201,7 @@ Analogy (very helpful)
 
 ===========================================================================================================
 
-❌ Common beginner mistakes
+Common beginner mistakes
 	- Editing files in the wrong mysite
 	- Thinking outer mysite is imported
 	- Deleting manage.py

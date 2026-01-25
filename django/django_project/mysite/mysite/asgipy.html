@@ -455,17 +455,17 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-asgi-py">1. What is asgi.py?</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-does-django-include-asgi-py">2. Why does Django include asgi.py?</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#typical-contents-of-asgi-py">3. Typical contents of asgi.py</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#import-os-utilities">1️⃣ Import OS utilities</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#import-djangos-asgi-handler">2️⃣ Import Django’s ASGI handler</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#set-the-settings-module">3️⃣ Set the settings module</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-the-asgi-application">4️⃣ Create the ASGI application</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-asgi-py"><strong>1. What is asgi.py?</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-does-django-include-asgi-py"><strong>2. Why does Django include asgi.py?</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#typical-contents-of-asgi-py"><strong>3. Typical contents of asgi.py</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#import-os-utilities"><strong>1️⃣ Import OS utilities</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#import-djangos-asgi-handler"><strong>2️⃣ Import Django’s ASGI handler</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#set-the-settings-module"><strong>3️⃣ Set the settings module</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-the-asgi-application"><strong>4️⃣ Create the ASGI application</strong></a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-asgi-py-is-used-in-real-life">4. How asgi.py is used in real life</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#asgi-vs-wsgi">5. ASGI vs WSGI</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-asgi-py-is-used-in-real-life"><strong>4. How asgi.py is used in real life</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#asgi-vs-wsgi"><strong>5. ASGI vs WSGI</strong></a></li>
 </ul>
             </nav>
         </div>
@@ -480,7 +480,7 @@ document.write(`
   <section id="asgi-py">
 <h1>asgi.py<a class="headerlink" href="#asgi-py" title="Link to this heading">#</a></h1>
 <section id="what-is-asgi-py">
-<h2>1. What is asgi.py?<a class="headerlink" href="#what-is-asgi-py" title="Link to this heading">#</a></h2>
+<h2><strong>1. What is asgi.py?</strong><a class="headerlink" href="#what-is-asgi-py" title="Link to this heading">#</a></h2>
 <p>asgi.py is the entry point for running Django using ASGI servers.</p>
 <p>ASGI = <strong>Asynchronous Server Gateway Interface</strong></p>
 <p>Location:</p>
@@ -499,7 +499,7 @@ document.write(`
 </section>
 <hr class="docutils" />
 <section id="why-does-django-include-asgi-py">
-<h2>2. Why does Django include asgi.py?<a class="headerlink" href="#why-does-django-include-asgi-py" title="Link to this heading">#</a></h2>
+<h2><strong>2. Why does Django include asgi.py?</strong><a class="headerlink" href="#why-does-django-include-asgi-py" title="Link to this heading">#</a></h2>
 <dl class="simple">
 <dt>Modern web applications often need:</dt><dd><ul class="simple">
 <li><p>Chat systems</p></li>
@@ -514,7 +514,7 @@ document.write(`
 </section>
 <hr class="docutils" />
 <section id="typical-contents-of-asgi-py">
-<h2>3. Typical contents of asgi.py<a class="headerlink" href="#typical-contents-of-asgi-py" title="Link to this heading">#</a></h2>
+<h2><strong>3. Typical contents of asgi.py</strong><a class="headerlink" href="#typical-contents-of-asgi-py" title="Link to this heading">#</a></h2>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">django.core.asgi</span><span class="w"> </span><span class="kn">import</span> <span class="n">get_asgi_application</span>
 
@@ -528,21 +528,21 @@ document.write(`
 </div>
 <hr class="docutils" />
 <section id="import-os-utilities">
-<h3>1️⃣ Import OS utilities<a class="headerlink" href="#import-os-utilities" title="Link to this heading">#</a></h3>
+<h3><strong>1️⃣ Import OS utilities</strong><a class="headerlink" href="#import-os-utilities" title="Link to this heading">#</a></h3>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
 </pre></div>
 </div>
 <p>Used to set environment variables.</p>
 </section>
 <section id="import-djangos-asgi-handler">
-<h3>2️⃣ Import Django’s ASGI handler<a class="headerlink" href="#import-djangos-asgi-handler" title="Link to this heading">#</a></h3>
+<h3><strong>2️⃣ Import Django’s ASGI handler</strong><a class="headerlink" href="#import-djangos-asgi-handler" title="Link to this heading">#</a></h3>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">django.core.asgi</span><span class="w"> </span><span class="kn">import</span> <span class="n">get_asgi_application</span>
 </pre></div>
 </div>
 <p>This function creates an ASGI-compatible Django application.</p>
 </section>
 <section id="set-the-settings-module">
-<h3>3️⃣ Set the settings module<a class="headerlink" href="#set-the-settings-module" title="Link to this heading">#</a></h3>
+<h3><strong>3️⃣ Set the settings module</strong><a class="headerlink" href="#set-the-settings-module" title="Link to this heading">#</a></h3>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">setdefault</span><span class="p">(</span>
     <span class="s1">&#39;DJANGO_SETTINGS_MODULE&#39;</span><span class="p">,</span>
     <span class="s1">&#39;mysite.settings&#39;</span>
@@ -552,7 +552,7 @@ document.write(`
 <p>Tells Django which settings file to use.</p>
 </section>
 <section id="create-the-asgi-application">
-<h3>4️⃣ Create the ASGI application<a class="headerlink" href="#create-the-asgi-application" title="Link to this heading">#</a></h3>
+<h3><strong>4️⃣ Create the ASGI application</strong><a class="headerlink" href="#create-the-asgi-application" title="Link to this heading">#</a></h3>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">application</span> <span class="o">=</span> <span class="n">get_asgi_application</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -561,7 +561,7 @@ document.write(`
 </section>
 <hr class="docutils" />
 <section id="how-asgi-py-is-used-in-real-life">
-<h2>4. How asgi.py is used in real life<a class="headerlink" href="#how-asgi-py-is-used-in-real-life" title="Link to this heading">#</a></h2>
+<h2><strong>4. How asgi.py is used in real life</strong><a class="headerlink" href="#how-asgi-py-is-used-in-real-life" title="Link to this heading">#</a></h2>
 <dl class="simple">
 <dt>Used with ASGI servers like:</dt><dd><ul class="simple">
 <li><p>Uvicorn</p></li>
@@ -577,7 +577,7 @@ document.write(`
 </section>
 <hr class="docutils" />
 <section id="asgi-vs-wsgi">
-<h2>5. ASGI vs WSGI<a class="headerlink" href="#asgi-vs-wsgi" title="Link to this heading">#</a></h2>
+<h2><strong>5. ASGI vs WSGI</strong><a class="headerlink" href="#asgi-vs-wsgi" title="Link to this heading">#</a></h2>
 <div class="pst-scrollable-table-container"><table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Feature</p></th>
@@ -692,17 +692,17 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-asgi-py">1. What is asgi.py?</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-does-django-include-asgi-py">2. Why does Django include asgi.py?</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#typical-contents-of-asgi-py">3. Typical contents of asgi.py</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#import-os-utilities">1️⃣ Import OS utilities</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#import-djangos-asgi-handler">2️⃣ Import Django’s ASGI handler</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#set-the-settings-module">3️⃣ Set the settings module</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-the-asgi-application">4️⃣ Create the ASGI application</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-asgi-py"><strong>1. What is asgi.py?</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-does-django-include-asgi-py"><strong>2. Why does Django include asgi.py?</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#typical-contents-of-asgi-py"><strong>3. Typical contents of asgi.py</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#import-os-utilities"><strong>1️⃣ Import OS utilities</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#import-djangos-asgi-handler"><strong>2️⃣ Import Django’s ASGI handler</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#set-the-settings-module"><strong>3️⃣ Set the settings module</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-the-asgi-application"><strong>4️⃣ Create the ASGI application</strong></a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-asgi-py-is-used-in-real-life">4. How asgi.py is used in real life</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#asgi-vs-wsgi">5. ASGI vs WSGI</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-asgi-py-is-used-in-real-life"><strong>4. How asgi.py is used in real life</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#asgi-vs-wsgi"><strong>5. ASGI vs WSGI</strong></a></li>
 </ul>
   </nav></div>
 

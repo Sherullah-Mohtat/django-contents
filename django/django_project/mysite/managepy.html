@@ -454,13 +454,13 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-manage-py">1. What is manage.py?</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-does-manage-py-exist">2. Why does manage.py exist?</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-you-use-manage-py">3.How you use manage.py</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#typical-contents-of-manage-py">3. Typical contents of manage.py</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#set-the-settings-module">1️⃣ Set the settings module</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#import-djangos-command-system">2️⃣ Import Django’s command system</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#execute-the-command">3️⃣ Execute the command</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-manage-py"><strong>1. What is manage.py?</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-does-manage-py-exist"><strong>2. Why does manage.py exist?</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-you-use-manage-py"><strong>3.How you use manage.py</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#typical-contents-of-manage-py"><strong>4. Typical contents of manage.py</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#set-the-settings-module"><strong>1️⃣ Set the settings module</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#import-djangos-command-system"><strong>2️⃣ Import Django’s command system</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#execute-the-command"><strong>3️⃣ Execute the command</strong></a></li>
 </ul>
 </li>
 </ul>
@@ -477,7 +477,7 @@ document.write(`
   <section id="manage-py">
 <h1>manage.py<a class="headerlink" href="#manage-py" title="Link to this heading">#</a></h1>
 <section id="what-is-manage-py">
-<h2>1. What is manage.py?<a class="headerlink" href="#what-is-manage-py" title="Link to this heading">#</a></h2>
+<h2><strong>1. What is manage.py?</strong><a class="headerlink" href="#what-is-manage-py" title="Link to this heading">#</a></h2>
 <p>manage.py is the command-line interface for a Django project. It sets the project’s settings module and allows developers to execute administrative tasks such as running the development server, creating applications, and managing database migrations.</p>
 <dl class="simple">
 <dt>It is the <strong>main entry point</strong> you use to:</dt><dd><ul class="simple">
@@ -495,7 +495,7 @@ document.write(`
 </section>
 <hr class="docutils" />
 <section id="why-does-manage-py-exist">
-<h2>2. Why does manage.py exist?<a class="headerlink" href="#why-does-manage-py-exist" title="Link to this heading">#</a></h2>
+<h2><strong>2. Why does manage.py exist?</strong><a class="headerlink" href="#why-does-manage-py-exist" title="Link to this heading">#</a></h2>
 <dl class="simple">
 <dt>Django needs two things to run commands correctly:</dt><dd><ol class="arabic simple">
 <li><p>To know which settings file to use</p></li>
@@ -508,11 +508,12 @@ document.write(`
 </section>
 <hr class="docutils" />
 <section id="how-you-use-manage-py">
-<h2>3.How you use manage.py<a class="headerlink" href="#how-you-use-manage-py" title="Link to this heading">#</a></h2>
+<h2><strong>3.How you use manage.py</strong><a class="headerlink" href="#how-you-use-manage-py" title="Link to this heading">#</a></h2>
 <p>Almost every Django command starts like this:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>manage.py<span class="w"> </span>&lt;command&gt;
 </pre></div>
 </div>
+<p>If manage.py is missing or you run commands outside its folder, Django won’t work.</p>
 <p><strong>Common examples</strong></p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>manage.py<span class="w"> </span>runserver
 python<span class="w"> </span>manage.py<span class="w"> </span>startapp<span class="w"> </span>blog
@@ -522,11 +523,11 @@ python<span class="w"> </span>manage.py<span class="w"> </span>createsuperuser
 python<span class="w"> </span>manage.py<span class="w"> </span>shell
 </pre></div>
 </div>
-<p>If manage.py is missing or you run commands outside its folder, Django won’t work.</p>
+<p>Check out <a class="reference external" href="../../tutorials/.managepy_commands.html">this list</a> for more commands.</p>
 </section>
 <hr class="docutils" />
 <section id="typical-contents-of-manage-py">
-<h2>3. Typical contents of manage.py<a class="headerlink" href="#typical-contents-of-manage-py" title="Link to this heading">#</a></h2>
+<h2><strong>4. Typical contents of manage.py</strong><a class="headerlink" href="#typical-contents-of-manage-py" title="Link to this heading">#</a></h2>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
@@ -548,7 +549,7 @@ python<span class="w"> </span>manage.py<span class="w"> </span>shell
 </div>
 <hr class="docutils" />
 <section id="set-the-settings-module">
-<h3>1️⃣ Set the settings module<a class="headerlink" href="#set-the-settings-module" title="Link to this heading">#</a></h3>
+<h3><strong>1️⃣ Set the settings module</strong><a class="headerlink" href="#set-the-settings-module" title="Link to this heading">#</a></h3>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">setdefault</span><span class="p">(</span>
     <span class="s1">&#39;DJANGO_SETTINGS_MODULE&#39;</span><span class="p">,</span>
     <span class="s1">&#39;mysite.settings&#39;</span>
@@ -561,7 +562,7 @@ python<span class="w"> </span>manage.py<span class="w"> </span>shell
 </section>
 <hr class="docutils" />
 <section id="import-djangos-command-system">
-<h3>2️⃣ Import Django’s command system<a class="headerlink" href="#import-djangos-command-system" title="Link to this heading">#</a></h3>
+<h3><strong>2️⃣ Import Django’s command system</strong><a class="headerlink" href="#import-djangos-command-system" title="Link to this heading">#</a></h3>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">django.core.management</span><span class="w"> </span><span class="kn">import</span> <span class="n">execute_from_command_line</span>
 </pre></div>
 </div>
@@ -570,7 +571,7 @@ python<span class="w"> </span>manage.py<span class="w"> </span>shell
 </section>
 <hr class="docutils" />
 <section id="execute-the-command">
-<h3>3️⃣ Execute the command<a class="headerlink" href="#execute-the-command" title="Link to this heading">#</a></h3>
+<h3><strong>3️⃣ Execute the command</strong><a class="headerlink" href="#execute-the-command" title="Link to this heading">#</a></h3>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>execute_from_command_line<span class="o">(</span>sys.argv<span class="o">)</span>
 </pre></div>
 </div>
@@ -593,10 +594,10 @@ python<span class="w"> </span>manage.py<span class="w"> </span>shell
 <hr class="docutils" />
 <dl class="simple">
 <dt>What manage.py is NOT</dt><dd><ul class="simple">
-<li><p>❌ Not the web server</p></li>
-<li><p>❌ Not a settings file</p></li>
-<li><p>❌ Not an app</p></li>
-<li><p>❌ Not imported in your code</p></li>
+<li><p>Not the web server</p></li>
+<li><p>Not a settings file</p></li>
+<li><p>Not an app</p></li>
+<li><p>Not imported in your code</p></li>
 </ul>
 </dd>
 </dl>
@@ -663,13 +664,13 @@ python<span class="w"> </span>manage.py<span class="w"> </span>shell
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-manage-py">1. What is manage.py?</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-does-manage-py-exist">2. Why does manage.py exist?</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-you-use-manage-py">3.How you use manage.py</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#typical-contents-of-manage-py">3. Typical contents of manage.py</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#set-the-settings-module">1️⃣ Set the settings module</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#import-djangos-command-system">2️⃣ Import Django’s command system</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#execute-the-command">3️⃣ Execute the command</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-manage-py"><strong>1. What is manage.py?</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-does-manage-py-exist"><strong>2. Why does manage.py exist?</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-you-use-manage-py"><strong>3.How you use manage.py</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#typical-contents-of-manage-py"><strong>4. Typical contents of manage.py</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#set-the-settings-module"><strong>1️⃣ Set the settings module</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#import-djangos-command-system"><strong>2️⃣ Import Django’s command system</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#execute-the-command"><strong>3️⃣ Execute the command</strong></a></li>
 </ul>
 </li>
 </ul>

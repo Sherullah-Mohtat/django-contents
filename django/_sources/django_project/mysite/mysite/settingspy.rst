@@ -1,9 +1,9 @@
 settings.py
 =============
 
--------------------------
-1. What is settings.py?
--------------------------
+------------------------------
+**1. What is settings.py?**
+------------------------------
 
 The settings.py file contains all global configuration for a Django project, including installed apps, database settings, middleware, security options, and localization preferences.
 
@@ -21,9 +21,9 @@ If Django is a machine, settings.py is its **control panel.**
 
 =================================================================================================
 
-------------------------------------
-2. What does settings.py control?
-------------------------------------
+-----------------------------------------
+**2. What does settings.py control?**
+-----------------------------------------
 
 settings.py defines:
 	- Installed apps
@@ -39,9 +39,9 @@ Django **cannot start** without this file.
 
 =================================================================================================
 
----------------------------------
-3. How Django uses settings.py
----------------------------------
+--------------------------------------
+**3. How Django uses settings.py**
+--------------------------------------
 
 When you run:
 
@@ -62,8 +62,8 @@ That’s why manage.py, asgi.py, and wsgi.py all reference:
 
 =================================================================================================
 
-1️⃣ Project base settings
---------------------------
+**1️⃣ Project base settings**
+--------------------------------
 
 .. code-block:: python 
 
@@ -71,12 +71,12 @@ That’s why manage.py, asgi.py, and wsgi.py all reference:
 
     BASE_DIR = Path(__file__).resolve().parent.parent
 
-- ASE_DIR points to the project root
+- BASE_DIR points to the project root
 - Used for paths like database, static files, templates
 
 
-2️⃣ Security & debug
----------------------
+**2️⃣ Security & debug**
+--------------------------
 
 .. code-block:: python 
 
@@ -89,18 +89,19 @@ Explanation:
 	- DEBUG=True → show detailed errors (dev only)
 	- ALLOWED_HOSTS → domains allowed to access the site
 
-⚠️ In production:
+In production:
 
 .. code-block:: python 
 
     DEBUG = False
 
-3️⃣ Installed applications
----------------------------
+**3️⃣ Installed applications**
+--------------------------------
 
 .. code-block:: python 
 
     INSTALLED_APPS = [
+        # Django core apps
         'django.contrib.admin',
         'django.contrib.auth',
         'django.contrib.contenttypes',
@@ -108,7 +109,8 @@ Explanation:
         'django.contrib.messages',
         'django.contrib.staticfiles',
 
-        'myapp',
+        # Local apps
+        'myapp.apps.MyappConfig',
     ]
 
 This tells Django:
@@ -117,8 +119,8 @@ This tells Django:
 
 Your app **must be listed here** to work.
 
-4️⃣ Middleware
-----------------
+**4️⃣ Middleware**
+---------------------
 
 .. code-block:: python 
 
@@ -136,8 +138,8 @@ Middleware:
 	- Runs **before & after every request**
 	- Handles security, sessions, authentication, etc.
 
-5️⃣ URL configuration
------------------------
+**5️⃣ URL configuration**
+---------------------------
 
 .. code-block:: python 
 
@@ -146,8 +148,8 @@ Middleware:
 This tells Django:
     “Use urls.py to route incoming requests.”
 
-6️⃣ Templates
---------------
+**6️⃣ Templates**
+-------------------
 
 .. code-block:: python 
 
@@ -172,8 +174,8 @@ Controls:
 	- Template locations
 	- Context variables
 
-7️⃣ Database configuration
----------------------------
+**7️⃣ Database configuration**
+--------------------------------
 
 .. code-block:: python 
 
@@ -190,8 +192,10 @@ Default:
 
 Later, you can replace this with PostgreSQL or MySQL.
 
-8️⃣ Password validation
-------------------------
+Check out `this page <../../../tutorials/.databases_settings.html>`_ for more database configuration.
+
+**8️⃣ Password validation**
+------------------------------
 
 .. code-block:: python 
 
@@ -206,8 +210,8 @@ Used by:
 	- Admin panel
 	- User authentication
 
-9️⃣ Language & time zone
--------------------------
+**9️⃣ Language & time zone**
+-------------------------------
 
 .. code-block:: python 
 
@@ -221,8 +225,8 @@ Controls:
 	- Time handling
 	- Internationalization
 
-🔟 Static files
------------------
+**🔟 Static files**
+----------------------
 
 .. code-block:: python 
 
@@ -235,8 +239,8 @@ Used for:
 
 In production, static files are served separately.
 
-1️⃣1️⃣ Default primary key type
----------------------------------
+**1️⃣1️⃣ Default primary key type**
+------------------------------------
 
 .. code-block:: python 
 
@@ -246,14 +250,14 @@ Defines how primary keys are generated.
 
 ===============================================================================================================
 
-------------------------------------
-4. What NOT to do in settings.py
-------------------------------------
+-----------------------------------------
+**4. What NOT to do in settings.py**
+-----------------------------------------
 
-- ❌ Put secrets directly (use environment variables)
-- ❌ Hardcode production values
-- ❌ Delete default sections blindly
-- ❌ Mix dev & prod settings in large projects
+- Put secrets directly (use environment variables)
+- Hardcode production values
+- Delete default sections blindly
+- Mix dev & prod settings in large projects
 
 **settings.py**
 
@@ -270,13 +274,18 @@ Defines how primary keys are generated.
     ALLOWED_HOSTS = []
 
     INSTALLED_APPS = [
+        # Django
         'django.contrib.admin',
         'django.contrib.auth',
         'django.contrib.contenttypes',
         'django.contrib.sessions',
         'django.contrib.messages',
         'django.contrib.staticfiles',
-        'myapp',
+        # Third-party
+        'rest_framework',
+        'django_filters',
+        # Local
+        'myapp.apps.MyappConfig',
     ]
 
     MIDDLEWARE = [
@@ -358,7 +367,7 @@ Defines how primary keys are generated.
     STATIC_URL = 'static/'
 
 
-=======================================================================================================================================
 
-`DATABASES <../../../tutorials/.databases_settings.html>`_
+
+
 

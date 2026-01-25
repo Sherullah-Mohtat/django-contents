@@ -455,11 +455,11 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-urls-py">1. What is urls.py?</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-problem-does-urls-py-solve">2. What problem does urls.py solve?</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#import-admin-site">1️⃣ Import admin site</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#import-path">2️⃣ Import path</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#url-patterns-list">3️⃣ URL patterns list</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-urls-py"><strong>1. What is urls.py?</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-problem-does-urls-py-solve"><strong>2. What problem does urls.py solve?</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#import-admin-site"><strong>1️⃣ Import admin site</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#import-path"><strong>2️⃣ Import path</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#url-patterns-list"><strong>3️⃣ URL patterns list</strong></a></li>
 </ul>
 </li>
 </ul>
@@ -476,7 +476,7 @@ document.write(`
   <section id="urls-py">
 <h1>urls.py<a class="headerlink" href="#urls-py" title="Link to this heading">#</a></h1>
 <section id="what-is-urls-py">
-<h2>1. What is urls.py?<a class="headerlink" href="#what-is-urls-py" title="Link to this heading">#</a></h2>
+<h2><strong>1. What is urls.py?</strong><a class="headerlink" href="#what-is-urls-py" title="Link to this heading">#</a></h2>
 <p>urls.py defines how URLs are mapped to views in a Django project.</p>
 <p>Location:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mysite/mysite/urls.py
@@ -486,7 +486,7 @@ document.write(`
 </section>
 <hr class="docutils" />
 <section id="what-problem-does-urls-py-solve">
-<h2>2. What problem does urls.py solve?<a class="headerlink" href="#what-problem-does-urls-py-solve" title="Link to this heading">#</a></h2>
+<h2><strong>2. What problem does urls.py solve?</strong><a class="headerlink" href="#what-problem-does-urls-py-solve" title="Link to this heading">#</a></h2>
 <p>When a user visits a URL like:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>http://127.0.0.1:8000/admin/
 </pre></div>
@@ -511,21 +511,21 @@ document.write(`
 </div>
 <hr class="docutils" />
 <section id="import-admin-site">
-<h3>1️⃣ Import admin site<a class="headerlink" href="#import-admin-site" title="Link to this heading">#</a></h3>
+<h3><strong>1️⃣ Import admin site</strong><a class="headerlink" href="#import-admin-site" title="Link to this heading">#</a></h3>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">django.contrib</span><span class="w"> </span><span class="kn">import</span> <span class="n">admin</span>
 </pre></div>
 </div>
 <p>Enables Django’s built-in admin interface.</p>
 </section>
 <section id="import-path">
-<h3>2️⃣ Import path<a class="headerlink" href="#import-path" title="Link to this heading">#</a></h3>
+<h3><strong>2️⃣ Import path</strong><a class="headerlink" href="#import-path" title="Link to this heading">#</a></h3>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">django.urls</span><span class="w"> </span><span class="kn">import</span> <span class="n">path</span>
 </pre></div>
 </div>
 <p>Used to define URL patterns.</p>
 </section>
 <section id="url-patterns-list">
-<h3>3️⃣ URL patterns list<a class="headerlink" href="#url-patterns-list" title="Link to this heading">#</a></h3>
+<h3><strong>3️⃣ URL patterns list</strong><a class="headerlink" href="#url-patterns-list" title="Link to this heading">#</a></h3>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">urlpatterns</span> <span class="o">=</span> <span class="p">[</span>
     <span class="n">path</span><span class="p">(</span><span class="s1">&#39;admin/&#39;</span><span class="p">,</span> <span class="n">admin</span><span class="o">.</span><span class="n">site</span><span class="o">.</span><span class="n">urls</span><span class="p">),</span>
 <span class="p">]</span>
@@ -601,10 +601,10 @@ document.write(`
 <hr class="docutils" />
 <p><strong>What urls.py is NOT</strong></p>
 <ul class="simple">
-<li><p>❌ Not a view</p></li>
-<li><p>❌ Not HTML</p></li>
-<li><p>❌ Not database logic</p></li>
-<li><p>❌ Not middleware</p></li>
+<li><p>Not a view</p></li>
+<li><p>Not HTML</p></li>
+<li><p>Not database logic</p></li>
+<li><p>Not middleware</p></li>
 </ul>
 <p>It only handles URL → view mapping.</p>
 <hr class="docutils" />
@@ -666,11 +666,11 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-urls-py">1. What is urls.py?</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-problem-does-urls-py-solve">2. What problem does urls.py solve?</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#import-admin-site">1️⃣ Import admin site</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#import-path">2️⃣ Import path</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#url-patterns-list">3️⃣ URL patterns list</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-urls-py"><strong>1. What is urls.py?</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-problem-does-urls-py-solve"><strong>2. What problem does urls.py solve?</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#import-admin-site"><strong>1️⃣ Import admin site</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#import-path"><strong>2️⃣ Import path</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#url-patterns-list"><strong>3️⃣ URL patterns list</strong></a></li>
 </ul>
 </li>
 </ul>

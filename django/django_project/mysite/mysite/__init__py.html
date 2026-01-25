@@ -455,10 +455,10 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-init-py">1. What is __init__.py?</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-does-django-need-init-py">2. Why does Django need __init__.py?</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-inside-init-py">3. What is inside __init__.py?</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-happens-if-you-delete-init-py">4. What happens if you delete __init__.py?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-init-py"><strong>1. What is __init__.py?</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-does-django-need-init-py"><strong>2. Why does Django need __init__.py?</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-inside-init-py"><strong>3. What is inside __init__.py?</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-happens-if-you-delete-init-py"><strong>4. What happens if you delete __init__.py?</strong></a></li>
 </ul>
             </nav>
         </div>
@@ -473,7 +473,7 @@ document.write(`
   <section id="init-py">
 <h1>__init__.py<a class="headerlink" href="#init-py" title="Link to this heading">#</a></h1>
 <section id="what-is-init-py">
-<h2>1. What is __init__.py?<a class="headerlink" href="#what-is-init-py" title="Link to this heading">#</a></h2>
+<h2><strong>1. What is __init__.py?</strong><a class="headerlink" href="#what-is-init-py" title="Link to this heading">#</a></h2>
 <p>__init__.py tells Python that this directory is a package.</p>
 <p>Location:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mysite/mysite/__init__.py
@@ -483,7 +483,7 @@ document.write(`
 </section>
 <hr class="docutils" />
 <section id="why-does-django-need-init-py">
-<h2>2. Why does Django need __init__.py?<a class="headerlink" href="#why-does-django-need-init-py" title="Link to this heading">#</a></h2>
+<h2><strong>2. Why does Django need __init__.py?</strong><a class="headerlink" href="#why-does-django-need-init-py" title="Link to this heading">#</a></h2>
 <p>Django imports your project like this:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">mysite.settings</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">mysite.urls</span>
@@ -500,7 +500,7 @@ document.write(`
 </section>
 <hr class="docutils" />
 <section id="what-is-inside-init-py">
-<h2>3. What is inside __init__.py?<a class="headerlink" href="#what-is-inside-init-py" title="Link to this heading">#</a></h2>
+<h2><strong>3. What is inside __init__.py?</strong><a class="headerlink" href="#what-is-inside-init-py" title="Link to this heading">#</a></h2>
 <p>By default:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># empty</span>
 </pre></div>
@@ -510,11 +510,11 @@ document.write(`
 </section>
 <hr class="docutils" />
 <section id="what-happens-if-you-delete-init-py">
-<h2>4. What happens if you delete __init__.py?<a class="headerlink" href="#what-happens-if-you-delete-init-py" title="Link to this heading">#</a></h2>
+<h2><strong>4. What happens if you delete __init__.py?</strong><a class="headerlink" href="#what-happens-if-you-delete-init-py" title="Link to this heading">#</a></h2>
 <ul class="simple">
-<li><p>❌ Django will fail</p></li>
-<li><p>❌ Imports will break</p></li>
-<li><p>❌ Errors like:</p></li>
+<li><p>Django will fail</p></li>
+<li><p>Imports will break</p></li>
+<li><p>Errors like:</p></li>
 </ul>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ModuleNotFoundError:<span class="w"> </span>No<span class="w"> </span>module<span class="w"> </span>named<span class="w"> </span><span class="s1">&#39;mysite&#39;</span>
 </pre></div>
@@ -542,7 +542,7 @@ document.write(`
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">.settings</span><span class="w"> </span><span class="kn">import</span> <span class="n">BASE_DIR</span>
 </pre></div>
 </div>
-<p>⚠️ For beginners and most projects:</p>
+<p>For beginners and most projects:</p>
 <p><strong>Leave it empty</strong></p>
 <hr class="docutils" />
 <p><strong>Why every app also has __init__.py</strong></p>
@@ -607,10 +607,10 @@ mysite/__init__.py
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-init-py">1. What is __init__.py?</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-does-django-need-init-py">2. Why does Django need __init__.py?</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-inside-init-py">3. What is inside __init__.py?</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-happens-if-you-delete-init-py">4. What happens if you delete __init__.py?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-init-py"><strong>1. What is __init__.py?</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-does-django-need-init-py"><strong>2. Why does Django need __init__.py?</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-inside-init-py"><strong>3. What is inside __init__.py?</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-happens-if-you-delete-init-py"><strong>4. What happens if you delete __init__.py?</strong></a></li>
 </ul>
   </nav></div>
 

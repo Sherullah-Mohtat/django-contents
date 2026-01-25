@@ -1,0 +1,231 @@
+:orphan: 
+
+------------------------------
+manage.py commands in Django 
+------------------------------
+
+Here’s a **comprehensive list of commonly used and advanced manage.py commands in Django,** grouped by purpose. This is very useful for learning, daily development, interviews, and documentation.
+
+**Server & Project Basics**
+-----------------------------
+
+.. code-block:: bash 
+
+    python manage.py runserver
+    python manage.py runserver 0.0.0.0:8000
+    python manage.py runserver 8001
+
+==============================================================================================================================================================================================================
+
+**App Management**
+--------------------
+
+.. code-block:: bash 
+
+    python manage.py startapp blog
+    python manage.py startapp accounts
+    python manage.py startapp api
+
+==============================================================================================================================================================================================================
+
+**Database & Migrations**
+---------------------------
+
+.. code-block:: bash 
+
+    python manage.py makemigrations
+    python manage.py makemigrations blog
+    python manage.py makemigrations --empty blog
+
+    python manage.py migrate
+    python manage.py migrate blog
+    python manage.py migrate blog 0002
+
+    python manage.py showmigrations
+    python manage.py showmigrations blog
+
+    python manage.py sqlmigrate blog 0001
+
+==============================================================================================================================================================================================================
+
+**👤 Users & Authentication**
+-------------------------------
+
+.. code-block:: bash 
+
+    python manage.py createsuperuser
+    python manage.py changepassword username
+
+==============================================================================================================================================================================================================
+
+**Django Shell & Debugging**
+-------------------------------
+
+.. code-block:: bash 
+
+    python manage.py shell
+    python manage.py shell_plus          # (django-extensions)
+    python manage.py dbshell
+
+==============================================================================================================================================================================================================
+
+**Testing & Quality**
+------------------------
+
+.. code-block:: bash 
+
+    python manage.py test
+    python manage.py test blog
+    python manage.py test blog.tests.test_models
+
+    python manage.py check
+    python manage.py check --deploy
+
+==============================================================================================================================================================================================================
+
+**📂 Static Files & Media**
+-----------------------------
+
+.. code-block:: bash 
+
+    python manage.py collectstatic
+    python manage.py collectstatic --noinput
+    python manage.py findstatic admin/css/base.css
+
+==============================================================================================================================================================================================================
+
+**Caching & Sessions**
+
+.. code-block:: bash 
+
+    python manage.py clearsessions
+
+==============================================================================================================================================================================================================
+
+**🌐 Internationalization (i18n)**
+--------------------------------------
+
+.. code-block:: bash 
+
+    python manage.py makemessages -l en
+    python manage.py makemessages -l fr
+    python manage.py compilemessages
+
+==============================================================================================================================================================================================================
+
+**Content Types & Permissions**
+----------------------------------
+
+.. code-block:: bash 
+
+    python manage.py remove_stale_contenttypes
+
+==============================================================================================================================================================================================================
+
+**Data Management**
+----------------------
+
+.. code-block:: bash 
+
+    python manage.py dumpdata
+    python manage.py dumpdata blog
+    python manage.py dumpdata blog.Post --indent 2 > posts.json
+
+    python manage.py loaddata posts.json
+    python manage.py loaddata initial_data.json
+
+==============================================================================================================================================================================================================
+
+**Admin & Maintenance**
+---------------------------
+
+.. code-block:: bash 
+
+    python manage.py flush
+    python manage.py inspectdb
+    python manage.py diffsettings
+
+==============================================================================================================================================================================================================
+
+**Custom Management Commands**
+--------------------------------
+
+.. code-block:: bash 
+
+    python manage.py my_custom_command
+
+Structure:
+
+.. code-block:: bash 
+    
+    blog/
+    └── management/
+        └── commands/
+            └── my_custom_command.py
+
+==============================================================================================================================================================================================================
+
+**Django Extensions (Optional but Popular)**
+------------------------------------------------
+
+(requires django-extensions)
+
+.. code-block:: bash 
+
+    python manage.py show_urls
+    python manage.py graph_models
+    python manage.py graph_models blog -o models.png
+    python manage.py shell_plus
+    python manage.py reset_db
+
+==============================================================================================================================================================================================================
+
+**Deployment & Security**
+----------------------------
+
+.. code-block:: bash 
+
+    python manage.py check --deploy
+
+==============================================================================================================================================================================================================
+
+**App & System Info**
+------------------------
+
+.. code-block:: bash 
+
+    python manage.py help
+    python manage.py help migrate
+    python manage.py version
+
+==============================================================================================================================================================================================================
+
+**Rare but Useful**
+----------------------
+
+.. code-block:: bash 
+
+    python manage.py sendtestemail test@example.com
+    python manage.py validate_templates
+
+==============================================================================================================================================================================================================
+
+**Summary (Most Used – Must Know)**
+---------------------------------------
+
+.. code-block:: bash 
+
+    runserver
+    startapp
+    makemigrations
+    migrate
+    createsuperuser
+    shell
+    test
+    collectstatic
+    dumpdata / loaddata
+    check --deploy
+
+
+
+

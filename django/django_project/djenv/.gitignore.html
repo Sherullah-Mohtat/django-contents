@@ -455,8 +455,11 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-gitignore">📄 What is .gitignore?</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-happens-if-you-ignore-this-rule">What happens if you ignore this rule?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-gitignore"><strong>📄 What is .gitignore?</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-happens-if-you-ignore-this-rule"><strong>What happens if you ignore this rule?</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#do-you-ever-edit-this-gitignore"><strong>Do you ever edit this .gitignore?</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#important-distinction"><strong>Important distinction</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#difference-between-the-two"><strong>Difference between the two</strong></a></li>
 </ul>
             </nav>
         </div>
@@ -471,7 +474,7 @@ document.write(`
   <section id="gitignore">
 <h1>.gitignore<a class="headerlink" href="#gitignore" title="Link to this heading">#</a></h1>
 <section id="what-is-gitignore">
-<h2>📄 What is .gitignore?<a class="headerlink" href="#what-is-gitignore" title="Link to this heading">#</a></h2>
+<h2><strong>📄 What is .gitignore?</strong><a class="headerlink" href="#what-is-gitignore" title="Link to this heading">#</a></h2>
 <p>.gitignore tells Git which files and folders should NOT be tracked or uploaded to a repository (GitHub, GitLab, etc.).</p>
 <p>.gitignore belongs to the <strong>virtual environment (djenv).</strong></p>
 <p><strong>Why .gitignore exists in djenv</strong></p>
@@ -489,7 +492,7 @@ document.write(`
 </section>
 <hr class="docutils" />
 <section id="what-happens-if-you-ignore-this-rule">
-<h2>What happens if you ignore this rule?<a class="headerlink" href="#what-happens-if-you-ignore-this-rule" title="Link to this heading">#</a></h2>
+<h2><strong>What happens if you ignore this rule?</strong><a class="headerlink" href="#what-happens-if-you-ignore-this-rule" title="Link to this heading">#</a></h2>
 <dl class="simple">
 <dt>If you push djenv to GitHub:</dt><dd><ul class="simple">
 <li><p>Repository becomes huge</p></li>
@@ -514,8 +517,10 @@ include/
 </div>
 <p>Meaning</p>
 <p>“Do not track any files inside this environment.”</p>
+</section>
 <hr class="docutils" />
-<p><strong>❓ Do you ever edit this .gitignore?</strong></p>
+<section id="do-you-ever-edit-this-gitignore">
+<h2><strong>Do you ever edit this .gitignore?</strong><a class="headerlink" href="#do-you-ever-edit-this-gitignore" title="Link to this heading">#</a></h2>
 <p><strong>No.</strong></p>
 <p>You should never touch .gitignore inside djenv.</p>
 <p>If something goes wrong:</p>
@@ -524,7 +529,9 @@ python<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </s
 pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>requirements.txt
 </pre></div>
 </div>
-<p><strong>Important distinction</strong></p>
+</section>
+<section id="important-distinction">
+<h2><strong>Important distinction</strong><a class="headerlink" href="#important-distinction" title="Link to this heading">#</a></h2>
 <p>There are TWO types of .gitignore:</p>
 <dl class="simple">
 <dt>1️⃣ .gitignore inside djenv</dt><dd><ul class="simple">
@@ -631,7 +638,9 @@ pip<span class="w"> </span>freeze<span class="w"> </span>&gt;<span class="w"> </
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>.
 </pre></div>
 </div>
-<p><strong>Difference between the two</strong></p>
+</section>
+<section id="difference-between-the-two">
+<h2><strong>Difference between the two</strong><a class="headerlink" href="#difference-between-the-two" title="Link to this heading">#</a></h2>
 <div class="pst-scrollable-table-container"><table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Feature</p></th>
@@ -722,8 +731,11 @@ pip<span class="w"> </span>freeze<span class="w"> </span>&gt;<span class="w"> </
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-gitignore">📄 What is .gitignore?</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-happens-if-you-ignore-this-rule">What happens if you ignore this rule?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-gitignore"><strong>📄 What is .gitignore?</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-happens-if-you-ignore-this-rule"><strong>What happens if you ignore this rule?</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#do-you-ever-edit-this-gitignore"><strong>Do you ever edit this .gitignore?</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#important-distinction"><strong>Important distinction</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#difference-between-the-two"><strong>Difference between the two</strong></a></li>
 </ul>
   </nav></div>
 

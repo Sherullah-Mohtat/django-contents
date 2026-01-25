@@ -1,9 +1,9 @@
 urls.py
 =========
 
---------------------------------
-What is urls.py (in an app)?
---------------------------------
+------------------------------------
+**What is urls.py (in an app)?**
+------------------------------------
 
 urls.py answers this question:
     When a user opens a URL, which view should run?
@@ -17,9 +17,9 @@ Example:
 
 ======================================================================================================================================
 
--------------------------------------
-Where myapp/urls.py fits in Django
--------------------------------------
+------------------------------------------
+**Where myapp/urls.py fits in Django**
+------------------------------------------
 
 There are **two levels of URLs:**
 
@@ -33,9 +33,9 @@ There are **two levels of URLs:**
 
 ======================================================================================================================================
 
-----------------------------------
-Basic structure of myapp/urls.py
-----------------------------------
+---------------------------------------
+**Basic structure of myapp/urls.py**
+---------------------------------------
 
 .. code-block:: python 
 
@@ -77,9 +77,9 @@ Basic structure of myapp/urls.py
 
 ======================================================================================================================================
 
-------------------------------------
-Connect app URLs to project URLs
-------------------------------------
+-----------------------------------------
+**Connect app URLs to project URLs**
+-----------------------------------------
 
 mysite/urls.py
 
@@ -118,9 +118,9 @@ means:
 
 ======================================================================================================================================
 
---------------------------------
-Multiple URLs in myapp/urls.py
---------------------------------
+-------------------------------------
+**Multiple URLs in myapp/urls.py**
+-------------------------------------
 
 .. code-block:: python 
 
@@ -188,11 +188,11 @@ Think of urls.py as:
 
 **Common Mistakes**
 
-❌ Forgetting to include app URLs in project
+Forgetting to include app URLs in project
 
-❌ Writing logic in urls.py
+Writing logic in urls.py
 
-❌ Hardcoding URLs instead of using names
+Hardcoding URLs instead of using names
 
 
 **Best Practice (Production)**

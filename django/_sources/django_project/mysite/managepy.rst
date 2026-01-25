@@ -1,9 +1,9 @@
 manage.py
 ===========
 
------------------------
-1. What is manage.py?
------------------------
+---------------------------
+**1. What is manage.py?**
+---------------------------
 
 manage.py is the command-line interface for a Django project. It sets the project’s settings module and allows developers to execute administrative tasks such as running the development server, creating applications, and managing database migrations.
 
@@ -21,14 +21,13 @@ Location:
 
 =================================================================================================
 
-------------------------------
-2. Why does manage.py exist?
-------------------------------
+-----------------------------------
+**2. Why does manage.py exist?**
+-----------------------------------
 
 Django needs two things to run commands correctly:
-	1.	To know which settings file to use
-
-	2.	To pass your command (like runserver) into Django’s internal system
+	#.	To know which settings file to use
+	#.	To pass your command (like runserver) into Django’s internal system
 
 manage.py does exactly that.
 
@@ -36,15 +35,17 @@ Think of it as a bridge between your terminal and Django.
 
 =================================================================================================
 
--------------------------
-3.How you use manage.py
--------------------------
+-----------------------------
+**3.How you use manage.py**
+-----------------------------
 
 Almost every Django command starts like this:
 
 .. code-block:: bash 
 
     python manage.py <command>
+
+If manage.py is missing or you run commands outside its folder, Django won’t work.
 
 **Common examples**
 
@@ -57,13 +58,13 @@ Almost every Django command starts like this:
     python manage.py createsuperuser
     python manage.py shell
 
-If manage.py is missing or you run commands outside its folder, Django won’t work.
+Check out `this list <../../tutorials/.managepy_commands.html>`_ for more commands.
 
 =================================================================================================
 
----------------------------------
-3. Typical contents of manage.py
----------------------------------
+--------------------------------------
+**4. Typical contents of manage.py**
+--------------------------------------
 
 .. code-block:: python 
 
@@ -87,8 +88,8 @@ If manage.py is missing or you run commands outside its folder, Django won’t w
 
 =================================================================================================
 
-1️⃣ Set the settings module
----------------------------
+**1️⃣ Set the settings module**
+---------------------------------
 
 .. code-block:: python 
 
@@ -105,8 +106,8 @@ mysite.settings refers to the **inner mysite/ folder**, not the outer one.
 
 =================================================================================================
 
-2️⃣ Import Django’s command system
------------------------------------
+**2️⃣ Import Django’s command system**
+----------------------------------------
 
 .. code-block:: python 
 
@@ -118,8 +119,8 @@ All commands like runserver, migrate, etc. are implemented inside Django itself.
 
 =================================================================================================
 
-3️⃣ Execute the command
------------------------
+**3️⃣ Execute the command**
+-----------------------------
 
 .. code-block:: bash 
 
@@ -145,10 +146,10 @@ sys.argv contains:
 =================================================================================================
 
 What manage.py is NOT
-	- ❌ Not the web server
-	- ❌ Not a settings file
-	- ❌ Not an app
-	- ❌ Not imported in your code
+	- Not the web server
+	- Not a settings file
+	- Not an app
+	- Not imported in your code
 
 It is only a **launcher and dispatcher.**
 

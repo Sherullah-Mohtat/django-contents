@@ -455,13 +455,13 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-init-py">What is __init__.py?</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#where-you-see-init-py-in-your-project">Where you see __init__.py in your project</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-init-py-exists">Why __init__.py exists</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-happens-if-init-py-is-missing">What happens if __init__.py is missing?</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-inside-init-py">What is inside __init__.py?</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-does-django-use-init-py-for">What does Django use __init__.py for?</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#advanced-usage-optional-but-powerful">Advanced usage (OPTIONAL, but powerful)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-init-py"><strong>What is __init__.py?</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#where-you-see-init-py-in-your-project"><strong>Where you see __init__.py in your project</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-init-py-exists"><strong>Why __init__.py exists</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-happens-if-init-py-is-missing"><strong>What happens if __init__.py is missing?</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-inside-init-py"><strong>What is inside __init__.py?</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-does-django-use-init-py-for"><strong>What does Django use __init__.py for?</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#advanced-usage-optional-but-powerful"><strong>Advanced usage (OPTIONAL, but powerful)</strong></a></li>
 </ul>
             </nav>
         </div>
@@ -476,7 +476,7 @@ document.write(`
   <section id="init-py">
 <h1>__init__.py<a class="headerlink" href="#init-py" title="Link to this heading">#</a></h1>
 <section id="what-is-init-py">
-<h2>What is __init__.py?<a class="headerlink" href="#what-is-init-py" title="Link to this heading">#</a></h2>
+<h2><strong>What is __init__.py?</strong><a class="headerlink" href="#what-is-init-py" title="Link to this heading">#</a></h2>
 <p>__init__.py marks a directory as a Python package and allows Django to import and manage project components correctly.</p>
 <dl class="simple">
 <dt>Short definition:</dt><dd><p>__init__.py tells Python: <strong>“This folder is a Python package.”</strong></p>
@@ -486,7 +486,7 @@ document.write(`
 </section>
 <hr class="docutils" />
 <section id="where-you-see-init-py-in-your-project">
-<h2>Where you see __init__.py in your project<a class="headerlink" href="#where-you-see-init-py-in-your-project" title="Link to this heading">#</a></h2>
+<h2><strong>Where you see __init__.py in your project</strong><a class="headerlink" href="#where-you-see-init-py-in-your-project" title="Link to this heading">#</a></h2>
 <p>In your Django project, it appears in many places:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mysite/
 ├──<span class="w"> </span>__init__.py
@@ -510,7 +510,7 @@ migrations/
 </section>
 <hr class="docutils" />
 <section id="why-init-py-exists">
-<h2>Why __init__.py exists<a class="headerlink" href="#why-init-py-exists" title="Link to this heading">#</a></h2>
+<h2><strong>Why __init__.py exists</strong><a class="headerlink" href="#why-init-py-exists" title="Link to this heading">#</a></h2>
 <p>Python organizes code using <strong>packages.</strong></p>
 <p>Example:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">myapp.models</span>
@@ -526,10 +526,10 @@ migrations/
 </section>
 <hr class="docutils" />
 <section id="what-happens-if-init-py-is-missing">
-<h2>What happens if __init__.py is missing?<a class="headerlink" href="#what-happens-if-init-py-is-missing" title="Link to this heading">#</a></h2>
+<h2><strong>What happens if __init__.py is missing?</strong><a class="headerlink" href="#what-happens-if-init-py-is-missing" title="Link to this heading">#</a></h2>
 <p><strong>Older Python (≤3.2)</strong></p>
-<p>❌ Folder is NOT a package</p>
-<p>❌ Imports fail</p>
+<p>Folder is NOT a package</p>
+<p>Imports fail</p>
 <p><strong>Modern Python (3.3+)</strong></p>
 <p>✔ Namespace packages exist</p>
 <p>But Django still <strong>expects</strong> __init__.py</p>
@@ -537,7 +537,7 @@ migrations/
 </section>
 <hr class="docutils" />
 <section id="what-is-inside-init-py">
-<h2>What is inside __init__.py?<a class="headerlink" href="#what-is-inside-init-py" title="Link to this heading">#</a></h2>
+<h2><strong>What is inside __init__.py?</strong><a class="headerlink" href="#what-is-inside-init-py" title="Link to this heading">#</a></h2>
 <p>Most of the time:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># empty</span>
 </pre></div>
@@ -547,7 +547,7 @@ migrations/
 </section>
 <hr class="docutils" />
 <section id="what-does-django-use-init-py-for">
-<h2>What does Django use __init__.py for?<a class="headerlink" href="#what-does-django-use-init-py-for" title="Link to this heading">#</a></h2>
+<h2><strong>What does Django use __init__.py for?</strong><a class="headerlink" href="#what-does-django-use-init-py-for" title="Link to this heading">#</a></h2>
 <p><strong>1️⃣ Package recognition</strong></p>
 <p>Django imports apps, settings, models, migrations — all via packages.</p>
 <p><strong>2️⃣ App loading</strong></p>
@@ -571,7 +571,7 @@ migrations/
 </section>
 <hr class="docutils" />
 <section id="advanced-usage-optional-but-powerful">
-<h2>Advanced usage (OPTIONAL, but powerful)<a class="headerlink" href="#advanced-usage-optional-but-powerful" title="Link to this heading">#</a></h2>
+<h2><strong>Advanced usage (OPTIONAL, but powerful)</strong><a class="headerlink" href="#advanced-usage-optional-but-powerful" title="Link to this heading">#</a></h2>
 <p>You <strong>can</strong> put code in __init__.py, but you must be careful.</p>
 <p><strong>Example: shortcut imports</strong></p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># myapp/__init__.py</span>
@@ -593,10 +593,10 @@ migrations/
 </div>
 <p>Mostly obsolete in modern Django, but still exists in legacy code.</p>
 <p><strong>What you should NOT do</strong></p>
-<p>❌ Heavy logic</p>
-<p>❌ Database queries</p>
-<p>❌ API calls</p>
-<p>❌ Side effects</p>
+<p>Heavy logic</p>
+<p>Database queries</p>
+<p>API calls</p>
+<p>Side effects</p>
 <dl class="simple">
 <dt>Why?</dt><dd><p>Because __init__.py runs <strong>as soon as the package is imported.</strong></p>
 </dd>
@@ -617,7 +617,7 @@ migrations/
 <hr class="docutils" />
 <p><strong>Simple mental model</strong></p>
 <dl class="simple">
-<dt>Think of __init__.py as:</dt><dd><p>📦 “Package start file”</p>
+<dt>Think of __init__.py as:</dt><dd><p>“Package start file”</p>
 </dd>
 <dt>Just like:</dt><dd><ul class="simple">
 <li><p>main() in C</p></li>
@@ -674,13 +674,13 @@ migrations/
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-init-py">What is __init__.py?</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#where-you-see-init-py-in-your-project">Where you see __init__.py in your project</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-init-py-exists">Why __init__.py exists</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-happens-if-init-py-is-missing">What happens if __init__.py is missing?</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-inside-init-py">What is inside __init__.py?</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-does-django-use-init-py-for">What does Django use __init__.py for?</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#advanced-usage-optional-but-powerful">Advanced usage (OPTIONAL, but powerful)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-init-py"><strong>What is __init__.py?</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#where-you-see-init-py-in-your-project"><strong>Where you see __init__.py in your project</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-init-py-exists"><strong>Why __init__.py exists</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-happens-if-init-py-is-missing"><strong>What happens if __init__.py is missing?</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-inside-init-py"><strong>What is inside __init__.py?</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-does-django-use-init-py-for"><strong>What does Django use __init__.py for?</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#advanced-usage-optional-but-powerful"><strong>Advanced usage (OPTIONAL, but powerful)</strong></a></li>
 </ul>
   </nav></div>
 

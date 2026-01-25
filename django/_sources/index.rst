@@ -3,7 +3,7 @@
    :keywords: Django tutorials, learn Django, Django project based tutorials, Django web development, Python Django, Django REST API
 
 Welcome to Django Learning
-==========================
+============================
 
 Welcome to this learning space dedicated to Django and modern web development.
 
@@ -11,8 +11,8 @@ This platform is being built to provide **project-based Django tutorials**, wher
 concepts are explained step by step and then applied to **real-world applications**.
 The focus is on learning Django by building meaningful projects, not just isolated examples.
 
-What you’ll find here
----------------------
+**What you’ll find here**
+---------------------------
 
 - Beginner to advanced Django tutorials
 - Project-based learning with real-world applications
@@ -22,8 +22,8 @@ What you’ll find here
 - APIs, REST, and backend integration
 - Deployment concepts and production readiness
 
-Who this is for
----------------
+**Who this is for**
+---------------------
 
 - Beginners starting with Django
 - Developers who want structured, project-based learning

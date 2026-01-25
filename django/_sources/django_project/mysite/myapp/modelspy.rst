@@ -1,9 +1,9 @@
 models.py 
 ===========
 
----------------------
-What is models.py?
----------------------
+--------------------------
+**What is models.py?**
+--------------------------
 
 models.py defines the structure of your database using Python classes, allowing Django to automatically create, update, and manage database tables through migrations.
 
@@ -17,9 +17,9 @@ Think of it as:
 
 ======================================================================================================================================
 
----------------
-Mental Model
----------------
+-------------------
+**Mental Model**
+-------------------
 
 .. list-table::
     :header-rows: 1
@@ -39,9 +39,9 @@ Mental Model
 
 ======================================================================================================================================
 
--------------------------------
-Basic structure of models.py
--------------------------------
+-----------------------------------
+**Basic structure of models.py**
+-----------------------------------
 
 .. code-block:: python 
 
@@ -112,9 +112,9 @@ The lifecycle:
 
 ======================================================================================================================================
 
---------------------------
-Field Types (core ones)
---------------------------
+-----------------------------
+**Field Types (core ones)**
+-----------------------------
 
 .. list-table:: 
     :header-rows: 1
@@ -135,6 +135,8 @@ Field Types (core ones)
       - Relations
     * - ManyToManyField
       - Many-to-many
+
+Check out `this list <../../../tutorials/.field_types.html>`_ for more field types.
 
 ======================================================================================================================================
 
@@ -227,10 +229,10 @@ How models connect to other files
 ======================================================================================================================================
 
 Common beginner mistakes:
-    - ❌ Editing migration files manually
-    - ❌ Forgetting makemigrations
-    - ❌ Changing models without migrating
-    - ❌ Importing models incorrectly
+    - Editing migration files manually
+    - Forgetting makemigrations
+    - Changing models without migrating
+    - Importing models incorrectly
 
 **Real-world analogy**
 

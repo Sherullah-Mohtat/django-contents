@@ -455,17 +455,17 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-wsgi-py">1. What is wsgi.py?</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-does-django-use-wsgi">2. Why does Django use WSGI?</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#import-os-utilities">1️⃣ Import OS utilities</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#import-djangos-wsgi-handler">2️⃣ Import Django’s WSGI handler</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#set-the-settings-module">3️⃣ Set the settings module</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-the-wsgi-application">4️⃣ Create the WSGI application</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-wsgi-py"><strong>1. What is wsgi.py?</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-does-django-use-wsgi"><strong>2. Why does Django use WSGI?</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#import-os-utilities"><strong>1️⃣ Import OS utilities</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#import-djangos-wsgi-handler"><strong>2️⃣ Import Django’s WSGI handler</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#set-the-settings-module"><strong>3️⃣ Set the settings module</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-the-wsgi-application"><strong>4️⃣ Create the WSGI application</strong></a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-wsgi-py-is-used-in-real-life">3. How wsgi.py is used in real life</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#wsgi-vs-asgi">4. WSGI vs ASGI</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#do-you-need-wsgi-py">4. Do you need wsgi.py?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-wsgi-py-is-used-in-real-life"><strong>3. How wsgi.py is used in real life</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#wsgi-vs-asgi"><strong>4. WSGI vs ASGI</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#do-you-need-wsgi-py"><strong>4. Do you need wsgi.py?</strong></a></li>
 </ul>
             </nav>
         </div>
@@ -480,7 +480,7 @@ document.write(`
   <section id="wsgi-py">
 <h1>wsgi.py<a class="headerlink" href="#wsgi-py" title="Link to this heading">#</a></h1>
 <section id="what-is-wsgi-py">
-<h2>1. What is wsgi.py?<a class="headerlink" href="#what-is-wsgi-py" title="Link to this heading">#</a></h2>
+<h2><strong>1. What is wsgi.py?</strong><a class="headerlink" href="#what-is-wsgi-py" title="Link to this heading">#</a></h2>
 <p>wsgi.py is the entry point for running a Django project using WSGI servers.</p>
 <p>WSGI = <strong>Web Server Gateway Interface</strong></p>
 <p>Location:</p>
@@ -491,7 +491,7 @@ document.write(`
 </section>
 <hr class="docutils" />
 <section id="why-does-django-use-wsgi">
-<h2>2. Why does Django use WSGI?<a class="headerlink" href="#why-does-django-use-wsgi" title="Link to this heading">#</a></h2>
+<h2><strong>2. Why does Django use WSGI?</strong><a class="headerlink" href="#why-does-django-use-wsgi" title="Link to this heading">#</a></h2>
 <p>Before ASGI, <strong>WSGI was the standard</strong> for Python web applications.</p>
 <dl class="simple">
 <dt>It supports:</dt><dd><ul class="simple">
@@ -516,21 +516,21 @@ document.write(`
 </div>
 <hr class="docutils" />
 <section id="import-os-utilities">
-<h3>1️⃣ Import OS utilities<a class="headerlink" href="#import-os-utilities" title="Link to this heading">#</a></h3>
+<h3><strong>1️⃣ Import OS utilities</strong><a class="headerlink" href="#import-os-utilities" title="Link to this heading">#</a></h3>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
 </pre></div>
 </div>
 <p>Used to set environment variables.</p>
 </section>
 <section id="import-djangos-wsgi-handler">
-<h3>2️⃣ Import Django’s WSGI handler<a class="headerlink" href="#import-djangos-wsgi-handler" title="Link to this heading">#</a></h3>
+<h3><strong>2️⃣ Import Django’s WSGI handler</strong><a class="headerlink" href="#import-djangos-wsgi-handler" title="Link to this heading">#</a></h3>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">django.core.wsgi</span><span class="w"> </span><span class="kn">import</span> <span class="n">get_wsgi_application</span>
 </pre></div>
 </div>
 <p>Creates a WSGI-compatible Django application.</p>
 </section>
 <section id="set-the-settings-module">
-<h3>3️⃣ Set the settings module<a class="headerlink" href="#set-the-settings-module" title="Link to this heading">#</a></h3>
+<h3><strong>3️⃣ Set the settings module</strong><a class="headerlink" href="#set-the-settings-module" title="Link to this heading">#</a></h3>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">setdefault</span><span class="p">(</span>
     <span class="s1">&#39;DJANGO_SETTINGS_MODULE&#39;</span><span class="p">,</span>
     <span class="s1">&#39;mysite.settings&#39;</span>
@@ -540,7 +540,7 @@ document.write(`
 <p>Tells Django which settings file to load.</p>
 </section>
 <section id="create-the-wsgi-application">
-<h3>4️⃣ Create the WSGI application<a class="headerlink" href="#create-the-wsgi-application" title="Link to this heading">#</a></h3>
+<h3><strong>4️⃣ Create the WSGI application</strong><a class="headerlink" href="#create-the-wsgi-application" title="Link to this heading">#</a></h3>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">application</span> <span class="o">=</span> <span class="n">get_wsgi_application</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -549,7 +549,7 @@ document.write(`
 </section>
 <hr class="docutils" />
 <section id="how-wsgi-py-is-used-in-real-life">
-<h2>3. How wsgi.py is used in real life<a class="headerlink" href="#how-wsgi-py-is-used-in-real-life" title="Link to this heading">#</a></h2>
+<h2><strong>3. How wsgi.py is used in real life</strong><a class="headerlink" href="#how-wsgi-py-is-used-in-real-life" title="Link to this heading">#</a></h2>
 <dl class="simple">
 <dt>Used with servers like:</dt><dd><ul class="simple">
 <li><p>Gunicorn</p></li>
@@ -565,7 +565,7 @@ document.write(`
 </section>
 <hr class="docutils" />
 <section id="wsgi-vs-asgi">
-<h2>4. WSGI vs ASGI<a class="headerlink" href="#wsgi-vs-asgi" title="Link to this heading">#</a></h2>
+<h2><strong>4. WSGI vs ASGI</strong><a class="headerlink" href="#wsgi-vs-asgi" title="Link to this heading">#</a></h2>
 <div class="pst-scrollable-table-container"><table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Feature</p></th>
@@ -600,7 +600,7 @@ document.write(`
 </section>
 <hr class="docutils" />
 <section id="do-you-need-wsgi-py">
-<h2>4. Do you need wsgi.py?<a class="headerlink" href="#do-you-need-wsgi-py" title="Link to this heading">#</a></h2>
+<h2><strong>4. Do you need wsgi.py?</strong><a class="headerlink" href="#do-you-need-wsgi-py" title="Link to this heading">#</a></h2>
 <dl class="simple">
 <dt>For development</dt><dd><ul class="simple">
 <li><p>Django uses its own dev server</p></li>
@@ -622,10 +622,10 @@ document.write(`
 <p>Never delete it.</p>
 <p><strong>What wsgi.py is NOT</strong></p>
 <ul class="simple">
-<li><p>❌ Not URL routing</p></li>
-<li><p>❌ Not async handling</p></li>
-<li><p>❌ Not business logic</p></li>
-<li><p>❌ Not middleware</p></li>
+<li><p>Not URL routing</p></li>
+<li><p>Not async handling</p></li>
+<li><p>Not business logic</p></li>
+<li><p>Not middleware</p></li>
 </ul>
 <p>It is <strong>only a bridge</strong> between Django and a web server.</p>
 <dl class="simple">
@@ -685,17 +685,17 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-wsgi-py">1. What is wsgi.py?</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-does-django-use-wsgi">2. Why does Django use WSGI?</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#import-os-utilities">1️⃣ Import OS utilities</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#import-djangos-wsgi-handler">2️⃣ Import Django’s WSGI handler</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#set-the-settings-module">3️⃣ Set the settings module</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-the-wsgi-application">4️⃣ Create the WSGI application</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-wsgi-py"><strong>1. What is wsgi.py?</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-does-django-use-wsgi"><strong>2. Why does Django use WSGI?</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#import-os-utilities"><strong>1️⃣ Import OS utilities</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#import-djangos-wsgi-handler"><strong>2️⃣ Import Django’s WSGI handler</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#set-the-settings-module"><strong>3️⃣ Set the settings module</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-the-wsgi-application"><strong>4️⃣ Create the WSGI application</strong></a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-wsgi-py-is-used-in-real-life">3. How wsgi.py is used in real life</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#wsgi-vs-asgi">4. WSGI vs ASGI</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#do-you-need-wsgi-py">4. Do you need wsgi.py?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-wsgi-py-is-used-in-real-life"><strong>3. How wsgi.py is used in real life</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#wsgi-vs-asgi"><strong>4. WSGI vs ASGI</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#do-you-need-wsgi-py"><strong>4. Do you need wsgi.py?</strong></a></li>
 </ul>
   </nav></div>
 

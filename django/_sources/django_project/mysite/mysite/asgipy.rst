@@ -1,9 +1,9 @@
 asgi.py
 ========
 
-----------------------
-1. What is asgi.py?
-----------------------
+---------------------------
+**1. What is asgi.py?**
+---------------------------
 
 asgi.py is the entry point for running Django using ASGI servers.
 
@@ -23,9 +23,9 @@ It allows Django to handle:
 
 ======================================================================================================
 
---------------------------------------
-2. Why does Django include asgi.py?
---------------------------------------
+-------------------------------------------
+**2. Why does Django include asgi.py?**
+-------------------------------------------
 
 Modern web applications often need:
 	- Chat systems
@@ -39,9 +39,9 @@ Django includes asgi.py **by default** to support async features.
 
 ======================================================================================================
 
---------------------------------
-3. Typical contents of asgi.py
---------------------------------
+-------------------------------------
+**3. Typical contents of asgi.py**
+-------------------------------------
 
 .. code-block:: python
 
@@ -57,8 +57,8 @@ Django includes asgi.py **by default** to support async features.
 
 ======================================================================================================
 
-1️⃣ Import OS utilities
------------------------
+**1️⃣ Import OS utilities**
+----------------------------
 
 .. code-block:: python 
 
@@ -66,8 +66,8 @@ Django includes asgi.py **by default** to support async features.
 
 Used to set environment variables.
 
-2️⃣ Import Django’s ASGI handler
----------------------------------
+**2️⃣ Import Django’s ASGI handler**
+--------------------------------------
 
 .. code-block:: python 
 
@@ -75,8 +75,8 @@ Used to set environment variables.
 
 This function creates an ASGI-compatible Django application.
 
-3️⃣ Set the settings module
-----------------------------
+**3️⃣ Set the settings module**
+---------------------------------
 
 .. code-block:: python 
 
@@ -87,8 +87,8 @@ This function creates an ASGI-compatible Django application.
 
 Tells Django which settings file to use.
 
-4️⃣ Create the ASGI application
---------------------------------
+**4️⃣ Create the ASGI application**
+-------------------------------------
 
 .. code-block:: python
 
@@ -98,9 +98,9 @@ This application object is what ASGI servers run.
 
 ======================================================================================================
 
-------------------------------------
-4. How asgi.py is used in real life
-------------------------------------
+------------------------------------------
+**4. How asgi.py is used in real life**
+------------------------------------------
 
 Used with ASGI servers like:
 	- Uvicorn
@@ -115,9 +115,9 @@ Example:
 
 ======================================================================================================
 
------------------
-5. ASGI vs WSGI
------------------
+----------------------
+**5. ASGI vs WSGI**
+----------------------
 
 .. list-table::
     :header-rows: 1
